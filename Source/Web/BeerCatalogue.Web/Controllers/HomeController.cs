@@ -1,4 +1,5 @@
-﻿using BeerCatalogue.Web.Models;
+﻿using BeerCatalogue.Data;
+using BeerCatalogue.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace BeerCatalogue.Web.Controllers
     {
         public ActionResult Index()
         {
-            var db = new ApplicationDbContext();
+            var db = new BeerCatalogueDbContext();
             var usersCount = db.Users.Count();
             return View();
         }
