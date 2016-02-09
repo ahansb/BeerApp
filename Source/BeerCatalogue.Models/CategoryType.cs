@@ -1,11 +1,24 @@
 ﻿namespace BeerCatalogue.Models
 {
-    public enum CategoryType
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    public class CategoryType
     {
-        Ale=0,
-        Lager=1,
-        Stout=2,
-        Porter=3,
-        Malt=4
+        private ICollection<Beer> beers;
+
+        public CategoryType()
+        {
+            this.beers = new HashSet<Beer>();
+        }
+
+        public int Id { get; set; }
+
+        [Required]
+        [Index(IsUnique = true)]
+        [MaxLength(100)]
+        public string Name { get; set; }
+
+        public virtual ICollection<Beer> Beers { get { return this.beers; } set { this.beers = value; } }
     }
 }
