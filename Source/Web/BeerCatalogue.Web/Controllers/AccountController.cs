@@ -152,7 +152,8 @@ namespace BeerCatalogue.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new User { UserName = model.Email, Email = model.Email };
+                var image = model.ProfilePhotoUrl== "" ? "~/Content/default-profile-picture.jpg" : model.ProfilePhotoUrl;
+                var user = new User { UserName = model.UserName, FirstName=model.FirstName,LastName= model.LastName, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

@@ -3,6 +3,7 @@
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     using System.Security.Claims;
     using System.Threading.Tasks;
 
@@ -19,6 +20,18 @@
             this.bars = new HashSet<Bar>();
             this.stores = new HashSet<Store>();
         }
+
+        [Required]
+        [MinLength(2)]
+        [MaxLength(100)]
+        public string FirstName { get; set; }
+
+        [Required]
+        [MinLength(2)]
+        [MaxLength(100)]
+        public string LastName { get; set; }
+
+        public string ProfilePhotoUrl { get; set; }
 
         public virtual ICollection<Beer> Beers { get { return this.beers; } set { this.beers = value; } }
 
