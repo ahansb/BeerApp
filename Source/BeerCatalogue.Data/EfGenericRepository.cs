@@ -1,9 +1,9 @@
 ﻿namespace BeerCatalogue.Data
 {
-    using Contracts;
     using System;
     using System.Data.Entity;
     using System.Linq;
+    using Contracts;
 
     public class EfGenericRepository<T> : IRepository<T> where T : class
     {
