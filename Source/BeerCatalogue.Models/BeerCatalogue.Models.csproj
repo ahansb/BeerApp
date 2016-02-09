@@ -57,12 +57,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bar.cs" />
+    <Compile Include="Place.cs" />
     <Compile Include="Beer.cs" />
-    <Compile Include="CategoryType.cs" />
+    <Compile Include="BeerType.cs" />
     <Compile Include="Country.cs" />
+    <Compile Include="PlaceType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Store.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>

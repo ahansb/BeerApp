@@ -6,15 +6,12 @@
     public class Country
     {
         private ICollection<Beer> beers;
-        private ICollection<Bar> bars;
-        private ICollection<Store> stores;
+        private ICollection<Place> places;
 
         public Country()
         {
             this.beers = new HashSet<Beer>();
-            this.bars = new HashSet<Bar>();
-            this.stores = new HashSet<Store>();
-
+            this.places = new HashSet<Place>();
         }
 
         public int Id { get; set; }
@@ -25,7 +22,6 @@
         public string Name { get; set; }
 
         public virtual ICollection<Beer> Beers { get { return this.beers; } set { this.beers = value; } }
-        public virtual ICollection<Bar> Bars { get { return this.bars; } set { this.bars = value; } }
-        public virtual ICollection<Store> Stores { get { return this.stores; } set { this.stores= value; } }
+        public virtual ICollection<Place> Bars { get { return this.places; } set { this.places = value; } }
     }
 }

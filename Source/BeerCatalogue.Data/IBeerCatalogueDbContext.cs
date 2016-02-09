@@ -9,14 +9,14 @@
     {
         int SaveChanges();
 
-        IDbSet<User> Users { get; set; }
-
         IDbSet<Beer> Beers { get; set; }
 
-        IDbSet<Bar> Bars { get; set; }
+        IDbSet<BeerType> BeerTypes { get; set; }
 
-        IDbSet<Store> Stores { get; set; }
+        IDbSet<Country> Countries { get; set; }
 
+        IDbSet<Place> Places { get; set; }
+        
         DbSet<TEntity> Set<TEntity>() where TEntity : class;
 
         DbEntityEntry<TEntity> Entry<TEntity>(TEntity entity) where TEntity : class;

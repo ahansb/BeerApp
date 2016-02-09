@@ -3,13 +3,11 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    public class Bar
+    public class Place
     {
-        private ICollection<Beer> beers;
 
-        public Bar()
+        public Place()
         {
-            this.beers = new HashSet<Beer>();
         }
 
         public int Id { get; set; }
@@ -18,8 +16,12 @@
         [MaxLength(40)]
         public string Name { get; set; }
 
-        [Required]
-        public Country Country { get; set; }
+        public PlaceType Type { get; set; }
+
+        public int CoutryId { get; set; }
+
+        [ForeignKey("CoutryId")]
+        public virtual Country Country { get; set; }
 
         [Required]
         [MaxLength(40)]
@@ -37,7 +39,7 @@
         [ForeignKey("CreatorId")]
         public virtual User Creator { get; set; }
 
-        public virtual ICollection<Beer> Beers { get { return this.beers; } set { this.beers = value; } }
+        public virtual ICollection<Beer> Beers { get; set; }
 
     }
 }

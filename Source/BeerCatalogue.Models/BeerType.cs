@@ -3,11 +3,11 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    public class CategoryType
+    public class BeerType
     {
         private ICollection<Beer> beers;
 
-        public CategoryType()
+        public BeerType()
         {
             this.beers = new HashSet<Beer>();
         }

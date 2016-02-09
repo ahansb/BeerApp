@@ -2,17 +2,16 @@
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
     public class Beer
     {
-        private ICollection<Bar> bars;
-        private ICollection<Store> stores;
+        private ICollection<Place> places;
         private ICollection<User> users;
 
 
         public Beer()
         {
-            this.bars = new HashSet<Bar>();
-            this.stores = new HashSet<Store>();
+            this.places = new HashSet<Place>();
             this.users = new HashSet<User>();
 
         }
@@ -23,10 +22,15 @@
         [MaxLength(40)]
         public string Name { get; set; }
 
-        public CategoryType Type { get; set; }
+        public int BeerTypeId { get; set; }
 
-        [Required]
-        public Country Country { get; set; }
+        [ForeignKey("BeerTypeId")]
+        public virtual BeerType Type { get; set; }
+
+        public int CoutryId { get; set; }
+
+        [ForeignKey("CoutryId")]
+        public virtual Country Country { get; set; }
 
         [MaxLength(600)]
         public string Description { get; set; }
@@ -36,10 +40,8 @@
         [Required]
         public decimal AlcoholContaining { get; set; }
 
-        public virtual ICollection<Bar> Bars { get { return this.bars; } set { this.bars = value; } }
-
-        public virtual ICollection<Store> Stores { get { return this.stores; } set { this.stores = value; } }
-
+        public virtual ICollection<Place> Places { get { return this.places; } set { this.places = value; } }
+        
         public virtual ICollection<User> Users { get { return this.users; } set { this.users = value; } }
 
 
