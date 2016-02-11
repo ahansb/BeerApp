@@ -14,12 +14,14 @@
         private ICollection<Place> places;
         private ICollection<Recipe> recipes;
         private ICollection<Comment> comments;
+        private ICollection<Beer> beers;
 
         public ApplicationUser()
         {
             this.places = new HashSet<Place>();
             this.recipes = new HashSet<Recipe>();
             this.comments = new HashSet<Comment>();
+            this.beers = new HashSet<Beer>();
         }
 
         [Required]
@@ -39,6 +41,8 @@
         public virtual ICollection<Recipe> Recipes { get { return this.recipes; } set { this.recipes = value; } }
 
         public virtual ICollection<Comment> Comments { get { return this.comments; } set { this.comments = value; } }
+
+        public virtual ICollection<Beer> Beers { get { return this.beers; } set { this.beers = value; } }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {

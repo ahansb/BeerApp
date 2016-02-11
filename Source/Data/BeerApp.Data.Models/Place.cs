@@ -1,10 +1,18 @@
 ﻿namespace BeerApp.Data.Models
 {
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
     public class Place
     {
+        private ICollection<Beer> beers;
+
+        public Place()
+        {
+            this.beers = new HashSet<Beer>();
+        }
+
         public int Id { get; set; }
 
         [Required]
@@ -33,5 +41,7 @@
 
         [ForeignKey("CreatorId")]
         public virtual ApplicationUser Creator { get; set; }
+
+        public virtual ICollection<Beer> Beers { get { return this.beers; } set { this.beers = value; } }
     }
 }
