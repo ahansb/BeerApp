@@ -2,6 +2,7 @@
 {
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+
     public class Place
     {
         public int Id { get; set; }
@@ -26,5 +27,11 @@
 
         [MaxLength(40)]
         public string Phone { get; set; }
+
+        [Required]
+        public string CreatorId { get; set; }
+
+        [ForeignKey("CreatorId")]
+        public virtual ApplicationUser Creator { get; set; }
     }
 }

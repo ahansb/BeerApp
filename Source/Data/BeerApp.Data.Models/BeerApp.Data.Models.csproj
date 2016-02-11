@@ -62,12 +62,14 @@
     <Compile Include="ApplicationUser.cs" />
     <Compile Include="Beer.cs" />
     <Compile Include="BeerType.cs" />
+    <Compile Include="Comment.cs" />
     <Compile Include="Country.cs" />
     <Compile Include="Joke.cs" />
     <Compile Include="JokeCategory.cs" />
     <Compile Include="Place.cs" />
     <Compile Include="PlaceType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Recipe.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

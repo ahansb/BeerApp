@@ -4,11 +4,11 @@
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    public class Beer
+    public class Recipe
     {
         private ICollection<Comment> comments;
 
-        public Beer()
+        public Recipe()
         {
             this.comments = new HashSet<Comment>();
         }
@@ -16,26 +16,20 @@
         public int Id { get; set; }
 
         [Required]
-        [MaxLength(40)]
-        public string Name { get; set; }
-
         public int BeerTypeId { get; set; }
 
         [ForeignKey("BeerTypeId")]
-        public virtual BeerType Type { get; set; }
+        public virtual BeerType BeerType { get; set; }
 
-        public int CoutryId { get; set; }
+        public string Title { get; set; }
 
-        [ForeignKey("CoutryId")]
-        public virtual Country Country { get; set; }
-
-        [MaxLength(600)]
-        public string Description { get; set; }
-
-        public int? ProducedSince { get; set; }
+        public string Content { get; set; }
 
         [Required]
-        public decimal AlcoholContaining { get; set; }
+        public string CreatorId { get; set; }
+
+        [ForeignKey("CreatorId")]
+        public virtual ApplicationUser Creator { get; set; }
 
         public virtual ICollection<Comment> Comments { get { return this.comments; } set { this.comments = value; } }
     }
