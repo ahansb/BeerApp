@@ -2,10 +2,10 @@
 {
     using System;
     using AngleSharp;
-    using MvcTemplate.Data;
-    using MvcTemplate.Data.Common;
-    using MvcTemplate.Data.Models;
-    using MvcTemplate.Services.Data;
+    using BeerApp.Data;
+    using BeerApp.Data.Common;
+    using BeerApp.Data.Models;
+    using BeerApp.Services.Data;
 
     public static class Program
     {
