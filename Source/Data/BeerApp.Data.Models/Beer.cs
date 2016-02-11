@@ -7,12 +7,12 @@
     public class Beer
     {
         private ICollection<Comment> comments;
-       // private ICollection<Place> places;
+        private ICollection<Place> places;
 
-        public Beer()
+        public Beer(ICollection<Place> places)
         {
             this.comments = new HashSet<Comment>();
-           // this.places = new HashSet<Place>();
+            this.places = places;
         }
 
         public int Id { get; set; }
@@ -42,6 +42,6 @@
         public virtual ICollection<Comment> Comments { get { return this.comments; } set { this.comments = value; } }
 
         //public virtual ICollection<Place> Places { get; set; }
-        //public virtual ICollection<Place> Places { get { return this.places; } set { this.places = value; } }
+        public virtual ICollection<Place> Places { get { return this.places; } set { this.places = value; } }
     }
 }
