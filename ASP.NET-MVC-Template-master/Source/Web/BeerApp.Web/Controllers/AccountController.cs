@@ -84,7 +84,7 @@
             var result =
                 await
                 this.SignInManager.PasswordSignInAsync(
-                    model.Email,
+                    model.UserName,
                     model.Password,
                     model.RememberMe,
                     shouldLockout: false);
@@ -170,7 +170,10 @@
         {
             if (this.ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                //Adding Profile image
+                var image = model.ProfilePhotoUrl == string.Empty ? "~/Content/default-profile-picture.jpg" : model.ProfilePhotoUrl;
+
+                var user = new ApplicationUser { UserName = model.UserName, FirstName = model.FirstName, LastName = model.LastName, Email = model.Email, ProfilePhotoUrl = image };
                 var result = await this.UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
