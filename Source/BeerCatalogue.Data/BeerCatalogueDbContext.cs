@@ -24,24 +24,24 @@
             return new BeerCatalogueDbContext();
         }
         //TODO:Check beers - places ralations
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Place>()
-                 .HasMany<Beer>(p => p.Beers)
-                 .WithMany(b => b.Places)
-                 .Map(bp =>
-                 {
-                     bp.MapLeftKey("PlaceRefId");
-                     bp.MapRightKey("BeerRefId");
-                     bp.ToTable("PlaceBeer");
-                 });
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<Place>()
+        //         .HasMany<Beer>(p => p.Beers)
+        //         .WithMany(b => b.Places)
+        //         .Map(bp =>
+        //         {
+        //             bp.MapLeftKey("PlaceRefId");
+        //             bp.MapRightKey("BeerRefId");
+        //             bp.ToTable("PlaceBeer");
+        //         });
 
-            modelBuilder.Entity<Place>()
-                .HasRequired(p => p.Beers)
-                .WithMany()
-                .WillCascadeOnDelete(false);
+        //    //modelBuilder.Entity<Place>()
+        //    //    .HasRequired(p => p.Beers)
+        //    //    .WithMany()
+        //    //    .WillCascadeOnDelete(false);
 
-            base.OnModelCreating(modelBuilder);
-        }
+        //    base.OnModelCreating(modelBuilder);
+        //}
     }
 }
