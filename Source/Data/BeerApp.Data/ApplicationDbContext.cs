@@ -32,19 +32,24 @@
             return base.SaveChanges();
         }
 
-        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Entity<Place>()
-        //                .HasMany<Beer>(p => p.Beers)
-        //                .WithMany(b => b.Places)
-        //                .Map(bp =>
-        //                {
-        //                    bp.MapLeftKey("PlaceRefId");
-        //                    bp.MapRightKey("BeerRefId");
-        //                    bp.ToTable("BeerPlaces");
-        //                });
-        //    base.OnModelCreating(modelBuilder);
-        //}
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Place>()
+                        .HasMany<Beer>(p => p.Beers)
+                        .WithMany(b => b.Places)
+                        .Map(bp =>
+                        {
+                            bp.MapLeftKey("PlaceRefId");
+                            bp.MapRightKey("BeerRefId");
+                            bp.ToTable("BeerPlaces");
+                        });
+
+            modelBuilder.Entity<Place>()
+                    .HasRequired(p => p.Beers)
+                    .WithMany()
+                    .WillCascadeOnDelete(false);
+            base.OnModelCreating(modelBuilder);
+        }
 
         private void ApplyAuditInfoRules()
         {
