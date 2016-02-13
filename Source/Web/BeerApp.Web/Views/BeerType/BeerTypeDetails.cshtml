@@ -1,0 +1,15 @@
+﻿@model BeerApp.Web.ViewModels.BeerType.BeerTypeDetailsViewModel
+
+@{
+    ViewBag.Title = "BeerTypeDetails";
+}
+
+<h2>@Html.ActionLink(Model.Name, "~/BeerType/" + Model.Url)</h2>
+<ul>
+    @foreach (var beer in Model.Beers)
+    {
+        <li>
+            @beer.Name
+        </li>
+    }
+</ul>

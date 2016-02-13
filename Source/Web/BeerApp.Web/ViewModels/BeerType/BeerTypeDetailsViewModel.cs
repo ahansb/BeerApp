@@ -1,11 +1,13 @@
-﻿namespace BeerApp.Web.ViewModels.Home
+﻿namespace BeerApp.Web.ViewModels.BeerType
 {
-    using BeerApp.Services.Web;
+    using System.Collections.Generic;
     using Data.Models;
     using Infrastructure.Mapping;
+    using Services.Web;
 
-    public class BeerTypeViewModel : IMapFrom<BeerType>
+    public class BeerTypeDetailsViewModel : IMapFrom<BeerType>
     {
+
         public int Id { get; set; }
 
         public string Name { get; set; }
@@ -18,5 +20,8 @@
                 return $"{identifier.EncodeId(this.Id)}";
             }
         }
+
+        public virtual ICollection<Beer> Beers { get; set; }
+
     }
 }

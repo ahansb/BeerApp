@@ -9,6 +9,7 @@ namespace BeerApp.Services.Data
     public interface IBeerTypesService
     {
         IQueryable<BeerType> GetAll();
-        
+
+        BeerType GetById(string id);
     }
 }
