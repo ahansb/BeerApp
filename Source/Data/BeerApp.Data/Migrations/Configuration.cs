@@ -12,6 +12,7 @@
 
         protected override void Seed(ApplicationDbContext context)
         {
+
         }
     }
 }

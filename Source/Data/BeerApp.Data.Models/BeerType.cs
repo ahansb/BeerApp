@@ -4,7 +4,9 @@
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    public class BeerType
+    using Common.Models;
+
+    public class BeerType : BaseModel<int>
     {
         private ICollection<Beer> beers;
         private ICollection<Recipe> recipes;
@@ -14,8 +16,6 @@
             this.beers = new HashSet<Beer>();
             this.recipes = new HashSet<Recipe>();
         }
-
-        public int Id { get; set; }
 
         [Required]
         [Index(IsUnique = true)]

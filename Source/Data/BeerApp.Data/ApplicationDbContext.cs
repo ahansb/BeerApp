@@ -17,9 +17,22 @@
         {
         }
 
+        // TODO:Delete
         public IDbSet<Joke> Jokes { get; set; }
 
         public IDbSet<JokeCategory> JokesCategories { get; set; }
+
+        public IDbSet<Beer> Beers { get; set; }
+
+        public IDbSet<BeerType> BeerTypes { get; set; }
+
+        public IDbSet<Comment> Comments { get; set; }
+
+        public IDbSet<Country> Countries { get; set; }
+
+        public IDbSet<Place> Places { get; set; }
+
+        public IDbSet<Recipe> Recipes { get; set; }
 
         public static ApplicationDbContext Create()
         {

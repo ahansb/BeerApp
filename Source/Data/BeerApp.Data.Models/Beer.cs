@@ -4,18 +4,19 @@
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    public class Beer
+    using Common.Models;
+
+    public class Beer : BaseModel<int>
     {
         private ICollection<Comment> comments;
-       // private ICollection<Place> places;
 
+       // private ICollection<Place> places;
         public Beer()
         {
             this.comments = new HashSet<Comment>();
+
            // this.places = new HashSet<Place>();
         }
-
-        public int Id { get; set; }
 
         [Required]
         [MaxLength(40)]

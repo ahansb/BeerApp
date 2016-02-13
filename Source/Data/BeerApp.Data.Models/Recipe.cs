@@ -4,7 +4,9 @@
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    public class Recipe
+    using Common.Models;
+
+    public class Recipe : BaseModel<int>
     {
         private ICollection<Comment> comments;
 
@@ -12,8 +14,6 @@
         {
             this.comments = new HashSet<Comment>();
         }
-
-        public int Id { get; set; }
 
         [Required]
         public int BeerTypeId { get; set; }

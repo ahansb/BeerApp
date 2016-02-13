@@ -4,10 +4,10 @@
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    public class Comment
-    {
-        public int Id { get; set; }
+    using Common.Models;
 
+    public class Comment : BaseModel<int>
+    {
         [Required]
         public string CreatorId { get; set; }
 
