@@ -32,7 +32,7 @@
         [ForeignKey("CoutryId")]
         public virtual Country Country { get; set; }
 
-        [MaxLength(600)]
+        [MaxLength(1000)]
         public string Description { get; set; }
 
         public int? ProducedSince { get; set; }

@@ -19,7 +19,7 @@
 
         [Required]
         [MinLength(2)]
-        [MaxLength(500)]
+        [MaxLength(1000)]
         public string Content { get; set; }
     }
 }

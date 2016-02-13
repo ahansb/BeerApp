@@ -30,7 +30,7 @@
         [MaxLength(40)]
         public string City { get; set; }
 
-        [MaxLength(200)]
+        [MaxLength(500)]
         public string Address { get; set; }
 
         [MaxLength(40)]
