@@ -21,7 +21,7 @@
         [HttpGet]
         public ActionResult All()
         {
-            var beerTypes = this.beerTypes.GetAll();
+            var beerTypes = this.beerTypes.GetAll().OrderBy(bt => bt.Name);
             var allViewModel = new AllBeerTypesResponseViewModel();
             foreach (var beerType in beerTypes)
             {

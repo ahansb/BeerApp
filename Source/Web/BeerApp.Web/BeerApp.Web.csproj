@@ -221,9 +221,11 @@
     <Compile Include="ViewModels\BeerType\AllBeerTypesResponseViewModel.cs" />
     <Compile Include="ViewModels\BeerType\BeerTypeDetailsResponseViewModel.cs" />
     <Compile Include="ViewModels\BeerType\BeerTypeResponseViewModel.cs" />
+    <Compile Include="ViewModels\Beer\AllBeersResponseViewModel.cs" />
     <Compile Include="ViewModels\Beer\BeerDetailsResponseViewModel.cs" />
     <Compile Include="ViewModels\Beer\SimpleBeerResponseViewModel.cs" />
     <Compile Include="ViewModels\Beer\BeerResponseViewModel.cs" />
+    <Compile Include="ViewModels\Country\AllCountriesResponseViewModel.cs" />
     <Compile Include="ViewModels\Country\CountryDetailsResponseViewModel.cs" />
     <Compile Include="ViewModels\Country\CountryResponseViewModel.cs" />
     <Compile Include="ViewModels\Home\IndexResponseViewModel.cs" />
@@ -305,6 +307,8 @@
     <Content Include="Views\Beer\Details.cshtml" />
     <Content Include="Views\Country\Details.cshtml" />
     <Content Include="Views\BeerType\All.cshtml" />
+    <Content Include="Views\Beer\All.cshtml" />
+    <Content Include="Views\Country\All.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

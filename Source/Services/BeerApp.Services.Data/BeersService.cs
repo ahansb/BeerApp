@@ -1,5 +1,6 @@
 ﻿namespace BeerApp.Services.Data
 {
+    using System.Linq;
     using BeerApp.Data.Common;
     using BeerApp.Data.Models;
     using Web;
@@ -13,6 +14,11 @@
         {
             this.beers = beers;
             this.identifierProvider = identifierProvider;
+        }
+
+        public IQueryable<Beer> GetAll()
+        {
+           return this.beers.All();
         }
 
         public Beer GetById(string id)
