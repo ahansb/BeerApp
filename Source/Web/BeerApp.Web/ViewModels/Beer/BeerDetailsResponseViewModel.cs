@@ -7,8 +7,8 @@
     {
         public BeerResponseViewModel Beer { get; set; }
 
-        public SimpleBeerTypeResponseViewModel BeerType { get; set; }
+        public BeerTypeResponseViewModel BeerType { get; set; }
 
-        public SimpleCountryResponseViewModel Country { get; set; }
+        public CountryResponseViewModel Country { get; set; }
     }
 }

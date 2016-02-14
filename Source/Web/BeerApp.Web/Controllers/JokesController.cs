@@ -16,11 +16,11 @@
             this.jokes = jokes;
         }
 
-        public ActionResult ById(string id)
-        {
-            var joke = this.jokes.GetById(id);
-            var viewModel = AutoMapperConfig.Configuration.CreateMapper().Map<JokeViewModel>(joke);
-            return this.View(viewModel);
-        }
+        //public ActionResult ById(string id)
+        //{
+        //    var joke = this.jokes.GetById(id);
+        //    var viewModel = AutoMapperConfig.Configuration.CreateMapper().Map<JokeViewModel>(joke);
+        //    return this.View(viewModel);
+        //}
     }
 }

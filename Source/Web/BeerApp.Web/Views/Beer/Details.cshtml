@@ -7,13 +7,13 @@
 
 <h2><a href="~/Beer/Details/@Model.Beer.Url">@Model.Beer.Name</a></h2>
 <h4>
-    <strong><a href="~/BeerType/@Model.BeerType.Url">@Model.BeerType.Name</a></strong>
-    <strong><a href="~/Country/Details/@Model.Country.Url">@Model.Country.Name</a></strong>
+    <strong><a href="~/BeerType/@Model.BeerType.Url">@Model.BeerType.Name</a></strong><br/>
+    <strong><a href="~/Country/Details/@Model.Country.Url">@Model.Country.Name</a></strong><br />
     @if (Model.Beer.ProducedSince != null)
     {
-        <em>In production since @Model.Beer.ProducedSince</em>
+        <em>In production since @Model.Beer.ProducedSince</em><br />
     }
-    <strong>Alcohol Containing: @Model.Beer.AlcoholContaining</strong>
+    <strong>Alcohol Containing: @Model.Beer.AlcoholContaining</strong><br />
 </h4>
 <div>
     <p>

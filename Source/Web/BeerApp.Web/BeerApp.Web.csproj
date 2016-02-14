@@ -201,6 +201,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BeerController.cs" />
     <Compile Include="Controllers\BeerTypeController.cs" />
+    <Compile Include="Controllers\CountryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JokesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -222,11 +223,9 @@
     <Compile Include="ViewModels\Beer\BeerDetailsResponseViewModel.cs" />
     <Compile Include="ViewModels\Beer\SimpleBeerResponseViewModel.cs" />
     <Compile Include="ViewModels\Beer\BeerResponseViewModel.cs" />
-    <Compile Include="ViewModels\Country\SimpleCountryResponseViewModel.cs" />
+    <Compile Include="ViewModels\Country\CountryDetailsResponseViewModel.cs" />
+    <Compile Include="ViewModels\Country\CountryResponseViewModel.cs" />
     <Compile Include="ViewModels\Home\IndexResponseViewModel.cs" />
-    <Compile Include="ViewModels\Home\JokeCategoryViewModel.cs" />
-    <Compile Include="ViewModels\Home\JokeViewModel.cs" />
-    <Compile Include="ViewModels\BeerType\SimpleBeerTypeResponseViewModel.cs" />
     <Compile Include="ViewModels\Manage\AddPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\Manage\ChangePasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\FactorViewModel.cs" />
@@ -303,6 +302,7 @@
     <Content Include="Views\Jokes\ById.cshtml" />
     <Content Include="Views\BeerType\BeerTypeDetails.cshtml" />
     <Content Include="Views\Beer\Details.cshtml" />
+    <Content Include="Views\Country\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

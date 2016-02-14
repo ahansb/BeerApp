@@ -1,0 +1,19 @@
+﻿@model BeerApp.Web.ViewModels.Country.CountryDetailsResponseViewModel
+  
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2><a href="~/Country/Details/@Model.Country.Url">@Model.Country.Name</a></h2>
+
+<div class="row">
+    <h4>Beers from @Model.Country.Name</h4>
+    @foreach (var beer in Model.Beers.OrderBy(b=>b.Type))
+    {
+        <div class="col-md-4">
+            <h4><strong><a href="~/Beer/Details/@beer.Url">@beer.Name</a></strong>, @beer.Type</h4>
+            <h6><em>Produced since @beer.ProducedSince</em></h6>
+            <p>@beer.Description.Substring(0, 200) ...</p>
+        </div>
+    }
+</div>

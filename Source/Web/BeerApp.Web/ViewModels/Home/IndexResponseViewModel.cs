@@ -5,10 +5,6 @@
 
     public class IndexResponseViewModel
     {
-        public IEnumerable<SimpleBeerTypeResponseViewModel> BeerTypes { get; set; }
-
-        public IEnumerable<JokeViewModel> Jokes { get; set; }
-
-        public IEnumerable<JokeCategoryViewModel> Categories { get; set; }
+        public IEnumerable<BeerTypeResponseViewModel> BeerTypes { get; set; }
     }
 }

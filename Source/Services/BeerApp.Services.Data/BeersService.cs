@@ -1,6 +1,5 @@
 ﻿namespace BeerApp.Services.Data
 {
-    using System;
     using BeerApp.Data.Common;
     using BeerApp.Data.Models;
     using Web;

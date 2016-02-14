@@ -9,15 +9,15 @@
     using NUnit.Framework;
 
     [TestFixture]
-    public class JokesRouteTests
+    public class BeerTypesRouteTests
     {
         [Test]
         public void TestRouteById()
         {
-            const string Url = "/Joke/Mjc2NS4xMjMxMjMxMzEyMw==";
+            const string Url = "/BeerType/MS4xMjMxMjMxMzEyMw==";
             var routeCollection = new RouteCollection();
             RouteConfig.RegisterRoutes(routeCollection);
-            routeCollection.ShouldMap(Url).To<JokesController>(c => c.ById("Mjc2NS4xMjMxMjMxMzEyMw=="));
+            routeCollection.ShouldMap(Url).To<BeerTypeController>(c => c.BeerTypeDetails("Mjc2NS4xMjMxMjMxMzEyMw=="));
         }
     }
 }

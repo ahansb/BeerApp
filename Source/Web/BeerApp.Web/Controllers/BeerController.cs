@@ -5,7 +5,9 @@
     using ViewModels.Beer;
     using ViewModels.BeerType;
     using ViewModels.Country;
+    using Web.Infrastructure;
 
+    [Authorize]
     public class BeerController : BaseController
     {
         private readonly IBeersService beers;
@@ -20,10 +22,10 @@
         public ActionResult Details(string id)
         {
             var beer = this.beers.GetById(id);
-
+            
             BeerResponseViewModel beerView = this.Mapper.Map<BeerResponseViewModel>(beer);
-            SimpleBeerTypeResponseViewModel beerTypeView = this.Mapper.Map<SimpleBeerTypeResponseViewModel>(beer.Type);
-            SimpleCountryResponseViewModel countryView = this.Mapper.Map<SimpleCountryResponseViewModel>(beer.Country);
+            BeerTypeResponseViewModel beerTypeView = this.Mapper.Map<BeerTypeResponseViewModel>(beer.Type);
+            CountryResponseViewModel countryView = this.Mapper.Map<CountryResponseViewModel>(beer.Country);
 
             var viewModel = new BeerDetailsResponseViewModel
             {

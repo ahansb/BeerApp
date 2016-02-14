@@ -5,13 +5,15 @@
     using Infrastructure.Mapping;
     using Services.Web;
 
-    public class SimpleBeerResponseViewModel : IMapFrom<Beer>,IHaveCustomMappings
+    public class SimpleBeerResponseViewModel : IMapFrom<Beer>, IHaveCustomMappings
     {
         public int Id { get; set; }
 
         public string Name { get; set; }
 
         public string Country { get; set; }
+
+        public string Type { get; set; }
 
         public string Description { get; set; }
 
@@ -29,7 +31,8 @@
         public void CreateMappings(IMapperConfiguration configuration)
         {
             configuration.CreateMap<Beer, SimpleBeerResponseViewModel>()
-               .ForMember(x => x.Country, opt => opt.MapFrom(x => x.Country.Name));
+               .ForMember(x => x.Country, opt => opt.MapFrom(x => x.Country.Name))
+               .ForMember(x => x.Type, opt => opt.MapFrom(x => x.Type.Name));
         }
     }
 }

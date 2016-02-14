@@ -28,18 +28,18 @@
 
         public ActionResult Index()
         {
-            var jokes = this.jokes.GetRandomJokes(3).To<JokeViewModel>().ToList();
-            var categories =
-                this.Cache.Get(
-                    "categories",
-                    () => this.jokeCategories.GetAll().To<JokeCategoryViewModel>().ToList(),
-                    30 * 60);
-            var beerTypes = this.beerTypes.GetAll().To<SimpleBeerTypeResponseViewModel>().ToList();
+            //var jokes = this.jokes.GetRandomJokes(3).To<JokeViewModel>().ToList();
+            //var categories =
+            //    this.Cache.Get(
+            //        "categories",
+            //        () => this.jokeCategories.GetAll().To<JokeCategoryViewModel>().ToList(),
+            //        30 * 60);
+            var beerTypes = this.beerTypes.GetAll().To<BeerTypeResponseViewModel>().ToList();
 
             var viewModel = new IndexResponseViewModel
             {
-                Jokes = jokes,
-                Categories = categories,
+                //Jokes = jokes,
+                //Categories = categories,
                 BeerTypes = beerTypes
             };
 
