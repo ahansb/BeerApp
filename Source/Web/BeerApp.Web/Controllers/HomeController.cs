@@ -8,7 +8,7 @@
     using Services.Data;
 
     using ViewModels.Home;
-
+    using ViewModels.BeerType;
     // TODO: Delete Every Joke
     public class HomeController : BaseController
     {
@@ -34,9 +34,9 @@
                     "categories",
                     () => this.jokeCategories.GetAll().To<JokeCategoryViewModel>().ToList(),
                     30 * 60);
-            var beerTypes = this.beerTypes.GetAll().To<BeerTypeViewModel>().ToList();
+            var beerTypes = this.beerTypes.GetAll().To<SimpleBeerTypeResponseViewModel>().ToList();
 
-            var viewModel = new IndexViewModel
+            var viewModel = new IndexResponseViewModel
             {
                 Jokes = jokes,
                 Categories = categories,

@@ -1,6 +1,4 @@
-﻿
-
-namespace BeerApp.Services.Data
+﻿namespace BeerApp.Services.Data
 {
     using System.Linq;
 

@@ -1,11 +1,12 @@
-﻿namespace BeerApp.Web.ViewModels.Home
+﻿namespace BeerApp.Web.ViewModels.BeerType
 {
-    using BeerApp.Services.Web;
     using Data.Models;
     using Infrastructure.Mapping;
+    using Services.Web;
 
-    public class BeerTypeViewModel : IMapFrom<BeerType>
+    public class BeerTypeResponseViewModel : IMapFrom<BeerType>
     {
+
         public int Id { get; set; }
 
         public string Name { get; set; }

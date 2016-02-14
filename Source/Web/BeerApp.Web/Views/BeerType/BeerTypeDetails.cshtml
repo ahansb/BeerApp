@@ -1,15 +1,17 @@
-﻿@model BeerApp.Web.ViewModels.BeerType.BeerTypeDetailsViewModel
+﻿@model BeerApp.Web.ViewModels.BeerType.BeerTypeDetailsResponseViewModel
 
 @{
     ViewBag.Title = "BeerTypeDetails";
 }
 
-<h2>@Html.ActionLink(Model.Name, "~/BeerType/" + Model.Url)</h2>
-<ul>
+<h2>@Html.ActionLink(Model.BeerType.Name, "~/BeerType/" + Model.BeerType.Url)</h2>
+<div class="row">
     @foreach (var beer in Model.Beers)
     {
-        <li>
-            @beer.Name
-        </li>
+        <div class="col-md-4">
+            <h4><strong><a href="~/Beer/Details/@beer.Url">@beer.Name</a></strong>, @beer.Country</h4>
+            <h6><em>Produced since @beer.ProducedSince</em></h6>
+            <p>@beer.Description.Substring(0, 200) ...</p>
+        </div>
     }
-</ul>
+</div>

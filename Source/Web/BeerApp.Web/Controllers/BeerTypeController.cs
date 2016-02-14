@@ -3,7 +3,8 @@
     using System.Web.Mvc;
     using Services.Data;
     using ViewModels.BeerType;
-
+    using System.Collections.Generic;
+    using ViewModels.Beer;
     [Authorize]
     public class BeerTypeController : BaseController
     {
@@ -19,9 +20,17 @@
         {
             var beerType = this.beerTypes.GetById(id);
 
-            BeerTypeDetailsViewModel beerTypeView = this.Mapper.Map<BeerTypeDetailsViewModel>(beerType);
+            BeerTypeResponseViewModel beerTypeView = this.Mapper.Map<BeerTypeResponseViewModel>(beerType);
+            ICollection<SimpleBeerResponseViewModel> beers = this.Mapper.Map<ICollection<SimpleBeerResponseViewModel>>(beerType.Beers);
 
-            return this.View(beerTypeView);
+            var viewModel = new BeerTypeDetailsResponseViewModel
+            {
+                BeerType = beerTypeView,
+                Beers = beers
+
+            };
+
+            return this.View(viewModel);
         }
     }
 }
