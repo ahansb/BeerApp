@@ -13,10 +13,6 @@
                 url: "Joke/{id}",
                 defaults: new { controller = "Jokes", action = "ById" });
             routes.MapRoute(
-                name: "BeerType",
-                url: "BeerType/{id}",
-                defaults: new { controller = "BeerType", action = "BeerTypeDetails" });
-            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional });

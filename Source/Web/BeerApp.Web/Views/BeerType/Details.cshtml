@@ -1,10 +1,10 @@
 ﻿@model BeerApp.Web.ViewModels.BeerType.BeerTypeDetailsResponseViewModel
 
 @{
-    ViewBag.Title = "BeerTypeDetails";
+    ViewBag.Title = "Details";
 }
 
-<h2>@Html.ActionLink(Model.BeerType.Name, "~/BeerType/" + Model.BeerType.Url)</h2>
+<h2>@Html.ActionLink(Model.BeerType.Name, "~/BeerType/Details/" + Model.BeerType.Url)</h2>
 <div class="row">
     @foreach (var beer in Model.Beers)
     {

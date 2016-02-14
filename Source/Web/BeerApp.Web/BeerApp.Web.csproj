@@ -218,6 +218,7 @@
     <Compile Include="ViewModels\Account\ResetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Account\SendCodeViewModel.cs" />
     <Compile Include="ViewModels\Account\VerifyCodeViewModel.cs" />
+    <Compile Include="ViewModels\BeerType\AllBeerTypesResponseViewModel.cs" />
     <Compile Include="ViewModels\BeerType\BeerTypeDetailsResponseViewModel.cs" />
     <Compile Include="ViewModels\BeerType\BeerTypeResponseViewModel.cs" />
     <Compile Include="ViewModels\Beer\BeerDetailsResponseViewModel.cs" />
@@ -300,9 +301,10 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Scripts\jquery-2.2.0.min.map" />
     <Content Include="Views\Jokes\ById.cshtml" />
-    <Content Include="Views\BeerType\BeerTypeDetails.cshtml" />
+    <Content Include="Views\BeerType\Details.cshtml" />
     <Content Include="Views\Beer\Details.cshtml" />
     <Content Include="Views\Country\Details.cshtml" />
+    <Content Include="Views\BeerType\All.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

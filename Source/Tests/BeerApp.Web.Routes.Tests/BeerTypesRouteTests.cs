@@ -17,7 +17,7 @@
             const string Url = "/BeerType/MS4xMjMxMjMxMzEyMw==";
             var routeCollection = new RouteCollection();
             RouteConfig.RegisterRoutes(routeCollection);
-            routeCollection.ShouldMap(Url).To<BeerTypeController>(c => c.BeerTypeDetails("Mjc2NS4xMjMxMjMxMzEyMw=="));
+            routeCollection.ShouldMap(Url).To<BeerTypeController>(c => c.Details("Mjc2NS4xMjMxMjMxMzEyMw=="));
         }
     }
 }
