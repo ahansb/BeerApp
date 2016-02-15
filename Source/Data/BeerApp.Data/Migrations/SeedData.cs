@@ -106,8 +106,7 @@
                 {
                     Name = "Place" + (i + 1),
                     Type = (PlaceType) Rand.Next(0, 2),
-                    CoutryId = countryId,
-                    Country = Countries[countryId],
+                    Country = Countries[countryId].Name,
                     City = "City" + (i + 1),
                     Address = "Address" + (i + 1),
                     Phone = "08888888" + i,

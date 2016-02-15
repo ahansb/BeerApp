@@ -21,13 +21,12 @@
 
         public PlaceType Type { get; set; }
 
-        public int CountryId { get; set; }
-
-        [ForeignKey("CountryId")]
-        public virtual Country Country { get; set; }
+        [Required]
+        [MaxLength(100)]
+        public string Country { get; set; }
 
         [Required]
-        [MaxLength(40)]
+        [MaxLength(100)]
         public string City { get; set; }
 
         [MaxLength(500)]

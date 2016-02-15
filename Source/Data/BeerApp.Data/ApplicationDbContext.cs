@@ -37,27 +37,45 @@
         public override int SaveChanges()
         {
             this.ApplyAuditInfoRules();
-            return base.SaveChanges();
+            try
+            {
+                return base.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
         }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Place>()
-                        .HasMany<Beer>(p => p.Beers)
-                        .WithMany(b => b.Places)
-                        .Map(bp =>
-                        {
-                            bp.MapLeftKey("PlaceRefId");
-                            bp.MapRightKey("BeerRefId");
-                            bp.ToTable("BeerPlaces");
-                        });
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+            //modelBuilder.Entity<Place>()
+            //       .HasRequired(p => p.Beers)
+            //       .WithMany()
+            //       .WillCascadeOnDelete(false);
+            //modelBuilder.Entity<Beer>()
+            //        .HasRequired(b => b.Places)
+            //        .WithMany()
+            //        .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Place>()
-                    .HasRequired(p => p.Beers)
-                    .WithMany()
-                    .WillCascadeOnDelete(false);
-            base.OnModelCreating(modelBuilder);
-        }
+
+            //modelBuilder.Entity<Place>()
+            //            .HasMany<Beer>(p => p.Beers)
+            //            .WithMany(b => b.Places)
+            //            .Map(bp =>
+            //            {
+            //                bp.MapLeftKey("PlaceRefId");
+            //                bp.MapRightKey("BeerRefId");
+            //                bp.ToTable("BeerPlaces");
+            //            });
+
+            //modelBuilder.Entity<Place>()
+            //        .HasRequired(p => p.Beers)
+            //        .WithMany()
+            //        .WillCascadeOnDelete(false);
+        //    base.OnModelCreating(modelBuilder);
+        //}
 
         private void ApplyAuditInfoRules()
         {
