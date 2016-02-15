@@ -29,5 +29,10 @@
 
             return beerType;
         }
+
+        public IQueryable<BeerType> GetRandom(int count)
+        {
+            return this.beerTypes.All().OrderBy(x => Guid.NewGuid()).Take(count);
+        }
     }
 }

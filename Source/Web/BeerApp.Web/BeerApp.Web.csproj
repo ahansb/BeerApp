@@ -203,9 +203,9 @@
     <Compile Include="Controllers\BeerTypeController.cs" />
     <Compile Include="Controllers\CountryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\JokesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="App_Start\GlimpseSecurityPolicy.cs" />
+    <Compile Include="Controllers\PlaceController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -223,6 +223,7 @@
     <Compile Include="ViewModels\BeerType\BeerTypeResponseViewModel.cs" />
     <Compile Include="ViewModels\Beer\AllBeersResponseViewModel.cs" />
     <Compile Include="ViewModels\Beer\BeerDetailsResponseViewModel.cs" />
+    <Compile Include="ViewModels\Beer\BeerRequestViewModel.cs" />
     <Compile Include="ViewModels\Beer\SimpleBeerResponseViewModel.cs" />
     <Compile Include="ViewModels\Beer\BeerResponseViewModel.cs" />
     <Compile Include="ViewModels\Country\AllCountriesResponseViewModel.cs" />
@@ -239,6 +240,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\Manage\SetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
+    <Compile Include="ViewModels\Place\PlaceRequestViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -302,13 +304,14 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Scripts\jquery-2.2.0.min.map" />
-    <Content Include="Views\Jokes\ById.cshtml" />
     <Content Include="Views\BeerType\Details.cshtml" />
     <Content Include="Views\Beer\Details.cshtml" />
     <Content Include="Views\Country\Details.cshtml" />
     <Content Include="Views\BeerType\All.cshtml" />
     <Content Include="Views\Beer\All.cshtml" />
     <Content Include="Views\Country\All.cshtml" />
+    <Content Include="Views\Beer\Add.cshtml" />
+    <Content Include="Views\Place\Add.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

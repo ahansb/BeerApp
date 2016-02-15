@@ -42,7 +42,14 @@
 
         public void Add(T entity)
         {
-            this.DbSet.Add(entity);
+            try
+            {
+                this.DbSet.Add(entity);
+            }
+            catch(Exception ex)
+            {
+                
+            }
         }
 
         public void Delete(T entity)

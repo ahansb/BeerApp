@@ -17,11 +17,6 @@
         {
         }
 
-        // TODO:Delete
-        public IDbSet<Joke> Jokes { get; set; }
-
-        public IDbSet<JokeCategory> JokesCategories { get; set; }
-
         public IDbSet<Beer> Beers { get; set; }
 
         public IDbSet<BeerType> BeerTypes { get; set; }

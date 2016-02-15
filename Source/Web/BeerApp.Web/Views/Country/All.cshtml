@@ -9,7 +9,7 @@
 @foreach (var country in Model.Countries)
 {
     <div class="row">
-        <h4>Beers from <a href="~/Country/Details/@country.Country.Url">@country.Country.Name</a></h4>
+        <h3>Beers from <a href="~/Country/Details/@country.Country.Url">@country.Country.Name</a></h3>
         @foreach (var beer in country.Beers.OrderBy(b => b.Type))
         {
             <div class="col-md-4">

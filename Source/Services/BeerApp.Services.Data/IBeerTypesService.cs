@@ -9,5 +9,7 @@
         IQueryable<BeerType> GetAll();
 
         BeerType GetById(string id);
+
+        IQueryable<BeerType> GetRandom(int count);
     }
 }

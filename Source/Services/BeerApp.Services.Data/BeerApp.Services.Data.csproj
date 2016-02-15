@@ -44,14 +44,12 @@
   <ItemGroup>
     <Compile Include="BeersService.cs" />
     <Compile Include="BeerTypesService.cs" />
-    <Compile Include="CategoriesService.cs" />
     <Compile Include="CountriesService.cs" />
     <Compile Include="IBeersService.cs" />
     <Compile Include="IBeerTypesService.cs" />
-    <Compile Include="ICategoriesService.cs" />
     <Compile Include="ICountriesService.cs" />
-    <Compile Include="IJokesService.cs" />
-    <Compile Include="JokesService.cs" />
+    <Compile Include="IPlacesService.cs" />
+    <Compile Include="PlacesService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -8,5 +8,7 @@
         IQueryable<Beer> GetAll();
 
         Beer GetById(string id);
+
+        int Add(Beer beer);
     }
 }
