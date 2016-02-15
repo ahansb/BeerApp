@@ -21,9 +21,9 @@
 
         public PlaceType Type { get; set; }
 
-        public int CoutryId { get; set; }
+        public int CountryId { get; set; }
 
-        [ForeignKey("CoutryId")]
+        [ForeignKey("CountryId")]
         public virtual Country Country { get; set; }
 
         [Required]
