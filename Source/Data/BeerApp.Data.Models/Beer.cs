@@ -19,7 +19,7 @@
         }
 
         [Required]
-        [MaxLength(40)]
+        [MaxLength(100)]
         public string Name { get; set; }
 
         public int BeerTypeId { get; set; }

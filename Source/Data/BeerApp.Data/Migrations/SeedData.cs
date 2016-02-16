@@ -90,7 +90,7 @@
                     Country = Countries[countryId],
                     Description = i.ToString() + " Lorem Ipsum е елементарен примерен текст, използван в печатарската и типографската индустрия. Lorem Ipsum е индустриален стандарт от около 1500 година, когато неизвестен печатар взема няколко печатарски букви и ги разбърква, за да напечата с тях книга с примерни шрифтове. Този начин не само е оцелял повече от 5 века, но е навлязъл и в публикуването на електронни издания като е запазен почти без промяна. Популяризиран е през 60те години на 20ти век със издаването на Letraset листи, съдържащи Lorem Ipsum пасажи, популярен е и в наши дни във софтуер за печатни издания като Aldus PageMaker, който включва различни версии на Lorem Ipsum.",
                     ProducedSince = 2016 - Rand.Next(5, 100),
-                    AlcoholContaining = 5 - (Rand.Next(0, 10) / (decimal)10)
+                    AlcoholContaining = 5 - (Rand.Next(0, 10) / (decimal) 10)
                 });
             }
 
@@ -106,7 +106,7 @@
                 {
                     Name = "Place" + (i + 1),
                     Type = (PlaceType) Rand.Next(0, 2),
-                    Country = Countries[countryId].Name,
+                    Country = Countries[countryId],
                     City = "City" + (i + 1),
                     Address = "Address" + (i + 1),
                     Phone = "08888888" + i,
@@ -127,7 +127,8 @@
                     BeerTypeId = Rand.Next(0, 15),
                     Title = "Recipe Title" + (i + 1),
                     CreatorId = userId,
-                    Creator = user
+                    Creator = user,
+                    Content = "Content" + (i + 1)
                 });
             }
 

@@ -13,10 +13,7 @@
 
         [ForeignKey("CreatorId")]
         public virtual ApplicationUser Creator { get; set; }
-
-        [Required]
-        public DateTime CreationDate { get; set; }
-
+        
         [Required]
         [MinLength(2)]
         [MaxLength(1000)]

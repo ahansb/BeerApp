@@ -16,14 +16,15 @@
         }
 
         [Required]
-        [MaxLength(40)]
+        [MaxLength(100)]
         public string Name { get; set; }
 
         public PlaceType Type { get; set; }
 
-        [Required]
-        [MaxLength(100)]
-        public string Country { get; set; }
+        public int? CountryId { get; set; }
+
+        [ForeignKey("CountryId")]
+        public virtual Country Country { get; set; }
 
         [Required]
         [MaxLength(100)]
@@ -32,7 +33,7 @@
         [MaxLength(500)]
         public string Address { get; set; }
 
-        [MaxLength(40)]
+        [MaxLength(50)]
         public string Phone { get; set; }
 
         [Required]
