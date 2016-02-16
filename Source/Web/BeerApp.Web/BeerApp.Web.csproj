@@ -206,6 +206,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="App_Start\GlimpseSecurityPolicy.cs" />
     <Compile Include="Controllers\PlaceController.cs" />
+    <Compile Include="Controllers\RecipeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -241,6 +242,9 @@
     <Compile Include="ViewModels\Manage\SetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\Place\PlaceRequestViewModel.cs" />
+    <Compile Include="ViewModels\Place\PlaceResponseViewModel.cs" />
+    <Compile Include="ViewModels\Recipe\RecipeRequestViewModel.cs" />
+    <Compile Include="ViewModels\Recipe\RecipeResponseViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -311,7 +315,12 @@
     <Content Include="Views\Beer\All.cshtml" />
     <Content Include="Views\Country\All.cshtml" />
     <Content Include="Views\Beer\Add.cshtml" />
+    <Content Include="Views\Place\Details.cshtml" />
     <Content Include="Views\Place\Add.cshtml" />
+    <Content Include="Views\Place\All.cshtml" />
+    <Content Include="Views\Recipe\Add.cshtml" />
+    <Content Include="Views\Recipe\Details.cshtml" />
+    <Content Include="Views\Recipe\All.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

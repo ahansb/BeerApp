@@ -1,0 +1,33 @@
+﻿@model IEnumerable<BeerApp.Web.ViewModels.Place.PlaceResponseViewModel>
+
+@{
+    ViewBag.Title = "All";
+}
+
+<h2>All PLACES</h2>
+
+@foreach (var place in Model)
+{
+    <div class="row">
+        <h4><a href="~/Place/Details/@place.Url">@place.Name</a> @place.Type</h4>
+
+        <h6>
+            <strong><a href="~/Country/Details/@place.Country.Url">@place.Country.Name</a>, @place.City</strong><br />
+            <strong>@place.Address</strong><br />
+            <strong>Phone: @place.Phone</strong>
+        </h6>
+        @if (place.Beers.Any())
+        {
+            <div class="row">
+                @foreach (var beer in place.Beers.Take(3))
+                {
+                    <div class="col-md-4">
+                        <h4><strong><a href="~/Beer/Details/@beer.Url">@beer.Name</a></strong>, @beer.Type</h4>
+                        <h6><em>Produced since @beer.ProducedSince</em></h6>
+                        <p>@{beer.Description.Length > 201 ? beer.Description.Substring(0, 200) : beer.Description} ...</p>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+}

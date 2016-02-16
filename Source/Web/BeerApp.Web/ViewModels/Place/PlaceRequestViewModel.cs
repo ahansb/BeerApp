@@ -14,8 +14,7 @@
         public PlaceType Type { get; set; }
 
         [Required]
-        [MaxLength(100)]
-        public string Country { get; set; }
+        public int? CountryId { get; set; }
 
         [Required]
         [MaxLength(100)]

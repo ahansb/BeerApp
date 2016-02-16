@@ -1,6 +1,7 @@
 ﻿namespace BeerApp.Services.Data
 {
     using System;
+    using System.Linq;
     using BeerApp.Data.Common;
     using BeerApp.Data.Models;
     using Web;
@@ -29,6 +30,11 @@
             var place = this.places.GetById(intId);
 
             return place;
+        }
+
+        public IQueryable<Place> GetAll()
+        {
+            return this.places.All();
         }
     }
 }

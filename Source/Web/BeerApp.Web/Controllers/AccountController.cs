@@ -171,7 +171,7 @@
             if (this.ModelState.IsValid)
             {
                 //Adding Profile image
-                var image = model.ProfilePhotoUrl == string.Empty ? "~/Content/default-profile-picture.jpg" : model.ProfilePhotoUrl;
+                var image = model.ProfilePhotoUrl == string.Empty || model.ProfilePhotoUrl == null ? "~/Content/default-profile-picture.jpg" : model.ProfilePhotoUrl;
 
                 var user = new ApplicationUser { UserName = model.UserName, FirstName = model.FirstName, LastName = model.LastName, Email = model.Email, ProfilePhotoUrl = image };
                 var result = await this.UserManager.CreateAsync(user, model.Password);

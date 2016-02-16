@@ -1,0 +1,14 @@
+﻿@model BeerApp.Web.ViewModels.Recipe.RecipeResponseViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+
+<h2>Recipe <a href="~/Recipe/Details/@Model.Url">@Model.Title</a> for <a href="~/BeerType/Details/@Model.BeerType.Url">@Model.BeerType.Name</a> style.</h2>
+
+<h4>
+    <strong>Posted by @Model.CreatorName</strong>
+</h4>
+<p>@Model.Content</p>

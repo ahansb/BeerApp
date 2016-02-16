@@ -1,0 +1,27 @@
+﻿@model BeerApp.Web.ViewModels.Place.PlaceResponseViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2><a href="~/Place/Details/@Model.Url">@Model.Name</a> @Model.Type</h2>
+
+<h4>
+    <strong><a href="~/Country/Details/@Model.Country.Url">@Model.Country.Name</a>, @Model.City</strong><br />
+    <strong>@Model.Address</strong><br />
+    <strong>Phone: @Model.Phone</strong>
+</h4>
+@if (Model.Beers.Any())
+{
+    <div class="row">
+        @foreach (var beer in Model.Beers)
+        {
+            <div class="col-md-4">
+                <h4><strong><a href="~/Beer/Details/@beer.Url">@beer.Name</a></strong>, @beer.Type</h4>
+                <h6><em>Produced since @beer.ProducedSince</em></h6>
+                <p>@{beer.Description.Length > 201 ? beer.Description.Substring(0, 200) : beer.Description} ...</p>
+
+            </div>
+                    }
+    </div>
+                    }

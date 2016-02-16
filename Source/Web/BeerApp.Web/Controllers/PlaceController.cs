@@ -1,11 +1,12 @@
 ﻿namespace BeerApp.Web.Controllers
 {
+    using System.Web.Mvc;
     using Data.Models;
     using Services.Data;
     using Services.Web;
-    using System.Web.Mvc;
     using ViewModels.Place;
-
+    using System.Linq;
+    using System.Collections.Generic;
     [Authorize]
     public class PlaceController : BaseController
     {
@@ -18,24 +19,25 @@
             this.identifier = identifier;
         }
 
-        //[HttpGet]
-        //public ActionResult Details(string id)
-        //{
-        //    var place = this.places.GetById(id);
+        [HttpGet]
+        public ActionResult All()
+        {
+            var places = this.places.GetAll().OrderBy(p => p.Country.Name).ToList();
 
-        //    BeerResponseViewModel beerView = this.Mapper.Map<BeerResponseViewModel>(beer);
-        //    BeerTypeResponseViewModel beerTypeView = this.Mapper.Map<BeerTypeResponseViewModel>(beer.Type);
-        //    CountryResponseViewModel countryView = this.Mapper.Map<CountryResponseViewModel>(beer.Country);
+            ICollection<PlaceResponseViewModel> placesView = this.Mapper.Map<ICollection<PlaceResponseViewModel>>(places);
 
-        //    var viewModel = new BeerDetailsResponseViewModel
-        //    {
-        //        Beer = beerView,
-        //        BeerType = beerTypeView,
-        //        Country = countryView
-        //    };
+            return this.View(places);
+        }
 
-        //    return this.View(viewModel);
-        //}
+        [HttpGet]
+        public ActionResult Details(string id)
+        {
+            var place = this.places.GetById(id);
+
+            PlaceResponseViewModel placeView = this.Mapper.Map<PlaceResponseViewModel>(place);
+
+            return this.View(placeView);
+        }
 
         [HttpGet]
         public ActionResult Add()
@@ -56,7 +58,7 @@
             var place = this.Mapper.Map<Place>(model);
             var placeId = this.places.Add(place);
 
-            return this.RedirectToAction("Index", "Home");
+            return this.RedirectToAction("Details", new { id = this.identifier.EncodeId(placeId) });
         }
     }
 }

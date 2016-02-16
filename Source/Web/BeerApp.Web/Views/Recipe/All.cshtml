@@ -1,0 +1,19 @@
+﻿@model IEnumerable<BeerApp.Web.ViewModels.Recipe.RecipeResponseViewModel>
+
+@{
+    ViewBag.Title = "All";
+}
+
+<h2>All Recipes</h2>
+
+@foreach (var recipe in Model)
+{
+    <div class="row">
+        <h4>Recipe <a href="~/Recipe/Details/@recipe.Url">@recipe.Title</a> for <a href="~/BeerType/Details/@recipe.BeerType.Url">@recipe.BeerType.Name</a> style.</h4>
+
+        <h6>
+            <strong>Posted by @recipe.CreatorName</strong>
+        </h6>
+        <p>@{recipe.Content.Length > 201 ? recipe.Content.Substring(0, 200) : recipe.Content} ...</p>
+    </div>
+}
