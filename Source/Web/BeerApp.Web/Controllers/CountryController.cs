@@ -20,7 +20,7 @@
         [HttpGet]
         public ActionResult All()
         {
-            var countries = this.countries.GetAll().OrderBy(c => c.Name);
+            var countries = this.countries.GetAll().OrderBy(c => c.Name).ToList();
 
             var viewModel = this.Mapper.Map<ICollection<CountryResponseViewModel>>(countries);
 

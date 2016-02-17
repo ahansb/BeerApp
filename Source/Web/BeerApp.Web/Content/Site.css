@@ -30,3 +30,6 @@ body {
 .body-content{
     background: rgba(255, 255, 150, 0.4);
 }
+#welcome-img{
+    max-width:240px;
+}
