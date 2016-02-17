@@ -1,32 +1,60 @@
 ﻿@model BeerApp.Web.ViewModels.Home.IndexResponseViewModel
+
 @{
     ViewBag.Title = "Home Page";
 }
-<h1>Welcome to the "Beerbook".</h1>
-<p>
-    Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.
-    Placerat suscipit, orci nisl iaculis eros, a tincidunt nisi odio eget lorem nulla condimentum tempor mattis ut vitae feugiat augue cras ut metus a risus iaculis scelerisque eu ac ante.
-    Fusce non varius purus aenean nec magna felis fusce vestibulum velit mollis odio sollicitudin lacinia aliquam posuere, sapien elementum lobortis tincidunt, turpis dui ornare nisl, sollicitudin interdum turpis nunc eget.
-    Sem nulla eu ultricies orci praesent id augue nec lorem pretium congue sit amet ac nunc fusce iaculis lorem eu diam hendrerit at mattis purus dignissim vivamus mauris tellus, fringilla.
-    Vel dapibus a, blandit quis erat vivamus elementum aliquam luctus etiam fringilla pretium sem vitae sodales mauris id nulla est praesent laoreet, metus vel auctor aliquam, eros purus vulputate leo.
-    Eget consequat neque quam id tellus duis ultricies tempor tortor, vitae dignissim ligula mattis nec in hac habitasse platea dictumst ut arcu enim, dictum quis ultrices id, sagittis eget nulla.
-    Sed nunc mi, congue ut ultricies ac, varius a eros donec porttitor, libero fermentum fringilla laoreet, eros arcu sodales ante, ut dictum risus lectus vel quam integer ultricies, nunc eget.
-    Elementum euismod, orci enim vestibulum orci, nec suscipit urna odio et tellus suspendisse suscipit orci sit amet sem venenatis nec lobortis sem suscipit nullam nec imperdiet velit mauris eu nisi.
-    A felis imperdiet porta at ac nulla vivamus faucibus felis nec dolor pretium eget pellentesque dolor suscipit maecenas vitae enim arcu, at tincidunt nunc pellentesque eleifend vulputate lacus, vel semper.
-    Sem ornare sit amet proin sem sapien, auctor vel faucibus id, aliquet vitae ipsum etiam auctor ultricies ante, at dapibus urna viverra sed nullam mi arcu, tempor vitae interdum a.
-    Sodales non urna vestibulum dignissim auctor mauris, ac elementum purus fermentum vitae duis placerat laoreet risus, sit amet eleifend tellus lobortis non vivamus iaculis dapibus leo a ornare cras vel.
-    Sem at felis convallis mollis posuere ultrices dolor sed tellus arcu, accumsan a consectetur sit amet, volutpat eget lorem phasellus quis ipsum orci integer sodales tincidunt nibh a elementum ut.
-    Ac libero nec orci euismod euismod nec at nulla duis malesuada faucibus porta aliquam nec consequat eros sed porttitor placerat dolor, accumsan imperdiet neque ornare in aenean non elit non.
-    Leo porta mattis mauris non dolor nunc, id congue odio donec tellus nisl, semper id consectetur vitae, dapibus dictum nisl morbi sed augue purus sed dictum diam convallis tortor interdum.
-    Volutpat phasellus dapibus arcu sit amet neque vulputate sed elementum orci fringilla in hac habitasse platea dictumst maecenas ut dui diam curabitur adipiscing vestibulum libero, nec varius dui pulvinar eget.
-    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; aliquam dui neque, varius eu laoreet vel.
-</p>
-<h1>Beer Types</h1>
+
+<div class="row">
+    <div class="col-md-3"><img src="~/Content/SiteImages/home-beer-img.jpg" alt="two-beers" /></div>
+    <div class="col-md-9">
+        <h1 class="text-center">Welcome to the "Beerbook".</h1>
+        <p>
+            Beer is the world's most widely consumed alcoholic beverage and the third most popular drink after water and tea.
+            It is produced by the brewing and fermentation of starches, mainly derived from cereal grains—the most common of
+            which is malted barley, although wheat, maize (corn), and rice are widely used. Most beer is flavored with hops,
+            which add bitterness and act as a natural preservative, though other flavorings such as herbs or fruit may occasionally
+            be included. Alcoholic beverages distilled after fermentation, fermented from non-starch sources such as grape juice (wine)
+            or honey (mead), or fermented from un-malted starches (rice wine) are not classified as beer.
+        </p>
+        <p>
+            Some of humanity's earliest known writings refer to the production and distribution of beer: the Code of
+            Hammurabi included laws regulating beer and beer parlours, and "The Hymn to Ninkasi," a prayer to the
+            Mesopotamian goddess of beer, served as both a prayer and as a method of remembering the recipe for beer
+            in a culture with few literate people. Today, the brewing industry is a global business, consisting of
+            several dominant multinational companies and many thousands of smaller producers ranging from brewpubs to regional breweries.
+        </p>
+        <p>
+            The basics of brewing beer are shared across national and cultural boundaries and are commonly categorized
+            into two main types—the globally popular pale lagers, and the regionally distinct ales, which are further
+            categorised into other varieties such as pale ale, stout and brown ale. The strength of beer is usually around 4%
+            to 6% alcohol by volume (abv.) though may range from less than 1% abv., to over 20% abv. in rare cases.
+        </p>
+        <p>
+            Beer forms part of the culture of various beer-drinking nations and has acquired various social traditions
+            and associations, such as beer festivals and a rich pub culture involving activities such as pub crawling or pub games such as bar billiards.
+        </p>
+    </div>
+</div>
+<h2>Some Beer Styles</h2>
 <div class="row">
     @foreach (var type in Model.BeerTypes)
     {
-        <div class="col-md-2">
-            <a href="~/BeerType/Details/@type.Url">@type.Name</a>
+        <div class="col-md-4">
+            <h4><a href="~/BeerType/Details/@type.Url">@type.Name</a></h4>
+            @if (type.Recipes.Any())
+            {
+                <div>
+                    <h6>Recipe <a href="~/Recipe/@type.Recipes.FirstOrDefault().Url">@type.Recipes.FirstOrDefault().Title</a>, by @type.Recipes.FirstOrDefault().CreatorName</h6>
+                    <p>@(type.Recipes.FirstOrDefault().Content.Length > 201 ? type.Recipes.FirstOrDefault().Content.Substring(0, 200) + "..." : type.Recipes.FirstOrDefault().Content);</p>
+                </div>
+            }
+            @foreach (var beer in type.Beers.Take(2))
+            {
+                <div>
+                    <h6><a href="~/Beer/Details/@beer.Url">@beer.Name</a>, @beer.Country</h6>
+                    <p>@(beer.Description.Length > 201 ? beer.Description.Substring(0, 200) + "..." : beer.Description);</p>
+                </div>
+            }
         </div>
     }
 </div>

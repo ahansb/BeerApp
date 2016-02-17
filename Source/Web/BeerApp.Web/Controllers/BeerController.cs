@@ -1,13 +1,13 @@
 ﻿namespace BeerApp.Web.Controllers
 {
+    using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
-    using Services.Data;
-    using ViewModels.Beer;
-    using ViewModels.BeerType;
-    using ViewModels.Country;
     using Data.Models;
+    using Services.Data;
     using Services.Web;
+    using ViewModels.Beer;
+
     [Authorize]
     public class BeerController : BaseController
     {
@@ -23,25 +23,11 @@
         [HttpGet]
         public ActionResult All()
         {
-            var beers = this.beers.GetAll().OrderBy(b => b.Name);
-            var allViewModel = new AllBeersResponseViewModel();
-            foreach (var beer in beers)
-            {
-                BeerResponseViewModel beerView = this.Mapper.Map<BeerResponseViewModel>(beer);
-                BeerTypeResponseViewModel beerTypeView = this.Mapper.Map<BeerTypeResponseViewModel>(beer.Type);
-                CountryResponseViewModel countryView = this.Mapper.Map<CountryResponseViewModel>(beer.Country);
+            var beers = this.beers.GetAll().OrderBy(b => b.Name).ToList();
 
-                var viewModel = new BeerDetailsResponseViewModel
-                {
-                    Beer = beerView,
-                    BeerType = beerTypeView,
-                    Country = countryView
-                };
+            var viewModel = this.Mapper.Map<ICollection<BeerResponseViewModel>>(beers);
 
-                allViewModel.Beers.Add(viewModel);
-            }
-
-            return this.View(allViewModel);
+            return this.View(viewModel);
         }
 
         [HttpGet]
@@ -49,16 +35,7 @@
         {
             var beer = this.beers.GetById(id);
 
-            BeerResponseViewModel beerView = this.Mapper.Map<BeerResponseViewModel>(beer);
-            BeerTypeResponseViewModel beerTypeView = this.Mapper.Map<BeerTypeResponseViewModel>(beer.Type);
-            CountryResponseViewModel countryView = this.Mapper.Map<CountryResponseViewModel>(beer.Country);
-
-            var viewModel = new BeerDetailsResponseViewModel
-            {
-                Beer = beerView,
-                BeerType = beerTypeView,
-                Country = countryView
-            };
+            BeerResponseViewModel viewModel = this.Mapper.Map<BeerResponseViewModel>(beer);
 
             return this.View(viewModel);
         }
@@ -74,9 +51,8 @@
         public ActionResult Add(BeerRequestViewModel model)
         {
 
-            if (!this.ModelState.IsValid || model == null)
+            if (!this.ModelState.IsValid)
             {
-                this.ModelState.AddModelError("", "Please, fill the form correctly!");
                 return this.View(model);
             }
 

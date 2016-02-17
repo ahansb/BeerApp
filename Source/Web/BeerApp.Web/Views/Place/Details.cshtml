@@ -19,9 +19,9 @@
             <div class="col-md-4">
                 <h4><strong><a href="~/Beer/Details/@beer.Url">@beer.Name</a></strong>, @beer.Type</h4>
                 <h6><em>Produced since @beer.ProducedSince</em></h6>
-                <p>@{beer.Description.Length > 201 ? beer.Description.Substring(0, 200) : beer.Description} ...</p>
+                <p>@{beer.Description.Length > 201 ? beer.Description.Substring(0, 200) + "..." : beer.Description};</p>
 
             </div>
-                    }
+         }
     </div>
-                    }
+ }

@@ -1,13 +1,11 @@
 ﻿namespace BeerApp.Web.Controllers
 {
     using System.Collections.Generic;
+    using System.Linq;
     using System.Web.Mvc;
     using Services.Data;
-    using ViewModels.Beer;
     using ViewModels.BeerType;
-    using Web.Infrastructure.Mapping;
-    using System.Linq;
-    using System.Collections;
+
     [Authorize]
     public class BeerTypeController : BaseController
     {
@@ -21,40 +19,19 @@
         [HttpGet]
         public ActionResult All()
         {
-            var beerTypes = this.beerTypes.GetAll().OrderBy(bt => bt.Name);
-            var allViewModel = new AllBeerTypesResponseViewModel();
-            foreach (var beerType in beerTypes)
-            {
-                BeerTypeResponseViewModel beerTypeView = this.Mapper.Map<BeerTypeResponseViewModel>(beerType);
-                ICollection<SimpleBeerResponseViewModel> beers = this.Mapper.Map<ICollection<SimpleBeerResponseViewModel>>(beerType.Beers);
+            var beerTypes = this.beerTypes.GetAll().OrderBy(bt => bt.Name).ToList();
 
-                var viewModel = new BeerTypeDetailsResponseViewModel
-                {
-                    BeerType = beerTypeView,
-                    Beers = beers
+            ICollection<BeerTypeResponseViewModel> viewModel = this.Mapper.Map<ICollection<BeerTypeResponseViewModel>>(beerTypes);
 
-                };
-
-                allViewModel.Types.Add(viewModel);
-            }
-
-            return this.View(allViewModel);
+            return this.View(viewModel);
         }
 
-        // GET: BeerType
+        [HttpGet]
         public ActionResult Details(string id)
         {
             var beerType = this.beerTypes.GetById(id);
 
-            BeerTypeResponseViewModel beerTypeView = this.Mapper.Map<BeerTypeResponseViewModel>(beerType);
-            ICollection<SimpleBeerResponseViewModel> beers = this.Mapper.Map<ICollection<SimpleBeerResponseViewModel>>(beerType.Beers);
-
-            var viewModel = new BeerTypeDetailsResponseViewModel
-            {
-                BeerType = beerTypeView,
-                Beers = beers
-
-            };
+            BeerTypeResponseViewModel viewModel = this.Mapper.Map<BeerTypeResponseViewModel>(beerType);
 
             return this.View(viewModel);
         }

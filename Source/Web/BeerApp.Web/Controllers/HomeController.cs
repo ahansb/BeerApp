@@ -22,7 +22,7 @@
         {
             var beerTypes = this.Cache.Get(
                 "beerTypes",
-                () => this.beerTypes.GetAll().To<BeerTypeResponseViewModel>().ToList(),
+                () => this.beerTypes.GetRandom(3).To<BeerTypeResponseViewModel>().ToList(),
                 5 * 60);
 
             var viewModel = new IndexResponseViewModel

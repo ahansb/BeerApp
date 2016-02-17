@@ -1,19 +1,21 @@
-﻿@model BeerApp.Web.ViewModels.Country.CountryDetailsResponseViewModel
-  
+﻿@model BeerApp.Web.ViewModels.Country.CountryResponseViewModel
+
 @{
     ViewBag.Title = "Details";
 }
 
-<h2><a href="~/Country/Details/@Model.Country.Url">@Model.Country.Name</a></h2>
+
+<h2>Beers from <a href="~/Country/Details/@Model.Url">@Model.Name</a></h2>
 
 <div class="row">
-    <h4>Beers from @Model.Country.Name</h4>
-    @foreach (var beer in Model.Beers.OrderBy(b=>b.Type))
+    @foreach (var beer in Model.Beers.OrderBy(b => b.Type))
     {
         <div class="col-md-4">
             <h4><strong><a href="~/Beer/Details/@beer.Url">@beer.Name</a></strong>, @beer.Type</h4>
             <h6><em>Produced since @beer.ProducedSince</em></h6>
-            <p>@beer.Description.Substring(0, 200) ...</p>
+            <p>
+                @(beer.Description.Length > 201 ? beer.Description.Substring(0, 200) + "..." : beer.Description);
+            </p>
         </div>
     }
 </div>

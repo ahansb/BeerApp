@@ -49,9 +49,8 @@
         [ValidateAntiForgeryToken]
         public ActionResult Add(RecipeRequestViewModel model)
         {
-            if (!this.ModelState.IsValid || model == null)
+            if (!this.ModelState.IsValid)
             {
-                this.ModelState.AddModelError("", "Please, fill the form correctly!");
                 return this.View(model);
             }
 

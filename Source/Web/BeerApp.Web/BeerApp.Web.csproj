@@ -219,16 +219,10 @@
     <Compile Include="ViewModels\Account\ResetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Account\SendCodeViewModel.cs" />
     <Compile Include="ViewModels\Account\VerifyCodeViewModel.cs" />
-    <Compile Include="ViewModels\BeerType\AllBeerTypesResponseViewModel.cs" />
-    <Compile Include="ViewModels\BeerType\BeerTypeDetailsResponseViewModel.cs" />
     <Compile Include="ViewModels\BeerType\BeerTypeResponseViewModel.cs" />
-    <Compile Include="ViewModels\Beer\AllBeersResponseViewModel.cs" />
-    <Compile Include="ViewModels\Beer\BeerDetailsResponseViewModel.cs" />
     <Compile Include="ViewModels\Beer\BeerRequestViewModel.cs" />
     <Compile Include="ViewModels\Beer\SimpleBeerResponseViewModel.cs" />
     <Compile Include="ViewModels\Beer\BeerResponseViewModel.cs" />
-    <Compile Include="ViewModels\Country\AllCountriesResponseViewModel.cs" />
-    <Compile Include="ViewModels\Country\CountryDetailsResponseViewModel.cs" />
     <Compile Include="ViewModels\Country\CountryResponseViewModel.cs" />
     <Compile Include="ViewModels\Home\IndexResponseViewModel.cs" />
     <Compile Include="ViewModels\Manage\AddPhoneNumberViewModel.cs" />
@@ -251,7 +245,9 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\default-profile-picture.jpg" />
+    <Content Include="Content\SiteImages\background-image.jpg" />
+    <Content Include="Content\SiteImages\default-profile-picture.jpg" />
+    <Content Include="Content\SiteImages\home-beer-img.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

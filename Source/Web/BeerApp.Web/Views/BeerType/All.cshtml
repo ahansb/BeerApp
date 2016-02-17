@@ -1,12 +1,16 @@
-﻿@model BeerApp.Web.ViewModels.BeerType.AllBeerTypesResponseViewModel
+﻿@using BeerApp.Web.ViewModels.BeerType;
+
+@model  ICollection<BeerTypeResponseViewModel>
+
 @{
     ViewBag.Title = "All";
 }
+
 <h2>Beer Styles</h2>
-@foreach (var type in Model.Types)
+@foreach (var type in Model)
 {
     <div class="row">
-        <h3>@Html.ActionLink(type.BeerType.Name, "~/BeerType/Details/" + type.BeerType.Url)</h3>
+        <h3>@Html.ActionLink(type.Name, "~/BeerType/Details/" + type.Url)</h3>
         @foreach (var beer in type.Beers)
         {
         <div class="col-md-4">

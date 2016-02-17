@@ -1,25 +1,27 @@
-﻿@model BeerApp.Web.ViewModels.Beer.AllBeersResponseViewModel
+﻿@using BeerApp.Web.ViewModels.Beer;
+
+@model ICollection<BeerResponseViewModel>
 @{
     ViewBag.Title = "All";
 }
 
 <h2>Beers</h2>
 
-@foreach (var beer in Model.Beers)
+@foreach (var beer in Model)
 {
-    <h2><a href="~/Beer/Details/@beer.Beer.Url">@beer.Beer.Name</a></h2>
+    <h2><a href="~/Beer/Details/@beer.Url">@beer.Name</a></h2>
     <h4>
-        <strong><a href="~/BeerType/Details/@beer.BeerType.Url">@beer.BeerType.Name</a></strong><br />
+        <strong><a href="~/BeerType/Details/@beer.Type.Url">@beer.Type.Name</a></strong><br />
         <strong><a href="~/Country/Details/@beer.Country.Url">@beer.Country.Name</a></strong><br />
-        @if (beer.Beer.ProducedSince != null)
+        @if (beer.ProducedSince != null)
         {
-            <em>In production since @beer.Beer.ProducedSince</em><br />
+            <em>In production since @beer.ProducedSince</em><br />
         }
-        <strong>Alcohol Containing: @beer.Beer.AlcoholContaining</strong><br />
+        <strong>Alcohol Containing: @beer.AlcoholContaining</strong><br />
     </h4>
     <div>
         <p>
-            @beer.Beer.Description
+            @beer.Description
         </p>
     </div>
 }

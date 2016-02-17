@@ -1,4 +1,6 @@
-﻿@model BeerApp.Web.ViewModels.Country.AllCountriesResponseViewModel
+﻿@using BeerApp.Web.ViewModels.Country;
+
+@model ICollection<CountryResponseViewModel>
 
 @{
     ViewBag.Title = "All";
@@ -6,16 +8,17 @@
 
 <h2>Countries</h2>
 
-@foreach (var country in Model.Countries)
+@foreach (var country in Model)
 {
     <div class="row">
-        <h3>Beers from <a href="~/Country/Details/@country.Country.Url">@country.Country.Name</a></h3>
-        @foreach (var beer in country.Beers.OrderBy(b => b.Type))
+        <h3>Beers from <a href="~/Country/Details/@country.Url">@country.Name</a></h3>
+        @foreach (var beer in country.Beers.Take(3))
         {
             <div class="col-md-4">
                 <h4><strong><a href="~/Beer/Details/@beer.Url">@beer.Name</a></strong>, @beer.Type</h4>
-                <h6><em>Produced since @beer.ProducedSince</em></h6>
-                <p>@beer.Description.Substring(0, 200) ...</p>
+                <p>
+                    @(beer.Description.Length > 201 ? beer.Description.Substring(0, 200) + "..." : beer.Description);
+                </p>
             </div>
         }
     </div>

@@ -17,42 +17,22 @@
             this.countries = countries;
         }
 
+        [HttpGet]
         public ActionResult All()
         {
             var countries = this.countries.GetAll().OrderBy(c => c.Name);
-            var allViewModel = new AllCountriesResponseViewModel();
-            foreach (var country in countries)
-            {
-                CountryResponseViewModel countryView = this.Mapper.Map<CountryResponseViewModel>(country);
-                ICollection<SimpleBeerResponseViewModel> beersView = this.Mapper.Map<ICollection<SimpleBeerResponseViewModel>>(country.Beers);
 
-                // TODO: Add Places
-                var viewModel = new CountryDetailsResponseViewModel
-                {
-                    Country = countryView,
-                    Beers = beersView
-                };
+            var viewModel = this.Mapper.Map<ICollection<CountryResponseViewModel>>(countries);
 
-                allViewModel.Countries.Add(viewModel);
-            }
-
-            return this.View(allViewModel);
+            return this.View(viewModel);
         }
 
-        // GET: Country
+        [HttpGet]
         public ActionResult Details(string id)
         {
             var country = this.countries.GetById(id);
 
-            CountryResponseViewModel countryView = this.Mapper.Map<CountryResponseViewModel>(country);
-            ICollection<SimpleBeerResponseViewModel> beersView = this.Mapper.Map<ICollection<SimpleBeerResponseViewModel>>(country.Beers);
-
-            // TODO: Add Places
-            var viewModel = new CountryDetailsResponseViewModel
-            {
-                Country = countryView,
-                Beers = beersView
-            };
+            var viewModel = this.Mapper.Map<CountryResponseViewModel>(country);
 
             return this.View(viewModel);
         }

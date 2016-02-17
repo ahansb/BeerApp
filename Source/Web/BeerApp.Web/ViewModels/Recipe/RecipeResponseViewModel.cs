@@ -10,7 +10,18 @@
     {
         public int Id { get; set; }
 
-        public virtual BeerTypeResponseViewModel BeerType { get; set; }
+        public int BeerTypeId { get; set; }
+
+        public string BeerType { get; set; }
+
+        public string BeerTypeUrl
+        {
+            get
+            {
+                IIdentifierProvider identifier = new IdentifierProvider();
+                return $"{identifier.EncodeId(this.BeerTypeId)}";
+            }
+        }
 
         public string Title { get; set; }
 
@@ -30,7 +41,9 @@
         public void CreateMappings(IMapperConfiguration configuration)
         {
             configuration.CreateMap<Recipe, RecipeResponseViewModel>()
-              .ForMember(x => x.CreatorName, opt => opt.MapFrom(x => x.Creator.UserName));
+              .ForMember(x => x.CreatorName, opt => opt.MapFrom(x => x.Creator.UserName))
+              .ForMember(x => x.BeerType, opt => opt.MapFrom(x => x.BeerType.Name))
+              .ForMember(x => x.BeerTypeId, opt => opt.MapFrom(x => x.BeerTypeId));
         }
     }
 }

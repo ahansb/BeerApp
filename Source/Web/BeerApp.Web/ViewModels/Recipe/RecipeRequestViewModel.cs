@@ -16,6 +16,7 @@
 
         [Required]
         [MaxLength(2000)]
+        [DataType(DataType.MultilineText)]
         public string Content { get; set; }
 
         [Required]

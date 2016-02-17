@@ -17,6 +17,7 @@
         public int CoutryId { get; set; }
 
         [MaxLength(1000)]
+        [DataType(DataType.MultilineText)]
         public string Description { get; set; }
 
         public int? ProducedSince { get; set; }

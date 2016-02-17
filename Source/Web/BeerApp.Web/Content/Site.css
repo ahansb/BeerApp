@@ -22,3 +22,11 @@ select,
 textarea {
     max-width: 280px;
 }
+
+/* Custom CSS */
+body {
+    background-image: url("SiteImages/background-image.jpg");
+}
+.body-content{
+    background: rgba(255, 255, 150, 0.4);
+}
