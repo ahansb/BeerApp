@@ -46,7 +46,16 @@
             }
             else
             {
-                vote.Type = (VoteType) voteType;
+                // Neutralizing vote
+                if (vote.Type != (VoteType)voteType)
+                {
+                    vote.Type = VoteType.Neutral;
+                }
+                else if (vote.Type == VoteType.Neutral)
+                {
+                    vote.Type = (VoteType)voteType;
+                }
+
                 this.votes.SaveVoteChanges();
             }
 

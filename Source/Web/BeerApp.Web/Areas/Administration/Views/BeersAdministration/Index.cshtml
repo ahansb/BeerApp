@@ -1,0 +1,37 @@
+﻿@using Kendo.Mvc.UI
+
+@(Html.Kendo().Grid<BeerApp.Data.Models.Beer>()
+      .Name("grid")
+      .Columns(columns =>
+      {
+        columns.Bound(c => c.Name);
+        columns.Bound(c => c.Description);
+        columns.Bound(c => c.ProducedSince);
+        columns.Bound(c => c.AlcoholContaining);
+        columns.Bound(c => c.CreatedOn);
+        columns.Bound(c => c.ModifiedOn);
+        columns.Bound(c => c.IsDeleted);
+        columns.Bound(c => c.DeletedOn);
+        columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
+      })
+      .ToolBar(toolbar => {
+            toolbar.Create();
+            toolbar.Excel();
+      })
+      .ColumnMenu()
+      .Editable(editable => editable.Mode(GridEditMode.PopUp))
+      .Pageable()
+      .Sortable(sortable => {
+          sortable.SortMode(GridSortMode.MultipleColumn);
+      })
+      .Filterable()
+      .Scrollable()
+      .DataSource(dataSource => dataSource
+          .Ajax()
+          .Model(model => model.Id(p => p.Id))
+          .Read(read => read.Action("Beers_Read", "BeersAdministration"))
+          .Create(create => create.Action("Beers_Create", "BeersAdministration"))
+          .Update(update => update.Action("Beers_Update", "BeersAdministration"))
+          .Destroy(destroy => destroy.Action("Beers_Destroy", "BeersAdministration"))
+      )
+)
