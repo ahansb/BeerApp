@@ -9,13 +9,23 @@
 <h2>Beer Styles</h2>
 @foreach (var type in Model)
 {
+    <h3><a href="~/BeerType/Details/@type.Url">@type.Name</a></h3>
+
     <div class="row">
-        <h3>@Html.ActionLink(type.Name, "Details", type.Url)</h3>
-        @foreach (var beer in type.Beers)
+        @foreach (var recipe in type.Recipes.Take(3))
+        {
+            <div class="col-md-4">
+                <h4>Recipe <a href="~/Recipe/@recipe.Url">@recipe.Title</a>, by @recipe.CreatorName</h4>
+                <p>@(recipe.Content.Length > 201 ? recipe.Content.Substring(0, 200) + "..." : recipe.Content);</p>
+            </div>
+        }
+    </div>
+
+    <div class="row">
+        @foreach (var beer in type.Beers.Take(3))
         {
             <div class="col-md-4">
                 <h4><strong><a href="~/Beer/Details/@beer.Url">@beer.Name</a></strong>, @beer.Country</h4>
-                <h6><em>Produced since @beer.ProducedSince</em></h6>
                 <p>@(beer.Description.Length > 201 ? beer.Description.Substring(0, 200) + "..." : beer.Description);</p>
             </div>
         }

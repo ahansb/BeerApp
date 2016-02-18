@@ -1,12 +1,13 @@
 ﻿namespace BeerApp.Web.ViewModels.Beer
 {
+    using System.Collections.Generic;
     using BeerType;
     using Country;
     using Data.Models;
     using Infrastructure.Mapping;
     using Place;
     using Services.Web;
-    using System.Collections.Generic;
+
     public class BeerResponseViewModel : IMapFrom<Beer>
     {
         public int Id { get; set; }

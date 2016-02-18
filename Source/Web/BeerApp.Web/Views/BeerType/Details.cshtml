@@ -4,7 +4,18 @@
     ViewBag.Title = "Details";
 }
 
-<h2>@Html.ActionLink(Model.Name, "~/BeerType/Details/" + Model.Url)</h2>
+<h2><a href="~/BeerType/Details/@Model.Url">@Model.Name</a></h2>
+
+<div class="row">
+    @foreach (var recipe in Model.Recipes)
+    {
+        <div class="col-md-4">
+            <h4>Recipe <a href="~/Recipe/@recipe.Url">@recipe.Title</a>, by @recipe.CreatorName</h4>
+            <p>@(recipe.Content.Length > 201 ? recipe.Content.Substring(0, 200) + "..." : recipe.Content);</p>
+        </div>
+    }
+</div>
+
 <div class="row">
     @foreach (var beer in Model.Beers)
     {
