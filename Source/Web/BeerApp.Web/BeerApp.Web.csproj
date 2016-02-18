@@ -202,6 +202,7 @@
     <Compile Include="Controllers\BeerController.cs" />
     <Compile Include="Controllers\BeersController.cs" />
     <Compile Include="Controllers\BeerTypeController.cs" />
+    <Compile Include="Controllers\BeerVotesController.cs" />
     <Compile Include="Controllers\CountryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -325,6 +326,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\BeerVotes\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

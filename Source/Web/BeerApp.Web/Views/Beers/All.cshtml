@@ -9,57 +9,111 @@
 @foreach (var beer in @Model.Beers)
 {
     <div class="row">
-        <div class="col-md-2">
-            <img src="" alt="beer-logo" />
+        <div class="col-md-1">
+            <div class="well text-center">
+                <div class="row" data-id="@beer.Id" data-action="up"><span class="glyphicon glyphicon-thumbs-up"></span></div>
+                <div class="row" data-id="@beer.Id" data-action="votesCount">@beer.VotesCount</div>
+                <div class="row" data-id="@beer.Id" data-action="down"><span class="glyphicon glyphicon-thumbs-down"></span></div>
+            </div>
         </div>
         <div class="col-md-2">
-            <h3><a href="~/Beer/Details/@beer.Url">@beer.Name</a></h3>
-            <h4>
-                <strong><a href="~/BeerType/Details/@beer.Type.Url">@beer.Type.Name</a></strong><br />
-                <strong><a href="~/Country/Details/@beer.Country.Url">@beer.Country.Name</a></strong><br />
+            <div class="row">
+                <img src="" alt="beer-logo" />
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="row">
+                <h4>
+                    <a href="~/Beer/Details/@beer.Url">@beer.Name</a>
+                </h4>
+            </div>
+            <div class="row">
+                <h5>
+                    <a href="~/BeerType/Details/@beer.Type.Url">@beer.Type.Name</a>,
+                    <a href="~/Country/Details/@beer.Country.Url">@beer.Country.Name</a>
+                </h5>
+            </div>
+            <div class="row">
                 @if (beer.ProducedSince != null)
                 {
-                    <em>In production since @beer.ProducedSince</em><br />
+                    <em>In production since @beer.ProducedSince</em>
                 }
-                <strong>Alcohol Containing: @beer.AlcoholContaining</strong><br />
-            </h4>
+            </div>
+            <div class="row">
+                <em>Alcohol Containing: @beer.AlcoholContaining</em>
+            </div>
         </div>
-        <div class="col-md-8">
-            <p>
-                @beer.Description
-            </p>
+        <div class="col-md-7">
+            <div class="row">
+                <p>
+                    @(beer.Description.Length > 201 ? beer.Description.Substring(0, 200) + "..." : beer.Description);
+                </p>
+            </div>
         </div>
     </div>
 }
-<nav>
-    <ul class="pagination">
-        @if (Model.CurrentPage > 1)
-        {
-            <li>
-                <a href="/Beers/All/@Model.EncodePage(Model.CurrentPage-1)" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                </a>
-            </li>
-        }
-
-        @for (int i = 1; i <= Model.TotalPages; i++)
-        {
-            var className = string.Empty;
-            if (Model.CurrentPage == i)
+<div class="row">
+    <div class="text-center">
+        <nav>
+            <ul class="pagination">
+                @if (Model.CurrentPage > 1)
             {
-                className = "active";
-            }
-            <li class="@className"><a href="/Beers/All/@Model.EncodePage(i)">@i</a></li>
+                    <li>
+                        <a href="/Beers/All/@Model.EncodePage(Model.CurrentPage-1)" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                }
 
-        }
-        @if (Model.CurrentPage < Model.TotalPages)
-        {
-            <li>
-                <a href="/Beers/All/@Model.EncodePage(Model.CurrentPage+1)" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                </a>
-            </li>
-        }
+                @for (int i = 1; i <= Model.TotalPages; i++)
+            {
+                var className = string.Empty;
+                if (Model.CurrentPage == i)
+                {
+                    className = "active";
+                }
+                <li class="@className"><a href="/Beers/All/@Model.EncodePage(i)">@i</a></li>
 
-    </ul>
-</nav>
+                }
+                @if (Model.CurrentPage < Model.TotalPages)
+            {
+                    <li>
+                        <a href="/Beers/All/@Model.EncodePage(Model.CurrentPage+1)" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                }
+
+            </ul>
+        </nav>
+
+    </div>
+</div>
+@*TODO : into css file*@
+<style>
+    div[data-action="up"], div[data-action="down"] {
+        cursor: pointer;
+    }
+</style>
+@section scripts {
+    <script>
+        $("div[data-action='up']").click(function () {
+            var id = $(this).attr("data-id");
+            voteClick(id, 1);
+        });
+
+        $("div[data-action='down']").click(function () {
+            var id = $(this).attr("data-id");
+            voteClick(id, -1);
+        });
+
+        function voteClick(id, voteType) {
+            $.post("/BeerVotes/Vote", { beerId: id, voteType: voteType },
+                function (data) {
+                    var newVotesCount = data.Count;
+                    $("div[data-action='votesCount'][data-id='" + id + "']")
+                        .html(newVotesCount);
+                });
+        }
+    </script>
+}

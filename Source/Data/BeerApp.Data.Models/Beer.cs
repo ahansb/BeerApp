@@ -9,12 +9,13 @@
     public class Beer : BaseModel<int>
     {
         private ICollection<Comment> comments;
-
         private ICollection<Place> places;
+        private ICollection<BeerVote> votes;
+
         public Beer()
         {
             this.comments = new HashSet<Comment>();
-            
+            this.votes = new HashSet<BeerVote>();
             this.places = new HashSet<Place>();
         }
 
@@ -44,5 +45,7 @@
 
         //public virtual ICollection<Place> Places { get; set; }
         public virtual ICollection<Place> Places { get { return this.places; } set { this.places = value; } }
+
+        public virtual ICollection<BeerVote> Votes { get { return this.votes; } set { this.votes = value; } }
     }
 }
