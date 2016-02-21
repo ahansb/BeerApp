@@ -1,8 +1,8 @@
-﻿namespace BeerApp.Data.Common
+﻿namespace BeerApp.Data.Common.Repositories.Contracts
 {
     using System.Linq;
 
-    using BeerApp.Data.Common.Models;
+    using Models;
 
     public interface IDbRepository<T> : IDbRepository<T, int>
         where T : BaseModel<int>

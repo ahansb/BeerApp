@@ -3,15 +3,12 @@
     using System.Data.Entity;
     using System.Reflection;
     using System.Web.Mvc;
-
     using Autofac;
     using Autofac.Integration.Mvc;
-
     using Controllers;
-
     using Data;
-    using Data.Common;
-
+    using Data.Common.Repositories;
+    using Data.Common.Repositories.Contracts;
     using Services.Data;
     using Services.Web;
 
@@ -62,6 +59,10 @@
 
             builder.RegisterGeneric(typeof(DbRepository<>))
                 .As(typeof(IDbRepository<>))
+                .InstancePerRequest();
+
+            builder.RegisterGeneric(typeof(DeletableEntityRepository<>))
+                .As(typeof(IDeletableEntityRepository<>))
                 .InstancePerRequest();
 
             builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())

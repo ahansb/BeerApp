@@ -5,18 +5,40 @@
 }
 
 
-<h2><a href="~/Beer/Details/@Model.Url">@Model.Name</a></h2>
-<h4>
-    <strong><a href="~/BeerType/Details/@Model.Type.Url">@Model.Type.Name</a></strong><br/>
-    <strong><a href="~/Country/Details/@Model.Country.Url">@Model.Country.Name</a></strong><br />
-    @if (Model.ProducedSince != null)
-    {
-        <em>In production since @Model.ProducedSince</em><br />
-    }
-    <strong>Alcohol Containing: @Model.AlcoholContaining</strong><br />
-</h4>
+
+<div class="row">
+    <div class="col-md-1">
+        <div class="well text-center">
+            <div class="row" data-id="@Model.Id" data-action="up"><span class="glyphicon glyphicon-thumbs-up"></span></div>
+            <div class="row" data-id="@Model.Id" data-action="votesCount">@Model.VotesCount</div>
+            <div class="row" data-id="@Model.Id" data-action="down"><span class="glyphicon glyphicon-thumbs-down"></span></div>
+        </div>
+    </div>
+    <div class="col-md-1">
+        <div class="well text-center">
+            <div><span class="glyphicon glyphicon-tag"></span></div>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <img src="" alt="beer-logo" />
+    </div>
+    <div class="col-md-4">
+        <h2><a href="~/Beer/Details/@Model.Url">@Model.Name</a></h2>
+        <h4>
+            <strong><a href="~/BeerType/Details/@Model.Type.Url">@Model.Type.Name</a></strong><br />
+            <strong><a href="~/Country/Details/@Model.Country.Url">@Model.Country.Name</a></strong><br />
+            @if (Model.ProducedSince != null)
+            {
+                <em>In production since @Model.ProducedSince</em><br />
+            }
+            <strong>Alcohol Containing: @Model.AlcoholContaining</strong><br />
+        </h4>
+    </div>
+</div>
 <div>
     <p>
         @Model.Description
     </p>
 </div>
+<div><h1>COMMENTS</h1></div>
+

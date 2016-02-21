@@ -21,7 +21,7 @@
         {
             var beerTypes = this.beerTypes.GetAll().OrderBy(bt => bt.Name).ToList();
 
-            ICollection<BeerTypeResponseViewModel> viewModel = this.Mapper.Map<ICollection<BeerTypeResponseViewModel>>(beerTypes);
+            ICollection<SimpleBeerTypeResponseViewModel> viewModel = this.Mapper.Map<ICollection<SimpleBeerTypeResponseViewModel>>(beerTypes);
 
             return this.View(viewModel);
         }

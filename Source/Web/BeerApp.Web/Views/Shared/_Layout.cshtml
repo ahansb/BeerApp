@@ -9,7 +9,6 @@
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/kendo")
-
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -25,14 +24,15 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Beer Styles","All","BeerType")</li>
                     <li>@Html.ActionLink("Beers", "All", "Beers")</li>
+                    <li>@Html.ActionLink("Beer Styles","All","BeerType")</li>
                     <li>@Html.ActionLink("Countries", "All", "Country")</li>
                     <li>@Html.ActionLink("Places", "All", "Place")</li>
                     <li>@Html.ActionLink("Recipes", "All", "Recipe")</li>
-                    <li>@Html.ActionLink("Add Beer", "Add", "Beer")</li>
                     <li>@Html.ActionLink("Add Place", "Add", "Place")</li>
                     <li>@Html.ActionLink("Add Recipe", "Add", "Recipe")</li>
+                    <li>@Html.ActionLink("Admin beer", "Index", "Beers",new { area = "Administration" },null)</li>
+
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

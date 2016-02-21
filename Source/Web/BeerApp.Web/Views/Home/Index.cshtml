@@ -48,11 +48,20 @@
                     <p>@(type.Recipes.FirstOrDefault().Content.Length > 201 ? type.Recipes.FirstOrDefault().Content.Substring(0, 200) + "..." : type.Recipes.FirstOrDefault().Content);</p>
                 </div>
             }
+            else
+            {
+<div class="text-justify">No Recipies for this beer style.</div>
+            }
             @foreach (var beer in type.Beers.Take(2))
             {
-                <div>
-                    <h6><a href="~/Beer/Details/@beer.Url">@beer.Name</a>, @beer.Country</h6>
-                    <p>@(beer.Description.Length > 201 ? beer.Description.Substring(0, 200) + "..." : beer.Description);</p>
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="" alt="beer-logo" />
+                    </div>
+                    <div class="col-md-9">
+                        <h6><a href="~/Beer/Details/@beer.Url">@beer.Name</a>, @beer.Country</h6>
+                        <p>@(beer.Description.Length > 201 ? beer.Description.Substring(0, 200) + "..." : beer.Description);</p>
+                    </div>
                 </div>
             }
         </div>

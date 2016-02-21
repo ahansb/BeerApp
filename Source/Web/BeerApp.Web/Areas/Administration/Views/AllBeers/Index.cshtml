@@ -29,9 +29,9 @@
       .DataSource(dataSource => dataSource
           .Ajax()
           .Model(model => model.Id(p => p.Id))
-          .Read(read => read.Action("Beers_Read", "BeersAdministration"))
-          .Create(create => create.Action("Beers_Create", "BeersAdministration"))
-          .Update(update => update.Action("Beers_Update", "BeersAdministration"))
-          .Destroy(destroy => destroy.Action("Beers_Destroy", "BeersAdministration"))
+          .Read(read => read.Action("Beers_Read", "Beers"))
+          .Create(create => create.Action("Beers_Create", "Beers"))
+          .Update(update => update.Action("Beers_Update", "Beers"))
+          .Destroy(destroy => destroy.Action("Beers_Destroy", "Beers"))
       )
 )

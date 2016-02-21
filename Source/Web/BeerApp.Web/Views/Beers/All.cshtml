@@ -5,53 +5,63 @@
 }
 
 <h2>All Beers, Page @Model.CurrentPage</h2>
+<div class="row">
+    <div class="col-md-6">
+        <a href="~/Beer/Add" class="btn btn-success">Add new BEER!</a>
+    </div>
+</div>
+<div class="row">
+    @foreach (var beer in @Model.Beers)
+    {
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-1">
+                    <div class="well text-center">
+                        <div class="row" data-id="@beer.Id" data-action="up"><span class="glyphicon glyphicon-thumbs-up"></span></div>
+                        <div class="row" data-id="@beer.Id" data-action="votesCount">@beer.VotesCount</div>
+                        <div class="row" data-id="@beer.Id" data-action="down"><span class="glyphicon glyphicon-thumbs-down"></span></div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="well text-center">
+                        <div><span class="glyphicon glyphicon-tag"></span></div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <img src="" alt="beer-logo" />
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <h4>
+                            <a href="~/Beer/Details/@beer.Url">@beer.Name</a>
+                        </h4>
+                    </div>
+                    <div class="row">
+                        <h5>
+                            <a href="~/BeerType/Details/@beer.Type.Url">@beer.Type.Name</a>,
+                            <a href="~/Country/Details/@beer.Country.Url">@beer.Country.Name</a>
+                        </h5>
+                    </div>
+                    <div class="row">
+                        @if (beer.ProducedSince != null)
+                        {
+                            <em>In production since @beer.ProducedSince</em>
+                        }
+                    </div>
+                    <div class="row">
+                        <em>Alcohol Containing: @beer.AlcoholContaining</em>
+                    </div>
+                </div>
 
-@foreach (var beer in @Model.Beers)
-{
-    <div class="row">
-        <div class="col-md-1">
-            <div class="well text-center">
-                <div class="row" data-id="@beer.Id" data-action="up"><span class="glyphicon glyphicon-thumbs-up"></span></div>
-                <div class="row" data-id="@beer.Id" data-action="votesCount">@beer.VotesCount</div>
-                <div class="row" data-id="@beer.Id" data-action="down"><span class="glyphicon glyphicon-thumbs-down"></span></div>
             </div>
-        </div>
-        <div class="col-md-2">
-            <div class="row">
-                <img src="" alt="beer-logo" />
-            </div>
-        </div>
-        <div class="col-md-2">
-            <div class="row">
-                <h4>
-                    <a href="~/Beer/Details/@beer.Url">@beer.Name</a>
-                </h4>
-            </div>
-            <div class="row">
-                <h5>
-                    <a href="~/BeerType/Details/@beer.Type.Url">@beer.Type.Name</a>,
-                    <a href="~/Country/Details/@beer.Country.Url">@beer.Country.Name</a>
-                </h5>
-            </div>
-            <div class="row">
-                @if (beer.ProducedSince != null)
-                {
-                    <em>In production since @beer.ProducedSince</em>
-                }
-            </div>
-            <div class="row">
-                <em>Alcohol Containing: @beer.AlcoholContaining</em>
-            </div>
-        </div>
-        <div class="col-md-7">
             <div class="row">
                 <p>
                     @(beer.Description.Length > 201 ? beer.Description.Substring(0, 200) + "..." : beer.Description);
                 </p>
             </div>
         </div>
-    </div>
-}
+    }
+</div>
 <div class="row">
     <div class="text-center">
         <nav>

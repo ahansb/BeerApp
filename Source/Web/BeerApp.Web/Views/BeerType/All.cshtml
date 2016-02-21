@@ -1,35 +1,17 @@
 ﻿@using BeerApp.Web.ViewModels.BeerType;
 
-@model  ICollection<BeerTypeResponseViewModel>
+@model  ICollection<SimpleBeerTypeResponseViewModel>
 
 @{
     ViewBag.Title = "All";
 }
-
-<h2>Beer Styles</h2>
-@foreach (var type in Model)
-{
-    <h3><a href="~/BeerType/Details/@type.Url">@type.Name</a></h3>
-
-    <div class="row">
-        @foreach (var recipe in type.Recipes.Take(3))
-        {
-            <div class="col-md-4">
-                <h4>Recipe <a href="~/Recipe/@recipe.Url">@recipe.Title</a>, by @recipe.CreatorName</h4>
-                <p>@(recipe.Content.Length > 201 ? recipe.Content.Substring(0, 200) + "..." : recipe.Content);</p>
-            </div>
-        }
-    </div>
-
-    <div class="row">
-        @foreach (var beer in type.Beers.Take(3))
-        {
-            <div class="col-md-4">
-                <h4><strong><a href="~/Beer/Details/@beer.Url">@beer.Name</a></strong>, @beer.Country</h4>
-                <p>@(beer.Description.Length > 201 ? beer.Description.Substring(0, 200) + "..." : beer.Description);</p>
-            </div>
-        }
-    </div>
-}
-
+<div class="row">
+    <h2>Beer Styles</h2>
+    @foreach (var type in Model)
+    {
+        <div class="col-md-3">
+            <h3><a href="~/BeerType/Details/@type.Url">@type.Name</a></h3>
+        </div>
+    }
+</div>
 

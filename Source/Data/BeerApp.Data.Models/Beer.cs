@@ -41,6 +41,9 @@
         [Required]
         public decimal AlcoholContaining { get; set; }
 
+        //[Required]
+        public string PhotoUrl { get; set; }
+
         public virtual ICollection<Comment> Comments { get { return this.comments; } set { this.comments = value; } }
 
         //public virtual ICollection<Place> Places { get; set; }

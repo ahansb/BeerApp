@@ -2,12 +2,8 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using Models;
-
-
+      
     public class SeedData
     {
         public static Random Rand = new Random();
@@ -131,6 +127,10 @@
                     Content = "Content" + (i + 1)
                 });
             }
+
+            // Adding Comments
+
+            Comments = new List<Comment>();
 
         }
     }

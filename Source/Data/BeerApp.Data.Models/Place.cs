@@ -36,6 +36,8 @@
         [MaxLength(50)]
         public string Phone { get; set; }
 
+        public string PhotoUrl { get; set; }
+
         [Required]
         public string CreatorId { get; set; }
 

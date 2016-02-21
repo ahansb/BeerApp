@@ -1,26 +1,21 @@
 ﻿@using BeerApp.Web.ViewModels.Country;
 
-@model ICollection<CountryResponseViewModel>
+@model ICollection<SimpleCountryResponseViewModel>
 
 @{
     ViewBag.Title = "All";
 }
 
-<h2>Countries</h2>
-
-@foreach (var country in Model)
-{
-    <div class="row">
-        <h3>Beers from <a href="~/Country/Details/@country.Url">@country.Name</a></h3>
-        @foreach (var beer in country.Beers.Take(3))
-        {
-            <div class="col-md-4">
-                <h4><strong><a href="~/Beer/Details/@beer.Url">@beer.Name</a></strong>, @beer.Type</h4>
-                <p>
-                    @(beer.Description.Length > 201 ? beer.Description.Substring(0, 200) + "..." : beer.Description);
-                </p>
-            </div>
-        }
-    </div>
-
-}
+<div class="row">
+    <h2>Countries</h2>
+    <h3>Beers from</h3>
+    @foreach (var country in Model)
+    {
+        <div class="col-md-1">
+            <img src="" alt="country-flag" />
+        </div>
+        <div class="col-md-3">
+            <h3><a href="~/Country/Details/@country.Url">@country.Name</a></h3>
+        </div>
+    }
+</div>

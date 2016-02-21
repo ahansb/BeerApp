@@ -60,14 +60,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationDbContext.cs" />
-    <Compile Include="Migrations\201602100916387_InitialCreate.cs" />
-    <Compile Include="Migrations\201602100916387_InitialCreate.Designer.cs">
-      <DependentUpon>201602100916387_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602100922285_JokesAndJokesCategories.cs" />
-    <Compile Include="Migrations\201602100922285_JokesAndJokesCategories.Designer.cs">
-      <DependentUpon>201602100922285_JokesAndJokesCategories.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -75,14 +67,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201602100916387_InitialCreate.resx">
-      <DependentUpon>201602100916387_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602100922285_JokesAndJokesCategories.resx">
-      <DependentUpon>201602100922285_JokesAndJokesCategories.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\Newtonsoft.Json.dll" />

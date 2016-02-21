@@ -201,7 +201,7 @@
     <Compile Include="App_Start\SmsService.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
-    <Compile Include="Areas\Administration\Controllers\BeersAdministrationController.cs" />
+    <Compile Include="Areas\Administration\Controllers\AllBeersController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BeerController.cs" />
@@ -209,6 +209,7 @@
     <Compile Include="Controllers\BeerTypeController.cs" />
     <Compile Include="Controllers\BeerVotesController.cs" />
     <Compile Include="Controllers\CountryController.cs" />
+    <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="App_Start\GlimpseSecurityPolicy.cs" />
@@ -228,10 +229,12 @@
     <Compile Include="ViewModels\Account\VerifyCodeViewModel.cs" />
     <Compile Include="ViewModels\Beers\BeersResponseViewModel.cs" />
     <Compile Include="ViewModels\BeerType\BeerTypeResponseViewModel.cs" />
+    <Compile Include="ViewModels\BeerType\SimpleBeerTypeResponseViewModel.cs" />
     <Compile Include="ViewModels\Beer\BeerRequestViewModel.cs" />
     <Compile Include="ViewModels\Beer\SimpleBeerResponseViewModel.cs" />
     <Compile Include="ViewModels\Beer\BeerResponseViewModel.cs" />
     <Compile Include="ViewModels\Country\CountryResponseViewModel.cs" />
+    <Compile Include="ViewModels\Country\SimpleCountryResponseViewModel.cs" />
     <Compile Include="ViewModels\Home\IndexResponseViewModel.cs" />
     <Compile Include="ViewModels\Manage\AddPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\Manage\ChangePasswordViewModel.cs" />
@@ -324,7 +327,7 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Areas\Administration\Views\web.config" />
-    <Content Include="Areas\Administration\Views\BeersAdministration\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\AllBeers\Index.cshtml" />
     <Content Include="Content\KendoUI\fonts\DejaVu\DejaVuSans-Bold.ttf" />
     <Content Include="Content\KendoUI\fonts\DejaVu\DejaVuSans-BoldOblique.ttf" />
     <Content Include="Content\KendoUI\fonts\DejaVu\DejaVuSans-ExtraLight.ttf" />
@@ -402,6 +405,7 @@
     <Content Include="Views\Recipe\Details.cshtml" />
     <Content Include="Views\Recipe\All.cshtml" />
     <Content Include="Views\Beers\All.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\BeerViewModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -410,6 +414,7 @@
     <Folder Include="Views\Base\" />
     <Folder Include="Views\BeersAdministration\" />
     <Folder Include="Views\BeerVotes\" />
+    <Folder Include="Views\File\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

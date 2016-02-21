@@ -10,5 +10,11 @@
         Beer GetById(string id);
 
         int Add(Beer beer);
+
+        void Update(Beer beer);
+
+        void Delete(Beer beer);
+
+        void Dispose();
     }
 }

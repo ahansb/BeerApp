@@ -3,7 +3,9 @@
     using System.ComponentModel.DataAnnotations;
     using Infrastructure.Mapping;
     using Data.Models;
-
+    using System.Collections.Generic;
+    using BeerType;
+    using Country;
     public class BeerRequestViewModel : IMapTo<Beer>
     {
         [Required]
@@ -25,5 +27,8 @@
         [Required]
         public decimal AlcoholContaining { get; set; }
 
+        public IEnumerable<SimpleBeerTypeResponseViewModel> BeerTypes { get; set; }
+
+        public IEnumerable<SimpleCountryResponseViewModel> Countries { get; set; }
     }
 }

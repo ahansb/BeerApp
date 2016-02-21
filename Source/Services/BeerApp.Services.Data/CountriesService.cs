@@ -1,7 +1,7 @@
 ﻿namespace BeerApp.Services.Data
 {
     using System.Linq;
-    using BeerApp.Data.Common;
+    using BeerApp.Data.Common.Repositories.Contracts;
     using BeerApp.Data.Models;
     using Web;
 

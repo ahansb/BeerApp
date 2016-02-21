@@ -1,13 +1,10 @@
 ﻿namespace BeerApp.Services.Data
 {
-    using System;
-    using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
+    using BeerApp.Data.Common.Repositories.Contracts;
     using BeerApp.Data.Models;
-    using BeerApp.Data.Common;
     using Web;
+
     public class BeerVotesService : IBeerVotesService
     {
         private readonly IDbRepository<BeerVote> beerVotes;

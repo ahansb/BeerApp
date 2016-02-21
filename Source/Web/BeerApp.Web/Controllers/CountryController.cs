@@ -22,7 +22,7 @@
         {
             var countries = this.countries.GetAll().OrderBy(c => c.Name).ToList();
 
-            var viewModel = this.Mapper.Map<ICollection<CountryResponseViewModel>>(countries);
+            var viewModel = this.Mapper.Map<ICollection<SimpleCountryResponseViewModel>>(countries);
 
             return this.View(viewModel);
         }

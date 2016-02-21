@@ -5,7 +5,7 @@
     using System.ComponentModel.DataAnnotations.Schema;
 
     using Common.Models;
-    
+
     public class Country : BaseModel<int>
     {
         private ICollection<Beer> beers;
@@ -21,6 +21,8 @@
         [Index(IsUnique = true)]
         [MaxLength(100)]
         public string Name { get; set; }
+
+        public string FlagUrl { get; set; }
 
         public virtual ICollection<Beer> Beers { get { return this.beers; } set { this.beers = value; } }
 

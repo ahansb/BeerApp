@@ -1,21 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Net;
-using System.Web;
-using System.Web.Mvc;
-using Kendo.Mvc.Extensions;
-using Kendo.Mvc.UI;
-using BeerApp.Data.Models;
-using BeerApp.Data;
-
-namespace BeerApp.Web.Areas.Administration.Controllers
+﻿namespace BeerApp.Web.Areas.Administration.Controllers
 {
-    public class BeersAdministrationController : Controller
+    using System;
+    using System.Linq;
+    using System.Web.Mvc;
+    using Data;
+    using Data.Models;
+    using Kendo.Mvc.Extensions;
+    using Kendo.Mvc.UI;
+    using Services.Data;
+
+    public class AllBeersController : Controller
     {
+        private readonly IBeersService beers;
         private ApplicationDbContext db = new ApplicationDbContext();
+
+        public AllBeersController(IBeersService beers)
+        {
+            this.beers = beers;
+        }
 
         public ActionResult Index()
         {
@@ -24,7 +26,7 @@ namespace BeerApp.Web.Areas.Administration.Controllers
 
         public ActionResult Beers_Read([DataSourceRequest]DataSourceRequest request)
         {
-            IQueryable<Beer> beers = db.Beers;
+            IQueryable<Beer> beers = this.beers.GetAll();
             DataSourceResult result = beers.ToDataSourceResult(request, beer => new {
                 Id = beer.Id,
                 Name = beer.Name,
@@ -57,9 +59,7 @@ namespace BeerApp.Web.Areas.Administration.Controllers
                     DeletedOn = beer.DeletedOn
                 };
 
-                db.Beers.Add(entity);
-                db.SaveChanges();
-                beer.Id = entity.Id;
+                beer.Id = this.beers.Add(entity);
             }
 
             return Json(new[] { beer }.ToDataSourceResult(request, ModelState));
@@ -82,10 +82,11 @@ namespace BeerApp.Web.Areas.Administration.Controllers
                     IsDeleted = beer.IsDeleted,
                     DeletedOn = beer.DeletedOn
                 };
+                this.beers.Update(entity);
 
-                db.Beers.Attach(entity);
-                db.Entry(entity).State = EntityState.Modified;
-                db.SaveChanges();
+                //db.Beers.Attach(entity);
+                //db.Entry(entity).State = EntityState.Modified;
+                //db.SaveChanges();
             }
 
             return Json(new[] { beer }.ToDataSourceResult(request, ModelState));
@@ -109,9 +110,10 @@ namespace BeerApp.Web.Areas.Administration.Controllers
                     DeletedOn = beer.DeletedOn
                 };
 
-                db.Beers.Attach(entity);
-                db.Beers.Remove(entity);
-                db.SaveChanges();
+                this.beers.Delete(entity);
+                //db.Beers.Attach(entity);
+                //db.Beers.Remove(entity);
+                //db.SaveChanges();
             }
 
             return Json(new[] { beer }.ToDataSourceResult(request, ModelState));
@@ -122,12 +124,12 @@ namespace BeerApp.Web.Areas.Administration.Controllers
         {
             var fileContents = Convert.FromBase64String(base64);
 
-            return File(fileContents, contentType, fileName);
+            return this.File(fileContents, contentType, fileName);
         }
 
         protected override void Dispose(bool disposing)
         {
-            db.Dispose();
+            this.beers.Dispose();
             base.Dispose(disposing);
         }
     }

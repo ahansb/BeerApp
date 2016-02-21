@@ -1,10 +1,10 @@
-﻿namespace BeerApp.Data.Common
+﻿namespace BeerApp.Data.Common.Repositories
 {
     using System;
     using System.Data.Entity;
     using System.Linq;
-
-    using BeerApp.Data.Common.Models;
+    using Contracts;
+    using Models;
 
     // TODO: Why BaseModel<int> instead BaseModel<TKey>?
     public class DbRepository<T> : IDbRepository<T>
