@@ -15,6 +15,13 @@
 
         void Delete(Beer beer);
 
-        void Dispose();
+        int AdminCreate(Beer entity);
+        
+        void AdminUpdate(Beer entity);
+
+        void AdminDestroy(int id);
+        
+        void AdminDispose();
+
     }
 }

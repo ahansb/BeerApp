@@ -5,15 +5,15 @@
     using System.Web.Mvc;
     using Data;
     using Data.Models;
+    using Infrastructure.Mapping;
     using Kendo.Mvc.Extensions;
     using Kendo.Mvc.UI;
-    using Services.Data;
     using Models;
-    using Infrastructure.Mapping;
+    using Services.Data;
+
     public class AllBeersController : Controller
     {
         private readonly IBeersService beers;
-        private ApplicationDbContext db = new ApplicationDbContext();
 
         public AllBeersController(IBeersService beers)
         {
@@ -22,20 +22,20 @@
 
         public ActionResult Index()
         {
-            return View();
+            return this.View();
         }
 
         public ActionResult Beers_Read([DataSourceRequest]DataSourceRequest request)
         {
             DataSourceResult result = this.beers.GetAll().To<AdminBeerResponseViewModel>().ToDataSourceResult(request);
 
-            return Json(result);
+            return this.Json(result);
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Beers_Create([DataSourceRequest]DataSourceRequest request, Beer beer)
         {
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
                 var entity = new Beer
                 {
@@ -49,16 +49,16 @@
                     DeletedOn = beer.DeletedOn
                 };
 
-                beer.Id = this.beers.Add(entity);
+                beer.Id = this.beers.AdminCreate(entity);
             }
 
-            return Json(new[] { beer }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { beer }.ToDataSourceResult(request, this.ModelState));
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Beers_Update([DataSourceRequest]DataSourceRequest request, Beer beer)
         {
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
                 var entity = new Beer
                 {
@@ -72,41 +72,25 @@
                     IsDeleted = beer.IsDeleted,
                     DeletedOn = beer.DeletedOn
                 };
-                this.beers.Update(entity);
+                this.beers.AdminUpdate(entity);
 
                 //db.Beers.Attach(entity);
                 //db.Entry(entity).State = EntityState.Modified;
                 //db.SaveChanges();
             }
 
-            return Json(new[] { beer }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { beer }.ToDataSourceResult(request, this.ModelState));
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Beers_Destroy([DataSourceRequest]DataSourceRequest request, Beer beer)
         {
-            if (ModelState.IsValid)
-            {
-                var entity = new Beer
-                {
-                    Id = beer.Id,
-                    Name = beer.Name,
-                    Description = beer.Description,
-                    ProducedSince = beer.ProducedSince,
-                    AlcoholContaining = beer.AlcoholContaining,
-                    CreatedOn = beer.CreatedOn,
-                    ModifiedOn = beer.ModifiedOn,
-                    IsDeleted = beer.IsDeleted,
-                    DeletedOn = beer.DeletedOn
-                };
-
-                this.beers.Delete(entity);
+                this.beers.AdminDestroy(beer.Id);
                 //db.Beers.Attach(entity);
                 //db.Beers.Remove(entity);
                 //db.SaveChanges();
-            }
 
-            return Json(new[] { beer }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { beer }.ToDataSourceResult(request, this.ModelState));
         }
 
         [HttpPost]
@@ -119,7 +103,7 @@
 
         protected override void Dispose(bool disposing)
         {
-            this.beers.Dispose();
+            this.beers.AdminDispose();
             base.Dispose(disposing);
         }
     }

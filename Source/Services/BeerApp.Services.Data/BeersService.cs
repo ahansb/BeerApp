@@ -51,7 +51,26 @@
             this.beers.Save();
         }
 
-        public void Dispose()
+        public int AdminCreate(Beer entity)
+        {
+            this.deleteableRepo.Add(entity);
+            this.deleteableRepo.SaveChanges();
+            return entity.Id;
+        }
+
+        public void AdminUpdate(Beer entity)
+        {
+            this.deleteableRepo.Update(entity);
+            this.deleteableRepo.SaveChanges();
+        }
+
+        public void AdminDestroy(int id)
+        {
+            this.deleteableRepo.Delete(id);
+            this.deleteableRepo.SaveChanges();
+        }
+        
+        public void AdminDispose()
         {
             this.deleteableRepo.Dispose();
         }
