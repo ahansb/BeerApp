@@ -9,6 +9,8 @@
 
         Beer GetById(string id);
 
+        Beer GetByIntId(int id);
+            
         int Add(Beer beer);
 
         void Update(Beer beer);
@@ -17,7 +19,7 @@
 
         int AdminCreate(Beer entity);
         
-        void AdminUpdate(Beer entity);
+        int AdminUpdate(Beer entity);
 
         void AdminDestroy(int id);
         

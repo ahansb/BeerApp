@@ -23,15 +23,15 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Beers", "All", "Beers")</li>
-                    <li>@Html.ActionLink("Beer Styles","All","BeerType")</li>
-                    <li>@Html.ActionLink("Countries", "All", "Country")</li>
-                    <li>@Html.ActionLink("Places", "All", "Place")</li>
-                    <li>@Html.ActionLink("Recipes", "All", "Recipe")</li>
-                    <li>@Html.ActionLink("Add Place", "Add", "Place")</li>
-                    <li>@Html.ActionLink("Add Recipe", "Add", "Recipe")</li>
-                    <li>@Html.ActionLink("Admin beer", "Index", "Beers",new { area = "Administration" },null)</li>
+                    <li>@Html.ActionLink("Home", "Index", "Home",new { area = string.Empty },null)</li>
+                    <li>@Html.ActionLink("Beers", "All", "Beers", new { area = string.Empty }, null)</li>
+                    <li>@Html.ActionLink("Beer Styles","All","BeerType", new { area = string.Empty }, null)</li>
+                    <li>@Html.ActionLink("Countries", "All", "Country", new { area = string.Empty }, null)</li>
+                    <li>@Html.ActionLink("Places", "All", "Place", new { area = string.Empty }, null)</li>
+                    <li>@Html.ActionLink("Recipes", "All", "Recipe", new { area = string.Empty }, null)</li>
+                    <li>@Html.ActionLink("Add Place", "Add", "Place", new { area = string.Empty }, null)</li>
+                    <li>@Html.ActionLink("Add Recipe", "Add", "Recipe", new { area = string.Empty }, null)</li>
+                    <li>@Html.ActionLink("Admin beer", "Index", "AllBeers",new { area = "Administration" },null)</li>
 
                 </ul>
                 @Html.Partial("_LoginPartial")

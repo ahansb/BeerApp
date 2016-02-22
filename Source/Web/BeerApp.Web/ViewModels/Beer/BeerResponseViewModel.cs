@@ -10,6 +10,7 @@
     using Place;
     using Services.Web;
     using System.Linq;
+
     public class BeerResponseViewModel : IMapFrom<Beer>, IHaveCustomMappings
     {
         public int Id { get; set; }

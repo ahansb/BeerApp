@@ -202,7 +202,9 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\AllBeersController.cs" />
-    <Compile Include="Areas\Administration\Models\AdminBeerResponseViewModel.cs" />
+    <Compile Include="Areas\Administration\Controllers\BaseAdminController.cs" />
+    <Compile Include="Areas\Administration\ViewModels\Beer\AdminBeerRequestViewModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\Beer\AdminBeerViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BeerController.cs" />
@@ -406,7 +408,7 @@
     <Content Include="Views\Recipe\Details.cshtml" />
     <Content Include="Views\Recipe\All.cshtml" />
     <Content Include="Views\Beers\All.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\BeerViewModel.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\AdminBeerViewModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

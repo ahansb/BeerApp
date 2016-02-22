@@ -27,13 +27,20 @@
 
         public IQueryable<Beer> GetAll()
         {
-           return this.beers.All();
+            return this.beers.All();
         }
 
         public Beer GetById(string id)
         {
             var intId = this.identifierProvider.DecodeId(id);
             var beer = this.beers.GetById(intId);
+
+            return beer;
+        }
+
+        public Beer GetByIntId(int id)
+        {
+            var beer = this.beers.GetById(id);
 
             return beer;
         }
@@ -58,10 +65,11 @@
             return entity.Id;
         }
 
-        public void AdminUpdate(Beer entity)
+        public int AdminUpdate(Beer entity)
         {
             this.deleteableRepo.Update(entity);
             this.deleteableRepo.SaveChanges();
+            return entity.Id;
         }
 
         public void AdminDestroy(int id)
@@ -69,7 +77,7 @@
             this.deleteableRepo.Delete(id);
             this.deleteableRepo.SaveChanges();
         }
-        
+
         public void AdminDispose()
         {
             this.deleteableRepo.Dispose();

@@ -1,20 +1,20 @@
 ﻿@using Kendo.Mvc.UI
 
-@(Html.Kendo().Grid<BeerApp.Web.Areas.Administration.Models.AdminBeerResponseViewModel>()
+@(Html.Kendo().Grid<BeerApp.Web.Areas.Administration.ViewModels.Beer.AdminBeerViewModel>()
       .Name("grid")
       .Columns(columns =>
       {
           columns.Bound(c => c.Id);
           columns.Bound(c => c.Name);
-          columns.Bound(c => c.Type);
-          columns.Bound(c => c.Country);
+          columns.Bound(c => c.TypeName);
+          columns.Bound(c => c.CountryName);
           columns.Bound(c => c.ShortDescription).Title("Description");
           columns.Bound(c => c.ProducedSince);
           columns.Bound(c => c.AlcoholContaining);
           columns.Bound(c => c.PhotoUrl);
           columns.Bound(c => c.VotesCount);
           columns.Bound(c => c.CommentsCount);
-          columns.Bound(c => c.CreatedOn).Format("{0:yyyy-MM-dd HH:mm:ss}");
+          columns.Bound(c => c.CreatedOn);
           columns.Bound(c => c.ModifiedOn).Format("{0:yyyy-MM-dd HH:mm:ss}");
           columns.Bound(c => c.IsDeleted);
           columns.Bound(c => c.DeletedOn).Format("{0:yyyy-MM-dd HH:mm}");
@@ -40,4 +40,6 @@
           .Update(update => update.Action("Beers_Update", "AllBeers"))
           .Destroy(destroy => destroy.Action("Beers_Destroy", "AllBeers"))
       )
+      .HtmlAttributes(new { heigth = "100%"})
+
 )

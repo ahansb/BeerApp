@@ -1,0 +1,73 @@
+﻿@using Kendo.Mvc.UI
+@using BeerApp.Web.ViewModels.BeerType;
+@model BeerApp.Web.Areas.Administration.ViewModels.Beer.AdminBeerViewModel
+@{
+    ViewBag.Title = "AdminBeerViewModel";
+}
+
+<div class="row">
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.BeerTypeId, "Beer Style", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @(Html.Kendo().DropDownList()
+    .Name("BeerTypeId") // Name of the widget should be the same as the name of the property
+    .DataValueField("Id") // The value of the dropdown is taken from the EmployeeID property
+    .DataTextField("Name") // The text of the items is taken from the EmployeeName property
+    .BindTo((System.Collections.IEnumerable) ViewData["types"]) // A list of all employees which is populated in the controller
+            )
+            @Html.ValidationMessageFor(model => model.BeerTypeId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.CountryId, "Country", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @(Html.Kendo().DropDownList()
+    .Name("CountryId") // Name of the widget should be the same as the name of the property
+    .DataValueField("Id") // The value of the dropdown is taken from the EmployeeID property
+    .DataTextField("Name") // The text of the items is taken from the EmployeeName property
+    .BindTo((System.Collections.IEnumerable) ViewData["countries"]) // A list of all employees which is populated in the controller
+            )
+            @Html.ValidationMessageFor(model => model.CountryId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.ProducedSince, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ProducedSince, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ProducedSince, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.AlcoholContaining, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.AlcoholContaining, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.AlcoholContaining, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.PhotoUrl, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.PhotoUrl, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.PhotoUrl, "", new { @class = "text-danger" })
+        </div>
+    </div>
+</div>
