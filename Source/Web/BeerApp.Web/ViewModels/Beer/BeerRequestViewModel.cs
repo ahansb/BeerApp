@@ -16,7 +16,7 @@
         public int BeerTypeId { get; set; }
 
         [Required]
-        public int CoutryId { get; set; }
+        public int CountryId { get; set; }
 
         [MaxLength(1000)]
         [DataType(DataType.MultilineText)]

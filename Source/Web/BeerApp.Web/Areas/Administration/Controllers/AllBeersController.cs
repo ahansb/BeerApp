@@ -8,7 +8,8 @@
     using Kendo.Mvc.Extensions;
     using Kendo.Mvc.UI;
     using Services.Data;
-
+    using Models;
+    using Infrastructure.Mapping;
     public class AllBeersController : Controller
     {
         private readonly IBeersService beers;
@@ -26,18 +27,7 @@
 
         public ActionResult Beers_Read([DataSourceRequest]DataSourceRequest request)
         {
-            IQueryable<Beer> beers = this.beers.GetAll();
-            DataSourceResult result = beers.ToDataSourceResult(request, beer => new {
-                Id = beer.Id,
-                Name = beer.Name,
-                Description = beer.Description,
-                ProducedSince = beer.ProducedSince,
-                AlcoholContaining = beer.AlcoholContaining,
-                CreatedOn = beer.CreatedOn,
-                ModifiedOn = beer.ModifiedOn,
-                IsDeleted = beer.IsDeleted,
-                DeletedOn = beer.DeletedOn
-            });
+            DataSourceResult result = this.beers.GetAll().To<AdminBeerResponseViewModel>().ToDataSourceResult(request);
 
             return Json(result);
         }

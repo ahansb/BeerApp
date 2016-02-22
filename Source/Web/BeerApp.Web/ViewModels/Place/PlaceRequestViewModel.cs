@@ -4,7 +4,8 @@
     using Data.Models;
     using Infrastructure.Mapping;
     using Microsoft.AspNet.Identity;
-
+    using Country;
+    using System.Collections.Generic;
     public class PlaceRequestViewModel : IMapTo<Place>
     {
         [Required]
@@ -29,5 +30,7 @@
 
         [Required]
         public string CreatorId { get { return System.Web.HttpContext.Current.User.Identity.GetUserId(); } }
+
+        public IEnumerable<SimpleCountryResponseViewModel> Countries { get; set; }
     }
 }

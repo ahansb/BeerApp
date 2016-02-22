@@ -7,15 +7,17 @@
     using Services.Data;
     using Services.Web;
     using ViewModels.Recipe;
-
+    using ViewModels.BeerType;
     public class RecipeController : BaseController
     {
         private readonly IRecipesService recipes;
+        private readonly IBeerTypesService beerTypes;
         private readonly IIdentifierProvider identifier;
 
-        public RecipeController(IRecipesService recipes, IIdentifierProvider identifier)
+        public RecipeController(IRecipesService recipes, IIdentifierProvider identifier, IBeerTypesService beerTypes)
         {
             this.recipes = recipes;
+            this.beerTypes = beerTypes;
             this.identifier = identifier;
         }
 
@@ -42,7 +44,14 @@
         [HttpGet]
         public ActionResult Add()
         {
-            return View();
+            var types = this.beerTypes.GetAll().OrderBy(x => x.Name).ToArray();
+            var viewTypes = this.Mapper.Map<IEnumerable<SimpleBeerTypeResponseViewModel>>(types);
+
+            var model = new RecipeRequestViewModel();
+
+            model.BeerTypes = viewTypes;
+
+            return this.View(model);
         }
 
         [HttpPost]

@@ -7,15 +7,19 @@
     using ViewModels.Place;
     using System.Linq;
     using System.Collections.Generic;
+    using ViewModels.Country;
     [Authorize]
     public class PlaceController : BaseController
     {
         private readonly IPlacesService places;
+        private readonly ICountriesService countries;
         private readonly IIdentifierProvider identifier;
 
-        public PlaceController(IPlacesService places, IIdentifierProvider identifier)
+
+        public PlaceController(IPlacesService places, IIdentifierProvider identifier, ICountriesService countries)
         {
             this.places = places;
+            this.countries = countries;
             this.identifier = identifier;
         }
 
@@ -42,7 +46,12 @@
         [HttpGet]
         public ActionResult Add()
         {
-            return View();
+            var placeCountries = this.countries.GetAll().OrderBy(x => x.Name).ToArray();
+            var viewCountries = this.Mapper.Map<IEnumerable<SimpleCountryResponseViewModel>>(placeCountries);
+            var model = new PlaceRequestViewModel();
+            model.Countries = viewCountries;
+
+            return View(model);
         }
 
         [HttpPost]

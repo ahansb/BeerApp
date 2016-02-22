@@ -4,7 +4,8 @@
     using Data.Models;
     using Infrastructure.Mapping;
     using Microsoft.AspNet.Identity;
-
+    using BeerType;
+    using System.Collections.Generic;
     public class RecipeRequestViewModel : IMapTo<Recipe>
     {
         [Required]
@@ -21,5 +22,8 @@
 
         [Required]
         public string CreatorId { get { return System.Web.HttpContext.Current.User.Identity.GetUserId(); } }
+
+        public IEnumerable<SimpleBeerTypeResponseViewModel> BeerTypes { get; set; }
+
     }
 }
