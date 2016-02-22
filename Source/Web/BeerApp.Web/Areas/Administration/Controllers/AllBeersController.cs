@@ -66,27 +66,31 @@
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Beers_Update([DataSourceRequest]DataSourceRequest request, AdminBeerRequestViewModel beer)
+        public ActionResult Beers_Update([DataSourceRequest]DataSourceRequest request, AdminUpdateBeerRequestViewModel beer)
         {
-            int id = 0;
+            var id = 0;
             if (this.ModelState.IsValid)
             {
-                var entity = this.Mapper.Map<Beer>(beer);
+                var entity = this.beers.GetByIntId(beer.Id);
+                entity.Name = beer.Name;
+                entity.BeerTypeId = beer.BeerTypeId;
+                entity.CountryId = beer.CountryId;
+                entity.Description = beer.Description;
+                entity.ProducedSince = beer.ProducedSince;
+                entity.AlcoholContaining = beer.AlcoholContaining;
+                entity.PhotoUrl = beer.PhotoUrl;
                 id = this.beers.AdminUpdate(entity);
             }
 
             var newBeer = this.beers.GetByIntId(id);
-
-            return this.Json(new[] { newBeer }.ToDataSourceResult(request, this.ModelState));
+            var beerToDisplay = this.Mapper.Map<AdminBeerViewModel>(newBeer);
+            return this.Json(new[] { beerToDisplay }.ToDataSourceResult(request, this.ModelState));
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Beers_Destroy([DataSourceRequest]DataSourceRequest request, Beer beer)
         {
             this.beers.AdminDestroy(beer.Id);
-            //db.Beers.Attach(entity);
-            //db.Beers.Remove(entity);
-            //db.SaveChanges();
 
             return this.Json(new[] { beer }.ToDataSourceResult(request, this.ModelState));
         }

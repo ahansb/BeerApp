@@ -96,6 +96,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -205,6 +206,7 @@
     <Compile Include="Areas\Administration\Controllers\BaseAdminController.cs" />
     <Compile Include="Areas\Administration\ViewModels\Beer\AdminBeerRequestViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\Beer\AdminBeerViewModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\Beer\AdminUpdateBeerRequestViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BeerController.cs" />
