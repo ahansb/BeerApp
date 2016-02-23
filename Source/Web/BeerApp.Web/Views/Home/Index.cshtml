@@ -40,17 +40,25 @@
     @foreach (var type in Model.BeerTypes.Take(3))
     {
         <div class="col-md-4">
-            <h4><a href="~/BeerType/Details/@type.Url">@type.Name</a></h4>
+            <div class="row">
+                <div class="col-md-12">
+                    <h4><a href="~/BeerType/Details/@type.Url">@type.Name</a></h4>
+                </div>
+            </div>
             @if (type.Recipes.Any())
             {
-                <div>
-                    <h6>Recipe <a href="~/Recipe/@type.Recipes.FirstOrDefault().Url">@type.Recipes.FirstOrDefault().Title</a>, by @type.Recipes.FirstOrDefault().CreatorName</h6>
-                    <p>@(type.Recipes.FirstOrDefault().Content.Length > 201 ? type.Recipes.FirstOrDefault().Content.Substring(0, 200) + "..." : type.Recipes.FirstOrDefault().Content);</p>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h5>Recipe <a href="~/Recipe/@type.Recipes.FirstOrDefault().Url">@type.Recipes.FirstOrDefault().Title</a>, by @type.Recipes.FirstOrDefault().CreatorName</h5>
+                        <p>@(type.Recipes.FirstOrDefault().Content.Length > 201 ? type.Recipes.FirstOrDefault().Content.Substring(0, 200) + "..." : type.Recipes.FirstOrDefault().Content);</p>
+                    </div>
                 </div>
             }
             else
             {
-<div class="text-justify">No Recipies for this beer style.</div>
+                <div class="col-md-12">
+                    <div class="row text-justify"><h5><em>No recipies for this beer style.</em></h5></div>
+                </div>
             }
             @foreach (var beer in type.Beers.Take(2))
             {
@@ -59,7 +67,7 @@
                         <img src="" alt="beer-logo" />
                     </div>
                     <div class="col-md-9">
-                        <h6><a href="~/Beer/Details/@beer.Url">@beer.Name</a>, @beer.Country</h6>
+                        <h5><a href="~/Beer/Details/@beer.Url">@beer.Name</a>, @beer.Country</h5>
                         <p>@(beer.Description.Length > 201 ? beer.Description.Substring(0, 200) + "..." : beer.Description);</p>
                     </div>
                 </div>
