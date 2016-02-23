@@ -230,6 +230,7 @@
     <Compile Include="Controllers\BeerTypeController.cs" />
     <Compile Include="Controllers\BeerVotesController.cs" />
     <Compile Include="Controllers\CountryController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -329,10 +330,15 @@
     <Content Include="Content\KendoUI\textures\stripe6.png" />
     <Content Include="Content\KendoUI\textures\transparency.png" />
     <Content Include="Content\KendoUI\textures\transtexture.png" />
+    <Content Include="Content\SiteImages\bad-request.jpeg" />
+    <Content Include="Content\SiteImages\forbidden-donut.gif" />
     <Content Include="Content\SiteImages\home-beer.png" />
     <Content Include="Content\SiteImages\background-image.jpg" />
     <Content Include="Content\SiteImages\default-profile-picture.jpg" />
     <Content Include="Content\SiteImages\home-beer-img.jpg" />
+    <Content Include="Content\SiteImages\internal-server-simpson.jpg" />
+    <Content Include="Content\SiteImages\not-authorized.jpg" />
+    <Content Include="Content\SiteImages\not-found.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -435,6 +441,11 @@
     <Content Include="Views\Shared\EditorTemplates\AdminBeerTypeViewModel.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\AdminCountryViewModel.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\AdminRecipeViewModel.cshtml" />
+    <Content Include="Views\Error\NotAuthorized.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
+    <Content Include="Views\Error\InternalServerError.cshtml" />
+    <Content Include="Views\Error\Forbidden.cshtml" />
+    <Content Include="Views\Error\BadRequest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -13,6 +13,8 @@
     using ViewModels.Place;
     using Web.ViewModels.Country;
     using Microsoft.AspNet.Identity;
+
+    [Authorize(Roles = "Admin")]
     public class AllPlacesController : BaseAdminController
     {
         private readonly IPlacesService places;

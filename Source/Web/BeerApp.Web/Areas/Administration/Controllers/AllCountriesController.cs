@@ -9,6 +9,7 @@
     using Services.Data;
     using ViewModels.Country;
 
+    [Authorize(Roles = "Admin")]
     public class AllCountriesController : BaseAdminController
     {
         private readonly ICountriesService countries;

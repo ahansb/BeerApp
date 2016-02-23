@@ -12,6 +12,7 @@
     using ViewModels.Recipe;
     using Web.ViewModels.BeerType;
 
+    [Authorize(Roles = "Admin")]
     public class AllRecipesController : BaseAdminController
     {
         private readonly IRecipesService recipes;

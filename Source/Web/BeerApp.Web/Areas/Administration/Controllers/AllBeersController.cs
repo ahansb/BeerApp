@@ -13,6 +13,7 @@
     using Web.ViewModels.BeerType;
     using Web.ViewModels.Country;
 
+    [Authorize(Roles = "Admin")]
     public class AllBeersController : BaseAdminController
     {
         private readonly IBeersService beers;

@@ -9,6 +9,7 @@
     using Services.Data;
     using ViewModels.BeerType;
 
+    [Authorize(Roles = "Admin")]
     public class AllBeerTypesController : BaseAdminController
     {
         private readonly IBeerTypesService beerTypes;
