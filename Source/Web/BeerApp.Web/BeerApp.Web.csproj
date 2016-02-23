@@ -433,6 +433,7 @@
     <Content Include="Views\Shared\EditorTemplates\AdminPlaceViewModel.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\AdminBeerTypeViewModel.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\AdminCountryViewModel.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\AdminRecipeViewModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

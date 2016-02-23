@@ -21,6 +21,7 @@
         public string Title { get; set; }
 
         [Required]
+        [DataType(DataType.MultilineText)]
         [MaxLength(2000)]
         public string Content { get; set; }
 

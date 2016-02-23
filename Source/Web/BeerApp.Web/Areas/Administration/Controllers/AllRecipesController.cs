@@ -4,13 +4,14 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
+    using Data.Models;
+    using Infrastructure.Mapping;
     using Kendo.Mvc.Extensions;
     using Kendo.Mvc.UI;
-    using ViewModels.Recipe;
     using Services.Data;
+    using ViewModels.Recipe;
     using Web.ViewModels.BeerType;
-    using Infrastructure.Mapping;
-    using Data.Models;
+
     public class AllRecipesController : BaseAdminController
     {
         private readonly IRecipesService recipes;
@@ -41,37 +42,33 @@
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Recipes_Create([DataSourceRequest]DataSourceRequest request, AdminRecipeRequestViewModel beer)
+        public ActionResult Recipes_Create([DataSourceRequest]DataSourceRequest request, AdminRecipeRequestViewModel recipe)
         {
             var newId = 0;
 
             if (this.ModelState.IsValid)
             {
-                var entity = this.Mapper.Map<Recipe>(beer);
+                var entity = this.Mapper.Map<Recipe>(recipe);
 
                 newId = this.recipes.AdminCreate(entity);
             }
 
             var newRecipe = this.recipes.GetByIntId(newId);
-            var beerToDisplay = this.Mapper.Map<AdminRecipeViewModel>(newRecipe);
+            var recipeToDisplay = this.Mapper.Map<AdminRecipeViewModel>(newRecipe);
 
-            return this.Json(new[] { beerToDisplay }.ToDataSourceResult(request, this.ModelState));
+            return this.Json(new[] { recipeToDisplay }.ToDataSourceResult(request, this.ModelState));
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Recipes_Update([DataSourceRequest]DataSourceRequest request, AdminUpdateRecipeRequestViewModel beer)
+        public ActionResult Recipes_Update([DataSourceRequest]DataSourceRequest request, AdminUpdateRecipeRequestViewModel recipe)
         {
             var id = 0;
             if (this.ModelState.IsValid)
             {
-                var entity = this.recipes.GetByIntId(beer.Id);
-                entity.Name = beer.Name;
-                entity.RecipeTypeId = beer.RecipeTypeId;
-                entity.CountryId = beer.CountryId;
-                entity.Description = beer.Description;
-                entity.ProducedSince = beer.ProducedSince;
-                entity.AlcoholContaining = beer.AlcoholContaining;
-                entity.PhotoUrl = beer.PhotoUrl;
+                var entity = this.recipes.GetByIntId(recipe.Id);
+                entity.BeerTypeId = recipe.BeerTypeId;
+                entity.Title = recipe.Title;
+                entity.Content = recipe.Content;
                 id = this.recipes.AdminUpdate(entity);
             }
 
@@ -81,11 +78,11 @@
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Recipes_Destroy([DataSourceRequest]DataSourceRequest request, AdminUpdateRecipeRequestViewModel beer)
+        public ActionResult Recipes_Destroy([DataSourceRequest]DataSourceRequest request, AdminUpdateRecipeRequestViewModel recipe)
         {
-            this.recipes.AdminDestroy(beer.Id);
+            this.recipes.AdminDestroy(recipe.Id);
 
-            return this.Json(new[] { beer }.ToDataSourceResult(request, this.ModelState));
+            return this.Json(new[] { recipe }.ToDataSourceResult(request, this.ModelState));
         }
 
         [HttpPost]

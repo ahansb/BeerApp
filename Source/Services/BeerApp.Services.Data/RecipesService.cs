@@ -9,11 +9,13 @@
     {
         private readonly IDbRepository<Recipe> recipes;
         private readonly IIdentifierProvider identifierProvider;
+        private readonly IDeletableEntityRepository<Recipe> deleteableRepo;
 
-        public RecipesService(IDbRepository<Recipe> recipes, IIdentifierProvider identifierProvider)
+        public RecipesService(IDbRepository<Recipe> recipes, IIdentifierProvider identifierProvider, IDeletableEntityRepository<Recipe> deleteableRepo)
         {
             this.recipes = recipes;
             this.identifierProvider = identifierProvider;
+            this.deleteableRepo = deleteableRepo;
         }
 
         public int Add(Recipe recipe)
@@ -34,6 +36,38 @@
             var recipe = this.recipes.GetById(intId);
 
             return recipe;
+        }
+
+        public Recipe GetByIntId(int id)
+        {
+            var country = this.recipes.GetById(id);
+
+            return country;
+        }
+
+        public int AdminCreate(Recipe entity)
+        {
+            this.deleteableRepo.Add(entity);
+            this.deleteableRepo.SaveChanges();
+            return entity.Id;
+        }
+
+        public int AdminUpdate(Recipe entity)
+        {
+            this.deleteableRepo.Update(entity);
+            this.deleteableRepo.SaveChanges();
+            return entity.Id;
+        }
+
+        public void AdminDestroy(int id)
+        {
+            this.deleteableRepo.Delete(id);
+            this.deleteableRepo.SaveChanges();
+        }
+
+        public void AdminDispose()
+        {
+            this.deleteableRepo.Dispose();
         }
     }
 }
