@@ -9,6 +9,7 @@
     using ViewModels.Beer;
     using ViewModels.BeerType;
     using ViewModels.Country;
+
     [Authorize]
     public class BeerController : BaseController
     {

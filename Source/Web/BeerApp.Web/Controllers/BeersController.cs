@@ -4,7 +4,6 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
-    using Infrastructure.Mapping;
     using Services.Data;
     using Services.Web;
     using ViewModels.Beer;

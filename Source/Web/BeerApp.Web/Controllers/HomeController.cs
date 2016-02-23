@@ -17,7 +17,7 @@
             this.beerTypes = beerTypes;
         }
 
-        // TODO: Refactor viewModel
+        // TODO: Refactor viewModel???
         public ActionResult Index()
         {
             var beerTypes = this.Cache.Get(

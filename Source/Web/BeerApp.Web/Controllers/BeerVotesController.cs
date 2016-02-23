@@ -10,15 +10,15 @@
     public class BeerVotesController : BaseController
     {
         private readonly IBeerVotesService votes;
-        // private readonly IIdentifierProvider identifier;
 
         public BeerVotesController(IBeerVotesService votes, IIdentifierProvider identifier)
         {
             this.votes = votes;
-            // this.identifier = identifier;
         }
 
+        // TODO:Fix logic
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Vote(int beerId, int voteType)
         {
             if (voteType > 1)
