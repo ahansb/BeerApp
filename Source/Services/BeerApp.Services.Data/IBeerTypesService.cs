@@ -10,6 +10,16 @@
 
         BeerType GetById(string id);
 
+        BeerType GetByIntId(int id);
+
         IQueryable<BeerType> GetRandom(int count);
+
+        int AdminCreate(BeerType entity);
+
+        int AdminUpdate(BeerType entity);
+
+        void AdminDestroy(int id);
+
+        void AdminDispose();
     }
 }

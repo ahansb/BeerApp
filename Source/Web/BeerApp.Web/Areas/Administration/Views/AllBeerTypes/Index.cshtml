@@ -1,35 +1,31 @@
 ﻿@using Kendo.Mvc.UI
 
-@(Html.Kendo().Grid<BeerApp.Web.Areas.Administration.ViewModels.Beer.AdminBeerViewModel>()
+@(Html.Kendo().Grid<BeerApp.Web.Areas.Administration.ViewModels.BeerType.AdminBeerTypeViewModel>()
       .Name("grid")
       .Columns(columns =>
       {
           columns.Bound(c => c.Id);
           columns.Bound(c => c.Name);
-          columns.Bound(c => c.TypeName);
-          columns.Bound(c => c.CountryName);
-          columns.Bound(c => c.ShortDescription).Title("Description");
-          columns.Bound(c => c.ProducedSince);
-          columns.Bound(c => c.AlcoholContaining);
-          columns.Bound(c => c.PhotoUrl);
-          columns.Bound(c => c.VotesCount);
-          columns.Bound(c => c.CommentsCount);
+          columns.Bound(c => c.BeersCount);
+          columns.Bound(c => c.RecipesCount);
           columns.Bound(c => c.CreatedOn).Format("{0:yyyy-MM-dd HH:mm:ss}");
           columns.Bound(c => c.ModifiedOn).Format("{0:yyyy-MM-dd HH:mm:ss}");
           columns.Bound(c => c.IsDeleted);
           columns.Bound(c => c.DeletedOn).Format("{0:yyyy-MM-dd HH:mm}");
           columns.Command(command => { command.Edit(); command.Destroy(); }).Width(100);
       })
-      .ToolBar(toolbar => {
+      .ToolBar(toolbar =>
+      {
           toolbar.Create();
           toolbar.Excel();
       })
       .Excel(excel => excel.AllPages(true))
-      .Excel(excel=>excel.FileName("Admin_Beers_Export.xlsx"))
+      .Excel(excel => excel.FileName("Admin_BeerTypes_Export.xlsx"))
       .ColumnMenu()
       .Editable(editable => editable.Mode(GridEditMode.PopUp))
       .Pageable()
-      .Sortable(sortable => {
+      .Sortable(sortable =>
+      {
           sortable.SortMode(GridSortMode.MultipleColumn);
       })
       .Filterable()
@@ -37,9 +33,9 @@
       .DataSource(dataSource => dataSource
           .Ajax()
           .Model(model => model.Id(p => p.Id))
-          .Read(read => read.Action("Beers_Read", "AllBeers"))
-          .Create(create => create.Action("Beers_Create", "AllBeers"))
-          .Update(update => update.Action("Beers_Update", "AllBeers"))
-          .Destroy(destroy => destroy.Action("Beers_Destroy", "AllBeers"))
+          .Read(read => read.Action("BeerTypes_Read", "AllBeerTypes"))
+          .Create(create => create.Action("BeerTypes_Create", "AllBeerTypes"))
+          .Update(update => update.Action("BeerTypes_Update", "AllBeerTypes"))
+          .Destroy(destroy => destroy.Action("BeerTypes_Destroy", "AllBeerTypes"))
       )
 )

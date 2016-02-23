@@ -55,7 +55,7 @@
         public bool IsDeleted { get; set; }
 
         public DateTime? DeletedOn { get; set; }
-       
+
         public void CreateMappings(IMapperConfiguration configuration)
         {
             configuration.CreateMap<Beer, AdminBeerViewModel>()

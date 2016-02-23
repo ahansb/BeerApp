@@ -45,19 +45,6 @@
             return beer;
         }
 
-        public void Update(Beer beer)
-        {
-            var beerForModification = this.beers.GetById(beer.Id);
-            beerForModification = beer;
-            this.beers.Save();
-        }
-
-        public void Delete(Beer beer)
-        {
-            this.beers.Delete(beer);
-            this.beers.Save();
-        }
-
         public int AdminCreate(Beer entity)
         {
             this.deleteableRepo.Add(entity);

@@ -10,20 +10,15 @@
         Beer GetById(string id);
 
         Beer GetByIntId(int id);
-            
+
         int Add(Beer beer);
 
-        void Update(Beer beer);
-
-        void Delete(Beer beer);
-
         int AdminCreate(Beer entity);
-        
+
         int AdminUpdate(Beer entity);
 
         void AdminDestroy(int id);
-        
-        void AdminDispose();
 
+        void AdminDispose();
     }
 }
