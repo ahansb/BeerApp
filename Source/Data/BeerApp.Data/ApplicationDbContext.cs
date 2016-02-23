@@ -21,6 +21,8 @@
 
         public IDbSet<BeerType> BeerTypes { get; set; }
 
+        public IDbSet<BeerVote> BeerVotes { get; set; }
+
         public IDbSet<Comment> Comments { get; set; }
 
         public IDbSet<Country> Countries { get; set; }

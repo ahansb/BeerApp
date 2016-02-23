@@ -3,7 +3,7 @@
     using System;
     using System.Collections.Generic;
     using Models;
-      
+
     public class SeedData
     {
         public static Random Rand = new Random();
@@ -24,6 +24,8 @@
 
         public List<Recipe> Recipes;
 
+        public List<BeerVote> BeerVotes;
+
         public SeedData()
         {
             // Addig Users na UserPasswords
@@ -36,7 +38,8 @@
                     Email = "user" + (i + 1) + "@user.com",
                     UserName = "username" + (i + 1),
                     FirstName = "UserFn" + (i + 1),
-                    LastName = "UserLn" + (i + 1)
+                    LastName = "UserLn" + (i + 1),
+                    ProfilePhotoUrl = "~/Content/SiteImages/default-profile-picture.jpg"
                 });
                 UsersPasswords.Add("password" + (i + 1));
             }
@@ -118,19 +121,69 @@
             {
                 var user = createdUsers[Rand.Next(0, 5)];
                 var userId = user.Id;
+                var beerTypeId = Rand.Next(0, 15);
+
                 Recipes.Add(new Recipe()
                 {
-                    BeerTypeId = Rand.Next(0, 15),
+                    BeerTypeId = beerTypeId,
+                    BeerType = BeerTypes[beerTypeId],
                     Title = "Recipe Title" + (i + 1),
                     CreatorId = userId,
                     Creator = user,
-                    Content = "Content" + (i + 1)
+                    Content = "Content" + (i + 1)+ "използван в печатарската и типографската индустрия. Lorem Ipsum е индустриален стандарт от около 1500 година, когато неизвестен печатар взема няколко печатарски букви "
                 });
             }
 
             // Adding Comments
 
             Comments = new List<Comment>();
+            for (int i = 0; i < 200; i++)
+            {
+                var user = createdUsers[Rand.Next(0, 5)];
+                var userId = user.Id;
+                var beerId = Rand.Next(0, 50);
+                Comments.Add(new Comment()
+                {
+                    CreatorId = userId,
+                    Creator = user,
+                    BeerId = beerId,
+                    Beer = Beers[beerId],
+                    Content = (i+1) + "използван в печатарската и типографската индустрия. Lorem Ipsum е индустриален стандарт от около 1500 година, когато неизвестен печатар взема няколко печатарски букви "
+                });
+            }
+
+            for (int i = 0; i < 20; i++)
+            {
+                var user = createdUsers[Rand.Next(0, 5)];
+                var userId = user.Id;
+                var recipeId = Rand.Next(0, 5);
+                Comments.Add(new Comment()
+                {
+                    CreatorId = userId,
+                    Creator = user,
+                    RecipeId = recipeId,
+                    Recipe = Recipes[recipeId],
+                    Content = (i + 201) + "използван в печатарската и типографската индустрия. Lorem Ipsum е индустриален стандарт от около 1500 година, когато неизвестен печатар взема няколко печатарски букви "
+                });
+            }
+
+            // Adding Votes
+
+            BeerVotes = new List<BeerVote>();
+            for (int i = 0; i < 50; i++)
+            {
+                var user = createdUsers[Rand.Next(0, 5)];
+                var userId = user.Id;
+                var beerId = Rand.Next(0, 50);
+                BeerVotes.Add(new BeerVote()
+                {
+                    VoterId = userId,
+                    Voter = user,
+                    BeerId = beerId,
+                    Beer = Beers[beerId],
+                    Type = (VoteType)1
+                });
+            }
 
         }
     }

@@ -13,10 +13,20 @@
 
         [ForeignKey("CreatorId")]
         public virtual ApplicationUser Creator { get; set; }
-        
+
         [Required]
         [MinLength(2)]
         [MaxLength(1000)]
         public string Content { get; set; }
+
+        public int? BeerId { get; set; }
+
+        [ForeignKey("BeerId")]
+        public virtual Beer Beer { get; set; }
+
+        public int? RecipeId { get; set; }
+
+        [ForeignKey("RecipeId")]
+        public virtual Recipe Recipe { get; set; }
     }
 }
