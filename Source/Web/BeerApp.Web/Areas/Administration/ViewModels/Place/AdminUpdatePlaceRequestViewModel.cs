@@ -13,7 +13,7 @@
         public string Name { get; set; }
 
         public PlaceType Type { get; set; }
-        
+
         [UIHint("CountryIdEditor")]
         public int? CountryId { get; set; }
 

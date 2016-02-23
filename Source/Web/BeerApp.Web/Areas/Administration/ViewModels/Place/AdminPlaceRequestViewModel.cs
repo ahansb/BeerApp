@@ -36,8 +36,8 @@
 
         public void CreateMappings(IMapperConfiguration configuration)
         {
-            configuration.CreateMap<Place, AdminPlaceRequestViewModel>()
-                           .ForMember(x => x.CountryId, opt => opt.MapFrom(x => (int)x.CountryId));
+            configuration.CreateMap<AdminPlaceRequestViewModel, Place>()
+                           .ForMember(x => x.CountryId, opt => opt.MapFrom(x => (int?)x.CountryId));
         }
     }
 }

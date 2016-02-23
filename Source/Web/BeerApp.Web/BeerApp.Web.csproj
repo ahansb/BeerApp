@@ -371,6 +371,7 @@
     <Content Include="Areas\Administration\Views\AllPlaces\Index.cshtml" />
     <Content Include="Areas\Administration\Views\AllBeerTypes\Index.cshtml" />
     <Content Include="Areas\Administration\Views\AllCountries\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\AllRecipes\Index.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
@@ -437,7 +438,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Administration\Views\AllRecipes\" />
     <Folder Include="Areas\Administration\Views\Shared\" />
     <Folder Include="Views\AllPlaces\" />
     <Folder Include="Views\Base\" />

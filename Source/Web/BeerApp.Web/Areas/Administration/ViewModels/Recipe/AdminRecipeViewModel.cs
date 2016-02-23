@@ -25,6 +25,8 @@
         [MaxLength(2000)]
         public string Content { get; set; }
 
+        public string ShortContent { get; set; }
+
         [Required]
         public string CreatorId { get; set; }
 
@@ -45,6 +47,7 @@
             configuration.CreateMap<Recipe, AdminRecipeViewModel>()
                            .ForMember(x => x.TypeName, opt => opt.MapFrom(x => x.BeerType.Name))
                            .ForMember(x => x.CommentsCount, opt => opt.MapFrom(x => x.Comments.Count))
+                           .ForMember(x => x.ShortContent, opt => opt.MapFrom(x => x.Content.Length > 100 ? x.Content.Substring(0, 100) : x.Content))
                            .ForMember(x => x.CreatorName, opt => opt.MapFrom(x => x.Creator.UserName));
         }
     }

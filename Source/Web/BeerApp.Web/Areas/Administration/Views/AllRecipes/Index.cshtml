@@ -1,0 +1,43 @@
+﻿@using Kendo.Mvc.UI
+
+@(Html.Kendo().Grid<BeerApp.Web.Areas.Administration.ViewModels.Recipe.AdminRecipeViewModel>()
+      .Name("grid")
+      .Columns(columns =>
+      {
+          columns.Bound(c => c.Id);
+          columns.Bound(c => c.TypeName);
+          columns.Bound(c => c.Title);
+          columns.Bound(c => c.ShortContent);
+          columns.Bound(c => c.CreatorName);
+          columns.Bound(c => c.CommentsCount);
+          columns.Bound(c => c.CreatedOn).Format("{0:yyyy-MM-dd HH:mm:ss}");
+          columns.Bound(c => c.ModifiedOn).Format("{0:yyyy-MM-dd HH:mm:ss}");
+          columns.Bound(c => c.IsDeleted);
+          columns.Bound(c => c.DeletedOn).Format("{0:yyyy-MM-dd HH:mm:ss}");
+          columns.Command(command => { command.Edit(); command.Destroy(); }).Width(100);
+      })
+      .ToolBar(toolbar =>
+      {
+          toolbar.Create();
+          toolbar.Excel();
+      })
+      .Excel(excel => excel.AllPages(true))
+      .Excel(excel => excel.FileName("Admin_Recipes_Export.xlsx"))
+      .ColumnMenu()
+      .Editable(editable => editable.Mode(GridEditMode.PopUp))
+      .Pageable()
+      .Sortable(sortable =>
+      {
+          sortable.SortMode(GridSortMode.SingleColumn);
+      })
+      .Filterable()
+      .Scrollable()
+      .DataSource(dataSource => dataSource
+          .Ajax()
+          .Model(model => model.Id(p => p.Id))
+          .Read(read => read.Action("Recipes_Read", "AllRecipes"))
+          .Create(create => create.Action("Recipes_Create", "AllRecipes"))
+          .Update(update => update.Action("Recipes_Update", "AllRecipes"))
+          .Destroy(destroy => destroy.Action("Recipes_Destroy", "AllRecipes"))
+      )
+)
