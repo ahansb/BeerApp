@@ -1,19 +1,23 @@
-﻿@model IEnumerable<BeerApp.Web.ViewModels.Recipe.RecipeResponseViewModel>
+﻿@model ICollection<BeerApp.Web.ViewModels.BeerType.BeerTypeResponseViewModel>
 
-@{
-    ViewBag.Title = "All";
-}
+    @{
+        ViewBag.Title = "All";
+    }
 
-<h2>All Recipes</h2>
-
-@foreach (var recipe in Model)
-{
-    <div class="row">
-        <h4>Recipe <a href="~/Recipe/Details/@recipe.Url">@recipe.Title</a> for <a href="~/BeerType/Details/@recipe.BeerTypeUrl">@recipe.BeerType</a> style.</h4>
-
-        <h6>
-            <strong>Posted by @recipe.CreatorName</strong>
-        </h6>
-        <p>@(recipe.Content.Length > 201 ? recipe.Content.Substring(0, 200)+ "..." : recipe.Content);</p>
-   </div>
-}
+    <h2>Recipes</h2>
+<div class="row">
+    @foreach (var type in Model)
+    {
+        <div class="col-md-4">
+            <h4>for <a href="~/BeerType/Details/@type.Url">@type.Name</a> beer style</h4>
+            <ul>
+                @foreach (var recipe in type.Recipes)
+                {
+                    <li>
+                        <h5>Recipe - <a href="~/Recipe/Details/@recipe.Url">@recipe.Title</a></h5>
+                    </li>
+                }
+            </ul>
+        </div>
+    }
+</div>

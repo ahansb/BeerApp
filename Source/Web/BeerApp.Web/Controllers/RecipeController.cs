@@ -6,8 +6,10 @@
     using Data.Models;
     using Services.Data;
     using Services.Web;
-    using ViewModels.Recipe;
     using ViewModels.BeerType;
+    using ViewModels.Recipe;
+
+    [Authorize]
     public class RecipeController : BaseController
     {
         private readonly IRecipesService recipes;
@@ -24,11 +26,10 @@
         [HttpGet]
         public ActionResult All()
         {
-            var recipes = this.recipes.GetAll().OrderBy(r => r.BeerType.Name).ToList();
+            var types = this.beerTypes.GetAll().Where(x => x.Recipes.Any()).OrderBy(x => x.Name).ToList();
+            var typesView = this.Mapper.Map<ICollection<BeerTypeResponseViewModel>>(types);
 
-            ICollection<RecipeResponseViewModel> recipesView = this.Mapper.Map<ICollection<RecipeResponseViewModel>>(recipes);
-
-            return this.View(recipesView);
+            return this.View(typesView);
         }
 
         [HttpGet]
