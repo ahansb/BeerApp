@@ -122,4 +122,5 @@ General Requirements Fulfilled
 	* [GitHub](https://github.com/ahansb/BeerApp)
 * **Documentation** - reading it! (as `.md` file, including screenshots)
 *  Uploaded on [The beer app](http://ahansbbeerapp.azurewebsites.net/)
+
 *Written by ahansb (Andrej Boyadjiev) February 2016*
