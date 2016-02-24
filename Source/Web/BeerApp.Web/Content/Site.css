@@ -41,6 +41,6 @@ div[data-action="up"], div[data-action="down"] {
 }
 
 img{
-    max-width: 180px;
+    max-width: 120px;
     max-height: 200px;
 }
