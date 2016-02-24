@@ -1,11 +1,12 @@
 ﻿namespace BeerApp.Web.ViewModels.Recipe
 {
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using BeerType;
     using Data.Models;
     using Infrastructure.Mapping;
     using Microsoft.AspNet.Identity;
-    using BeerType;
-    using System.Collections.Generic;
+
     public class RecipeRequestViewModel : IMapTo<Recipe>
     {
         [Required]

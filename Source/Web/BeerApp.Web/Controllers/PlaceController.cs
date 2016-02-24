@@ -26,9 +26,14 @@
         [HttpGet]
         public ActionResult All()
         {
-            var places = this.places.GetAll().OrderBy(p => p.Country.Name).ToList();
+            var placesView = this.Cache.Get(
+                "places",
+                () => this.Mapper.Map<ICollection<PlaceResponseViewModel>>(this.places.GetAll().OrderBy(p => p.Country.Name)).ToList(),
+                1 * 60 * 60);
 
-            var placesView = this.Mapper.Map<ICollection<PlaceResponseViewModel>>(places);
+            //var places = this.places.GetAll().OrderBy(p => p.Country.Name).ToList();
+
+            //var placesView = this.Mapper.Map<ICollection<PlaceResponseViewModel>>(places);
 
             return this.View(placesView);
         }

@@ -1,11 +1,12 @@
 ﻿namespace BeerApp.Web.ViewModels.Place
 {
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using Country;
     using Data.Models;
     using Infrastructure.Mapping;
     using Microsoft.AspNet.Identity;
-    using Country;
-    using System.Collections.Generic;
+
     public class PlaceRequestViewModel : IMapTo<Place>
     {
         [Required]

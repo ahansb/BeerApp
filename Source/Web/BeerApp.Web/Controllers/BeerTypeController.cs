@@ -3,6 +3,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
+    using Infrastructure.Mapping;
     using Services.Data;
     using ViewModels.BeerType;
 
@@ -19,11 +20,12 @@
         [HttpGet]
         public ActionResult All()
         {
-            var beerTypes = this.beerTypes.GetAll().OrderBy(bt => bt.Name).ToList();
+            var beerTypesView = this.Cache.Get(
+                "allBeerTypes",
+                () => this.Mapper.Map<ICollection<SimpleBeerTypeResponseViewModel>>(this.beerTypes.GetAll().OrderBy(bt => bt.Name)).ToList(),
+                3 * 60 * 60);
 
-            ICollection<SimpleBeerTypeResponseViewModel> viewModel = this.Mapper.Map<ICollection<SimpleBeerTypeResponseViewModel>>(beerTypes);
-
-            return this.View(viewModel);
+            return this.View(beerTypesView);
         }
 
         [HttpGet]

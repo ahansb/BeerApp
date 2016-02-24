@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Linq;
+    using System.Web;
     using System.Web.Mvc;
     using Data.Models;
     using Services.Data;
@@ -29,11 +30,12 @@
         [HttpGet]
         public ActionResult All()
         {
-            var beers = this.beers.GetAll().OrderBy(b => b.Name).ToList();
+            var beersView = this.Cache.Get(
+                "beers",
+                () => this.Mapper.Map<ICollection<BeerResponseViewModel>>(this.beers.GetAll().OrderBy(b => b.Name)).ToList(),
+                1 * 60 * 60);
 
-            var viewModel = this.Mapper.Map<ICollection<BeerResponseViewModel>>(beers);
-
-            return this.View(viewModel);
+            return this.View(beersView);
         }
 
         [HttpGet]
@@ -65,7 +67,7 @@
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Add(BeerRequestViewModel model)
+        public ActionResult Add(BeerRequestViewModel model, HttpPostedFileBase files)
         {
 
             if (!this.ModelState.IsValid)
@@ -78,5 +80,6 @@
 
             return this.RedirectToAction("Details", new { id = this.identifier.EncodeId(beerId) });
         }
+
     }
 }

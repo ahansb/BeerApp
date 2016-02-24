@@ -3,6 +3,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
+    using Infrastructure.Mapping;
     using Services.Data;
     using ViewModels.Beer;
     using ViewModels.Country;
@@ -20,11 +21,16 @@
         [HttpGet]
         public ActionResult All()
         {
-            var countries = this.countries.GetAll().OrderBy(c => c.Name).ToList();
+            var countriesView = this.Cache.Get(
+                   "countries",
+                   () => this.Mapper.Map<ICollection<SimpleCountryResponseViewModel>>(this.countries.GetAll().OrderBy(c => c.Name)).ToList(),
+                   3 * 60 * 60);
+            //var countries = this.countries.GetAll().OrderBy(c => c.Name).ToList();
 
-            var viewModel = this.Mapper.Map<ICollection<SimpleCountryResponseViewModel>>(countries);
+            //var viewModel = this.Mapper.Map<ICollection<SimpleCountryResponseViewModel>>(countries);
 
-            return this.View(viewModel);
+            //return this.View(viewModel);
+            return this.View(countriesView);
         }
 
         [HttpGet]

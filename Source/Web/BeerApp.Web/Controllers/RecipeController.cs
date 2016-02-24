@@ -4,6 +4,7 @@
     using System.Linq;
     using System.Web.Mvc;
     using Data.Models;
+    using Infrastructure.Mapping;
     using Services.Data;
     using Services.Web;
     using ViewModels.BeerType;
@@ -26,8 +27,13 @@
         [HttpGet]
         public ActionResult All()
         {
-            var types = this.beerTypes.GetAll().Where(x => x.Recipes.Any()).OrderBy(x => x.Name).ToList();
-            var typesView = this.Mapper.Map<ICollection<BeerTypeResponseViewModel>>(types);
+            var typesView = this.Cache.Get(
+                "recipesBeerTypes",
+                () => this.Mapper.Map<ICollection<BeerTypeResponseViewModel>>(this.beerTypes.GetAll().Where(x => x.Recipes.Any()).OrderBy(x => x.Name)).ToList(),
+                30 * 60);
+
+            //var types = this.beerTypes.GetAll().Where(x => x.Recipes.Any()).OrderBy(x => x.Name).ToList();
+            //var typesView = this.Mapper.Map<ICollection<BeerTypeResponseViewModel>>(types);
 
             return this.View(typesView);
         }

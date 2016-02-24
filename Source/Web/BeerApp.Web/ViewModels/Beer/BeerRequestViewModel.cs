@@ -1,11 +1,12 @@
 ﻿namespace BeerApp.Web.ViewModels.Beer
 {
-    using System.ComponentModel.DataAnnotations;
-    using Infrastructure.Mapping;
-    using Data.Models;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     using BeerType;
     using Country;
+    using Data.Models;
+    using Infrastructure.Mapping;
+
     public class BeerRequestViewModel : IMapTo<Beer>
     {
         [Required]
