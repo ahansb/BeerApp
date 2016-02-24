@@ -35,12 +35,27 @@
         </h4>
     </div>
 </div>
+
 <div>
     <p>
         @Model.Description
     </p>
 </div>
-<div><h1>COMMENTS</h1></div>
+
+<div>
+    <table class="table table-striped">
+        @foreach (var item in Model.Comments)
+        {
+            <tr>
+                <td>
+                    <div>
+                        @Html.Partial("_CommentPartial", item)
+                    </div>
+                </td>
+            </tr>
+        }
+    </table>
+</div>
 
 @section scripts {
     <script>

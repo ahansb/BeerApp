@@ -18,13 +18,15 @@
         private readonly ICountriesService countries;
         private readonly IBeerTypesService beerTypes;
         private readonly IIdentifierProvider identifier;
+        private readonly ICommentsService comments;
 
-        public BeerController(IBeersService beers, IIdentifierProvider identifier, ICountriesService countries, IBeerTypesService beerTypes)
+        public BeerController(IBeersService beers, IIdentifierProvider identifier, ICountriesService countries, IBeerTypesService beerTypes, ICommentsService comments)
         {
             this.beers = beers;
             this.countries = countries;
             this.beerTypes = beerTypes;
             this.identifier = identifier;
+            this.comments = comments;
         }
 
         [HttpGet]

@@ -45,10 +45,12 @@
     <Compile Include="BeersService.cs" />
     <Compile Include="BeerTypesService.cs" />
     <Compile Include="BeerVotesService.cs" />
+    <Compile Include="CommentsService.cs" />
     <Compile Include="CountriesService.cs" />
     <Compile Include="IBeersService.cs" />
     <Compile Include="IBeerTypesService.cs" />
     <Compile Include="IBeerVotesService.cs" />
+    <Compile Include="ICommentsService.cs" />
     <Compile Include="ICountriesService.cs" />
     <Compile Include="IPlacesService.cs" />
     <Compile Include="IRecipesService.cs" />

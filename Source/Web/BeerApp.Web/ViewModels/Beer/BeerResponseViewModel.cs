@@ -10,7 +10,7 @@
     using Place;
     using Services.Web;
     using System.Linq;
-
+    using Comment;
     public class BeerResponseViewModel : IMapFrom<Beer>, IHaveCustomMappings
     {
         public int Id { get; set; }
@@ -31,7 +31,7 @@
 
         public int VotesCount { get; set; }
 
-        //public virtual ICollection<CommentResponseViewModel> Comments { get; set; }
+        public virtual ICollection<CommentResponseViewModel> Comments { get; set; }
 
         public virtual ICollection<PlaceResponseViewModel> Places { get; set; }
 

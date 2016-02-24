@@ -257,6 +257,7 @@
     <Compile Include="ViewModels\Beer\BeerRequestViewModel.cs" />
     <Compile Include="ViewModels\Beer\SimpleBeerResponseViewModel.cs" />
     <Compile Include="ViewModels\Beer\BeerResponseViewModel.cs" />
+    <Compile Include="ViewModels\Comment\CommentResponseViewModel.cs" />
     <Compile Include="ViewModels\Country\CountryResponseViewModel.cs" />
     <Compile Include="ViewModels\Country\SimpleCountryResponseViewModel.cs" />
     <Compile Include="ViewModels\Home\IndexResponseViewModel.cs" />
@@ -458,6 +459,7 @@
     <Content Include="Views\Shared\_ExtendedBeerPartial.cshtml" />
     <Content Include="Views\Places\All.cshtml" />
     <Content Include="Views\Shared\_PlacePartial.cshtml" />
+    <Content Include="Views\Shared\_CommentPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

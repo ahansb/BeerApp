@@ -1,0 +1,15 @@
+﻿@model BeerApp.Web.ViewModels.Comment.CommentResponseViewModel
+
+<div class="row">
+    <div class="col-md-offset-1 col-md-2">
+        <div class="row">
+            <img src="@Model.CreatorPhotoUrl" alt="user-avatar" />
+        </div>
+        <div class="row">
+            <strong>@Model.CreatorName</strong>
+        </div>
+    </div>
+    <div class="col-md-9">
+        @Model.Content
+    </div>
+</div>
