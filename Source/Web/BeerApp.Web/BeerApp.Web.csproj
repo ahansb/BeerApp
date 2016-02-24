@@ -202,6 +202,7 @@
     <Compile Include="App_Start\SmsService.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
+    <Compile Include="Areas\Administration\Controllers\AdminController.cs" />
     <Compile Include="Areas\Administration\Controllers\AllBeersController.cs" />
     <Compile Include="Areas\Administration\Controllers\AllBeerTypesController.cs" />
     <Compile Include="Areas\Administration\Controllers\AllCountriesController.cs" />
@@ -330,6 +331,7 @@
     <Content Include="Content\KendoUI\textures\stripe6.png" />
     <Content Include="Content\KendoUI\textures\transparency.png" />
     <Content Include="Content\KendoUI\textures\transtexture.png" />
+    <Content Include="Content\SiteImages\admin-hello.gif" />
     <Content Include="Content\SiteImages\bad-request.jpeg" />
     <Content Include="Content\SiteImages\forbidden-donut.gif" />
     <Content Include="Content\SiteImages\home-beer.png" />
@@ -378,6 +380,8 @@
     <Content Include="Areas\Administration\Views\AllBeerTypes\Index.cshtml" />
     <Content Include="Areas\Administration\Views\AllCountries\Index.cshtml" />
     <Content Include="Areas\Administration\Views\AllRecipes\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\_AdminMenu.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
@@ -446,10 +450,11 @@
     <Content Include="Views\Error\InternalServerError.cshtml" />
     <Content Include="Views\Error\Forbidden.cshtml" />
     <Content Include="Views\Error\BadRequest.cshtml" />
+    <Content Include="Views\Shared\_AdminMenuPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Administration\Views\Shared\" />
+    <Folder Include="Areas\Administration\Views\Admin\" />
     <Folder Include="Views\AllPlaces\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\BeersAdministration\" />

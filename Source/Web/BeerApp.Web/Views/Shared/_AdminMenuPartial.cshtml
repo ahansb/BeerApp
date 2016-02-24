@@ -1,0 +1,4 @@
+﻿@if (User.IsInRole("Admin"))
+{
+    @Html.Action("Menu", "Admin", routeValues: new { Area = "Administration", @class = "navbar-brand" })
+}
