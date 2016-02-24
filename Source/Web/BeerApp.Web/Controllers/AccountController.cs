@@ -1,18 +1,17 @@
 ﻿namespace BeerApp.Web.Controllers
 {
+    using System;
+    using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
     using System.Web;
     using System.Web.Mvc;
-
+    using BeerApp.Data.Models;
+    using BeerApp.Web.ViewModels.Account;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin.Security;
 
-    using BeerApp.Data.Models;
-    using BeerApp.Web.ViewModels.Account;
-    using System.IO;
-    using System;
     [Authorize]
     public class AccountController : BaseController
     {

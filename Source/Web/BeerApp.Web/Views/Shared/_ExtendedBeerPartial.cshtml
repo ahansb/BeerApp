@@ -8,15 +8,15 @@
             <div class="row" data-id="@Model.Id" data-action="down"><span class="glyphicon glyphicon-thumbs-down"></span></div>
         </div>
     </div>
-    <div class="col-md-2">
+    @*<div class="col-md-2">
         <div class="well text-center">
             <div><span class="glyphicon glyphicon-tag"></span></div>
         </div>
-    </div>
+    </div>*@
     <div class="col-md-3">
         <img src="@Href(Model.PhotoUrl)" alt="beer-logo" />
     </div>
-    <div class="col-md-6">
+    <div class="col-md-8">
         <div class="row">
             <h4>
                 <a href="~/Beer/Details/@Model.Url">@Model.Name</a>
