@@ -1,0 +1,10 @@
+﻿@model BeerApp.Web.ViewModels.Beer.SimpleBeerResponseViewModel
+<div class="row">
+    <div class="col-md-3">
+        <img src="@Model.PhotoUrl" alt="beer-logo" />
+    </div>
+    <div class="col-md-9">
+        <h5><a href="~/Beer/Details/@Model.Url">@Model.Name</a>, @Model.Country</h5>
+        <p>@(Model.Description.Length > 201 ? Model.Description.Substring(0, 200) + "..." : Model.Description);</p>
+    </div>
+</div>

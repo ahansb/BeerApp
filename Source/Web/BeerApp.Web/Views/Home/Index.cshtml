@@ -62,15 +62,7 @@
             }
             @foreach (var beer in type.Beers.Take(2))
             {
-                <div class="row">
-                    <div class="col-md-3">
-                        <img src="" alt="beer-logo" />
-                    </div>
-                    <div class="col-md-9">
-                        <h5><a href="~/Beer/Details/@beer.Url">@beer.Name</a>, @beer.Country</h5>
-                        <p>@(beer.Description.Length > 201 ? beer.Description.Substring(0, 200) + "..." : beer.Description);</p>
-                    </div>
-                </div>
+                @Html.Partial("_BeerPartial",beer)
             }
         </div>
     }

@@ -452,6 +452,7 @@
     <Content Include="Views\Error\BadRequest.cshtml" />
     <Content Include="Views\Shared\_AdminMenuPartial.cshtml" />
     <Content Include="Views\Shared\_PhotoUpload.cshtml" />
+    <Content Include="Views\Shared\_BeerPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

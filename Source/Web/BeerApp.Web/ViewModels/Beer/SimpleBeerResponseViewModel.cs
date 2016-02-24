@@ -19,6 +19,8 @@
 
         public int? ProducedSince { get; set; }
 
+        public string PhotoUrl { get; set; }
+
         public string Url
         {
             get
