@@ -27,6 +27,8 @@
 
         public decimal AlcoholContaining { get; set; }
 
+        public string PhotoUrl { get; set; }
+
         public int VotesCount { get; set; }
 
         //public virtual ICollection<CommentResponseViewModel> Comments { get; set; }

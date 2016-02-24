@@ -9,28 +9,8 @@
 
 @foreach (var beer in Model)
 {
-    <div class="row">
-        <div class="col-md-2">
-            <img src="" alt="beer-logo" />
-        </div>
-        <div class="col-md-2">
-            <h3><a href="~/Beer/Details/@beer.Url">@beer.Name</a></h3>
-            <h4>
-                <strong><a href="~/BeerType/Details/@beer.Type.Url">@beer.Type.Name</a></strong><br />
-                <strong><a href="~/Country/Details/@beer.Country.Url">@beer.Country.Name</a></strong><br />
-                @if (beer.ProducedSince != null)
-                {
-                    <em>In production since @beer.ProducedSince</em><br />
-                }
-                <strong>Alcohol Containing: @beer.AlcoholContaining</strong><br />
-            </h4>
-        </div>
-        <div class="col-md-8">
-            <p>
-                @beer.Description
-            </p>
-        </div>
+    <div class="col-md-6">
+        @Html.Partial("_ExtendedBeerPartial", beer)
     </div>
-   
 }
 

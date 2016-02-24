@@ -1,0 +1,48 @@
+﻿@model BeerApp.Web.ViewModels.Beer.BeerResponseViewModel
+
+<div class="row">
+    <div class="col-md-1">
+        <div class="well text-center">
+            <div class="row" data-id="@Model.Id" data-action="up"><span class="glyphicon glyphicon-thumbs-up"></span></div>
+            <div class="row" data-id="@Model.Id" data-action="votesCount">@Model.VotesCount</div>
+            <div class="row" data-id="@Model.Id" data-action="down"><span class="glyphicon glyphicon-thumbs-down"></span></div>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="well text-center">
+            <div><span class="glyphicon glyphicon-tag"></span></div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <img src="@Model.PhotoUrl" alt="beer-logo" />
+    </div>
+    <div class="col-md-6">
+        <div class="row">
+            <h4>
+                <a href="~/Beer/Details/@Model.Url">@Model.Name</a>
+            </h4>
+        </div>
+        <div class="row">
+            <h5>
+                <a href="~/BeerType/Details/@Model.Type.Url">@Model.Type.Name</a>,
+                <a href="~/Country/Details/@Model.Country.Url">@Model.Country.Name</a>
+            </h5>
+        </div>
+        <div class="row">
+            @if (Model.ProducedSince != null)
+            {
+                <em>In production since @Model.ProducedSince</em>
+            }
+        </div>
+        <div class="row">
+            <em>Alcohol Containing: @Model.AlcoholContaining</em>
+        </div>
+    </div>
+
+</div>
+<div class="row">
+    <p>
+        @(Model.Description.Length > 201 ? Model.Description.Substring(0, 200) + "..." : Model.Description);
+    </p>
+</div>
+

@@ -18,7 +18,6 @@
 
         // TODO:Fix logic
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Vote(int beerId, int voteType)
         {
             if (voteType > 1)
