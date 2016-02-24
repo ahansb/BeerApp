@@ -14,3 +14,26 @@
     </div>
 }
 
+@section scripts {
+    <script>
+        $("div[data-action='up']").click(function () {
+            var id = $(this).attr("data-id");
+            voteClick(id, 1);
+        });
+
+        $("div[data-action='down']").click(function () {
+            var id = $(this).attr("data-id");
+            voteClick(id, -1);
+        });
+
+        function voteClick(id, voteType) {
+            $.post("/BeerVotes/Vote", { beerId: id, voteType: voteType },
+                function (data) {
+                    var newVotesCount = data.Count;
+                    $("div[data-action='votesCount'][data-id='" + id + "']")
+                        .html(newVotesCount);
+                });
+        }
+    </script>
+}
+
