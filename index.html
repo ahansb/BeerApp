@@ -1,0 +1,268 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Beerapp by ahansb</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-dark.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <header>
+        <h1>Beerapp</h1>
+        <p>Telerik Academy Final Project</p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/ahansb/BeerApp" class="button fork"><strong>View On GitHub</strong></a>
+        <div class="downloads">
+          <span>Downloads:</span>
+          <ul>
+            <li><a href="https://github.com/ahansb/BeerApp/zipball/master" class="button">ZIP</a></li>
+            <li><a href="https://github.com/ahansb/BeerApp/tarball/master" class="button">TAR</a></li>
+          </ul>
+        </div>
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h1>
+<a id="aspnet-mvc-final-project---beerapp-" class="anchor" href="#aspnet-mvc-final-project---beerapp-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ASP.NET MVC Final Project - BeerApp </h1>
+
+<h2>
+<a id="project-description" class="anchor" href="#project-description" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Project Description</h2>
+
+<p><strong>ASP.NET MVC application</strong></p>
+
+<p>Containing:</p>
+
+<ul>
+<li>public part (accessible without authentication)</li>
+<li>public part (available for registered users)</li>
+<li>administrative part (available for administrators only)</li>
+</ul>
+
+<h2>
+<a id="public-part" class="anchor" href="#public-part" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Public Part</h2>
+
+<p>Home page, containing cached 3 beer styles with 1 recipe and 2 beers
+<img src="http://s28.postimg.org/paea743hp/home.jpg" alt="enter image description here"></p>
+
+<h2>
+<a id="private-part-users-only" class="anchor" href="#private-part-users-only" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Private Part (Users only)</h2>
+
+<p>/Available after Registration/
+All Other pages, catalogues of beers, countries, beer styles, recipes, places</p>
+
+<ul>
+<li>
+<p>route </p>
+
+<ul>
+<li>Beer/All
+<img src="http://s28.postimg.org/3y6s9fjjh/beers_all.jpg" alt="enter image description here">
+</li>
+<li>Beer/Add
+<img src="http://s28.postimg.org/6qzztgjvx/beer_add.jpg" alt="enter image description here">
+</li>
+<li>Beer/Details
+<img src="http://s28.postimg.org/plvqjvjxp/beer_details.jpg" alt="enter image description here">
+</li>
+<li>Place/All
+<img src="http://s8.postimg.org/51z4mi0ol/place_all.jpg" alt="enter image description here">
+</li>
+<li>Place/Add
+<img src="http://s8.postimg.org/wbai101rp/place_add.jpg" alt="enter image description here">
+</li>
+<li>Place/Details
+<img src="http://s30.postimg.org/cb4o4axbl/place_Det.jpg" alt="enter image description here">
+</li>
+<li>Recipe/All
+<img src="http://s8.postimg.org/yekx8o1kl/place_details.jpg" alt="enter image description here">
+</li>
+<li>Recipe/Add
+<img src="http://s30.postimg.org/n85zt2k35/add_recipe.jpg" alt="enter image description here">
+</li>
+<li>Recipe/Details
+<img src="http://s30.postimg.org/obq4514q9/recipe_Details.jpg" alt="enter image description here">
+</li>
+<li>BeerType/All
+<img src="http://s7.postimg.org/oil6d9zsb/beer_Type_al.jpg" alt="enter image description here">
+</li>
+<li>BeerType/Details
+<img src="http://s7.postimg.org/d8sgibuqz/beer_Type_det.jpg" alt="enter image description here">
+</li>
+<li>Country/All
+<img src="http://s12.postimg.org/4ryqrnsjh/cpountry_details.jpg" alt="enter image description here">
+</li>
+<li>Country/Details
+<img src="http://s7.postimg.org/4choee44r/coutry_details.jpg" alt="enter image description here">
+</li>
+</ul>
+</li>
+<li>
+<p>controller - 13 controllers - 62 actions</p>
+
+<ul>
+<li>AccountController - 21 actions</li>
+<li>BaseController - 0 actions</li>
+<li>BeerController - 4 actions</li>
+<li>BeerController - 1 actions</li>
+<li>BeerTypeController - 2 actions</li>
+<li>BeerVotesController - 1 action - using AJAX</li>
+<li>CountryController - 2 actions</li>
+<li>ErrorController - 5 actions</li>
+<li>HomeColtroller - 1 action</li>
+<li>ManageController - 16 actions</li>
+<li>PlaceController - 4 actions</li>
+<li>PlacesController - 1 action</li>
+<li>RecipeController - 4 actions</li>
+</ul>
+</li>
+</ul>
+
+<h2>
+<a id="admin-part" class="anchor" href="#admin-part" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Admin Part</h2>
+
+<p>All of the model in the database are shown in tables using Telerik Kendo grids. Information can be edited and exported to excel:
+<img src="http://s28.postimg.org/uycb99qy5/ADMIN.jpg" alt="enter image description here"></p>
+
+<ul>
+<li>
+<p>route </p>
+
+<ul>
+<li>AllBeers</li>
+<li>AllPlaces</li>
+<li>AllRecipes</li>
+<li>AllBeerTypes</li>
+<li>AllCountries</li>
+</ul>
+</li>
+<li>
+<p>controller - 7 controllers - 31 actions</p>
+
+<ul>
+<li>AdminController - 1 child action</li>
+<li>AllBeersController - 6 actions</li>
+<li>AllBeerTypesController - 6 actions</li>
+<li>AllCountriesController - 6 actions</li>
+<li>AllPlacesController - 6 actions</li>
+<li>AllRecipesController - 6 actions</li>
+<li>BaseAdminController - 0 actions</li>
+</ul>
+</li>
+</ul>
+
+<h2>
+<a id="general-requirements-fulfilled" class="anchor" href="#general-requirements-fulfilled" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>General Requirements Fulfilled</h2>
+
+<ul>
+<li>Using <strong>ASP.NET MVC</strong> and <strong>Visual Studio 2015</strong> with Update 1</li>
+<li>Have at least <strong>15 controllers</strong> - 20 controllers implemented</li>
+<li>Have at least <strong>40 actions</strong> - 93 actions implemented</li>
+<li>You should use <strong>Razor</strong> template engine for generating the UI 
+
+<ul>
+<li>Kendo UI widgets (with the ASP.NET MVC Wrappers)</li>
+<li>Use at least <strong>3 sections</strong> </li>
+<li> <strong>10 partial views</strong>
+
+<ul>
+<li>8 partials in <code>~/Views/Shared</code>
+</li>
+<li>2 partial in <code>~/Administration/Views/Shared</code>
+</li>
+<li>2 layouts used</li>
+</ul>
+</li>
+<li>Use at least <strong>10 editor or display templates</strong>
+
+<ul>
+<li>5 editor templates - <code>~/Views/Shared/EditorTemplates</code>
+</li>
+<li>3 editor templates -  <code>~/Views</code>
+</li>
+<li>9 editor templates - <code>Account</code> and <code>Manage</code>
+</li>
+<li>Many display templates for different models</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Using <strong>MS SQL Server</strong> as database back-end
+
+<ul>
+<li>Using <strong>Entity Framework 6</strong> to access your database</li>
+<li>Using <strong>repositories and service layer</strong> </li>
+</ul>
+</li>
+<li>
+<strong>2 areas</strong> - one normal and one for administration</li>
+<li> <strong>Tables with data</strong> with <strong>server-side paging and sorting</strong> 
+
+<ul>
+<li>for administrating models - using Kendo UI grids, </li>
+<li>and own generated listing for users</li>
+</ul>
+</li>
+<li>Created <strong>visual nice and responsive UI</strong>  using <strong>Bootstrap</strong>
+</li>
+<li>Using the standard <strong>ASP.NET Identity System</strong> for managing users and roles
+
+<ul>
+<li>Registered admin with role <strong>administrator</strong>
+</li>
+</ul>
+</li>
+<li>Using of <strong>AJAX form</strong> communication - Voting of beers</li>
+<li>Using <strong>caching</strong> of data in starting page and displaying of all entity models</li>
+<li>Use <strong>Autofac</strong> and <strong>Automapper</strong>
+</li>
+<li>Write at least <strong>30 unit tests</strong> for your logic, controllers, actions, helpers, routes, etc.</li>
+<li>Apply <strong>error handling</strong> - custom Errors added</li>
+<li> <strong>data validation</strong> (both client-side and server-side) - for uploading .jpgs and for models' state</li>
+<li>
+<strong>Security</strong> holes - routes are encoded 
+
+<ul>
+<li>
+<strong>special HTML characters</strong> are escaped by default</li>
+</ul>
+</li>
+<li>Using GitHub <strong>branches</strong> for writing the features.
+
+<ul>
+<li><a href="https://github.com/ahansb/BeerApp">GitHub</a></li>
+</ul>
+</li>
+<li>
+<strong>Documentation</strong> - reading it! (as <code>.md</code> file, including screenshots)</li>
+<li> Uploaded on <a href="http://ahansbbeerapp.azurewebsites.net/">The beer app</a>
+</li>
+</ul>
+
+<p><em>Written by ahansb (Andrej Boyadjiev) February 2016</em></p>
+      </section>
+      <footer>
+        <p>Project maintained by <a href="https://github.com/ahansb">ahansb</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
