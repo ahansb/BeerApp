@@ -27,9 +27,15 @@ textarea {
 body {
     background-image: url("SiteImages/background-image.jpg");
 }
-.body-content{
+
+.body-content {
     background: rgba(255, 255, 150, 0.4);
 }
-#welcome-img{
-    max-width:240px;
+
+#welcome-img {
+    max-width: 240px;
+}
+
+div[data-action="up"], div[data-action="down"] {
+    cursor: pointer;
 }

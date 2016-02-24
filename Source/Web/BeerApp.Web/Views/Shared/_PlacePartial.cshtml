@@ -15,17 +15,15 @@
 
 
 
-@if (Model.Beers.Any())
-{
-    <div class="row">
-        @foreach (var beer in Model.Beers.Take(3))
+    @if (Model.Beers.Any())
+    {
+        <div class="row">
+            @foreach (var beer in Model.Beers.Take(3))
                 {
-            <div class="col-md-4">
-                @Html.Partial("_BeerPartial", beer)
-            </div>
-        }
-    </div>
-}
+                <div class="col-md-4">
+                    @Html.Partial("_BeerPartial", beer)
+                </div>
+            }
+        </div>
+    }
 </div>
-
-
