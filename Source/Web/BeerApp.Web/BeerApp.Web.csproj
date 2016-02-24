@@ -232,7 +232,6 @@
     <Compile Include="Controllers\BeerVotesController.cs" />
     <Compile Include="Controllers\CountryController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
-    <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="App_Start\GlimpseSecurityPolicy.cs" />
@@ -470,7 +469,6 @@
     <Folder Include="Views\Base\" />
     <Folder Include="Views\BeersAdministration\" />
     <Folder Include="Views\BeerVotes\" />
-    <Folder Include="Views\File\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

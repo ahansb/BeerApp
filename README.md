@@ -1,91 +1,125 @@
-# ASP.NET-MVC-Template
-ASP.NET-MVC-Template
+ASP.NET MVC Final Project - BeerApp 
+=======
 
-## Build status
+Project Description
+-------------------
+**ASP.NET MVC application**
 
-[![Build status](https://ci.appveyor.com/api/projects/status/8dskbn908e27vevx?svg=true)](https://ci.appveyor.com/project/NikolayIT/asp-net-mvc-template)
+Containing:
+ - public part (accessible without authentication)
+ - public part (available for registered users)
+ - administrative part (available for administrators only)
 
+## Public Part##
 
-# ASP.NET MVC Final Project
+Home page, containing cached 3 beer styles with 1 recipe and 2 beers
+![enter image description here](http://s28.postimg.org/paea743hp/home.jpg)
 
-This document describes the **final project assignment** for the **ASP.NET MVC** course at Telerik Academy.
+## Private Part (Users only)##
+/Available after Registration/
+All Other pages, catalogues of beers, countries, beer styles, recipes, places
 
-## Project Description
+- route 
+	- Beer/All
+![enter image description here](http://s28.postimg.org/3y6s9fjjh/beers_all.jpg)
+	- Beer/Add
+![enter image description here](http://s28.postimg.org/6qzztgjvx/beer_add.jpg)
+	- Beer/Details
+![enter image description here](http://s28.postimg.org/plvqjvjxp/beer_details.jpg)
+	- Place/All
+![enter image description here](http://s8.postimg.org/51z4mi0ol/place_all.jpg)
+	- Place/Add
+![enter image description here](http://s8.postimg.org/wbai101rp/place_add.jpg)
+	- Place/Details
+![enter image description here](http://s30.postimg.org/cb4o4axbl/place_Det.jpg)
+	- Recipe/All
+![enter image description here](http://s8.postimg.org/yekx8o1kl/place_details.jpg)
+	- Recipe/Add
+![enter image description here](http://s30.postimg.org/n85zt2k35/add_recipe.jpg)
+	- Recipe/Details
+![enter image description here](http://s30.postimg.org/obq4514q9/recipe_Details.jpg)
+	- BeerType/All
+![enter image description here](http://s7.postimg.org/oil6d9zsb/beer_Type_al.jpg)
+	- BeerType/Details
+![enter image description here](http://s7.postimg.org/d8sgibuqz/beer_Type_det.jpg)
+	- Country/All
+![enter image description here](http://s12.postimg.org/4ryqrnsjh/cpountry_details.jpg)
+	- Country/Details
+![enter image description here](http://s7.postimg.org/4choee44r/coutry_details.jpg)
 
-Design and implement an **ASP.NET MVC application**. It can be a discussion forum, blog system, e-commerce site, online gaming site, social network, or any other web application by your choice.
+- controller - 13 controllers - 62 actions
+	- AccountController - 21 actions
+	- BaseController - 0 actions
+	- BeerController - 4 actions
+	- BeerController - 1 actions
+	- BeerTypeController - 2 actions
+	- BeerVotesController - 1 action - using AJAX
+	- CountryController - 2 actions
+	- ErrorController - 5 actions
+	- HomeColtroller - 1 action
+	- ManageController - 16 actions
+	- PlaceController - 4 actions
+	- PlacesController - 1 action
+	- RecipeController - 4 actions
+	
+## Admin Part ##
 
-The application should have:
-* **public part** (accessible without authentication)
-* **private part** (available for registered users)
-* **administrative part** (available for administrators only)
+All of the model in the database are shown in tables using Telerik Kendo grids. Information can be edited and exported to excel:
+![enter image description here](http://s28.postimg.org/uycb99qy5/ADMIN.jpg)
 
-### Public Part
+- route 
+	- AllBeers
+	- AllPlaces
+	- AllRecipes
+	- AllBeerTypes
+	- AllCountries
+		
+- controller - 7 controllers - 31 actions
+	- AdminController - 1 child action
+	- AllBeersController - 6 actions
+	- AllBeerTypesController - 6 actions
+	- AllCountriesController - 6 actions
+	- AllPlacesController - 6 actions
+	- AllRecipesController - 6 actions
+	- BaseAdminController - 0 actions
 
-The **public part** of your projects should be **visible without authentication**.
-
-This public part could be the application start page, the user login and user registration forms, as well as the public data of the users, e.g. the blog posts in a blog system, the public offers in a bid system, the products in an e-commerce system, etc.
-
-### Private Part (Users only)
-
-**Registered users** should have private part in the web application accessible after **successful login**.
-
-This part could hold for example the user's profiles management functionality, the user's offers in a bid system, the user's posts in a blog system, the user's photos in a photo sharing system, the user's contacts in a social network, etc.
-
-### Administration Part
-
-**System administrators** should have administrative access to the system and permissions to administer all major information objects in the system, e.g. to create/edit/delete users and other administrators, to edit/delete offers in a bid system, to edit/delete photos and album in a photo sharing system, to edit/delete posts in a blogging system, edit/delete products and categories in an e-commerce system, etc.
-
-## General Requirements
-
-Your Web application should use the following technologies, frameworks and development techniques:
-* Use **ASP.NET MVC** and **Visual Studio 2015** with Update 1
-* Have at least **15 controllers**
-* Have at least **40 actions**
-* You should use **Razor** template engine for generating the UI
-	* You may use any JavaScript library of your choice
-		* For example Kendo UI widgets (with the ASP.NET MVC Wrappers), Chart.js for charts, etc.
-	* ASP.NET WebForms is not allowed
-	* Use at least **3 sections** and at least **10 partial views**
+General Requirements Fulfilled
+--------------------
+* Using **ASP.NET MVC** and **Visual Studio 2015** with Update 1
+* Have at least **15 controllers** - 20 controllers implemented
+* Have at least **40 actions** - 93 actions implemented
+* You should use **Razor** template engine for generating the UI 
+	* Kendo UI widgets (with the ASP.NET MVC Wrappers)
+	* Use at least **3 sections** 
+	*  **10 partial views**
+		* 8 partials in `~/Views/Shared`
+		* 2 partial in `~/Administration/Views/Shared`
+		* 2 layouts used
 	* Use at least **10 editor or display templates**
-* Use **MS SQL Server** as database back-end
-	* Use **Entity Framework 6** to access your database
-	* Using **repositories and/or service layer** is a must
-* Use at least **2 areas** in your project (e.g. for administration)
-* Create **tables with data** with **server-side paging and sorting** for every model entity
-	* You can use Kendo UI grid, jqGrid, any other library or generate your own HTML tables
-* Create **beautiful and responsive UI**
-	* You may use **Bootstrap** or **Materialize**
-	* You may change the standard theme and modify it to apply own web design and visual styles
-* Use the standard **ASP.NET Identity System** for managing users and roles
-	* Your registered users should have at least one of the two roles: **user** and **administrator**
-* Use **AJAX form and/or SignalR** communication in some parts of your application
-* Use **caching** of data where it makes sense (e.g. starting page)
-* Use **Ninject** (or any other dependency container) and **Automapper**
+		* 5 editor templates - `~/Views/Shared/EditorTemplates`
+		* 3 editor templates -  `~/Views`
+		* 9 editor templates - `Account` and `Manage`
+		* Many display templates for different models
+* Using **MS SQL Server** as database back-end
+	* Using **Entity Framework 6** to access your database
+	* Using **repositories and service layer** 
+* **2 areas** - one normal and one for administration
+*  **Tables with data** with **server-side paging and sorting** 
+	* for administrating models - using Kendo UI grids, 
+	* and own generated listing for users
+* Created **visual nice and responsive UI**  using **Bootstrap**
+* Using the standard **ASP.NET Identity System** for managing users and roles
+	* Registered admin with role **administrator**
+* Using of **AJAX form** communication - Voting of beers
+* Using **caching** of data in starting page and displaying of all entity models
+* Use **Autofac** and **Automapper**
 * Write at least **30 unit tests** for your logic, controllers, actions, helpers, routes, etc.
-* Apply **error handling** and **data validation** to avoid crashes when invalid data is entered (both client-side and server-side)
-* Prevent yourself from **security** holes (XSS, XSRF, Parameter Tampering, etc.)
-	* Handle correctly the **special HTML characters** and tags like `<script>`, `<br />`, etc.
-* Use GitHub and take advantage of the **branches** for writing your features.
-* **Documentation** of the project and project architecture (as `.md` file, including screenshots)
-
-### Optional Requirements (bonus points)
-
-* Originality of the idea (uniqueness)
-* Using some king of machine learning (AI)
-* Using external devices (e.g. Raspberry Pi)
-* Host your application in Azure (or any other public hosting provider)
-
-### Deliverables
-
-Put the following in a **ZIP archive** and submit it (**each team member** submits the same file):
-* The **source code** (everything except /bin/, /obj/, /packages/)
-* The project documentation
-* Screenshots of your application
-* If hosted online - the URL of the application
-
-### Public Project Defense
-
-Each student will have to make a **public defense** of its work to the trainers (in 15 minutes). It includes:
-* Live **demonstration** of the developed web application (please prepare sample data).
-* Explain application structure and its **source code**: ASPX pages, C# code, data-bindings, ASCX controls, etc.
-* Show the **commit logs** in the source control repository to prove a contribution from all team members.
+* Apply **error handling** - custom Errors added
+*  **data validation** (both client-side and server-side) - for uploading .jpgs and for models' state
+* **Security** holes - routes are encoded 
+	* **special HTML characters** are escaped by default
+* Using GitHub **branches** for writing the features.
+	* [GitHub](https://github.com/ahansb/BeerApp)
+* **Documentation** - reading it! (as `.md` file, including screenshots)
+*  Uploaded on [The beer app](http://ahansbbeerapp.azurewebsites.net/)
+> Written by ahansb (Andrej Boyadjiev) February 2016

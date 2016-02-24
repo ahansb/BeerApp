@@ -1,38 +1,38 @@
-﻿using System.Collections.Generic;
-using System.Web.Mvc;
-
-namespace BeerApp.Web.Controllers
+﻿namespace BeerApp.Web.Controllers
 {
+    using System.Collections.Generic;
+    using System.Web.Mvc;
+
     public class ErrorController : BaseController
     {
-
-
         public ViewResult NotFound()
         {
-            Response.StatusCode = 404;
-            return View();
+            this.Response.StatusCode = 404;
+            return this.View();
         }
 
         public ViewResult NotAuthorized()
         {
-            Response.StatusCode = 401;
-            return View();
+            this.Response.StatusCode = 401;
+            return this.View();
         }
 
         public ViewResult Forbidden()
         {
-            Response.StatusCode = 403;  
-            return View();
+            this.Response.StatusCode = 403;
+            return this.View();
         }
+
         public ViewResult BadRequest()
         {
-            Response.StatusCode = 400;  
-            return View();
+            this.Response.StatusCode = 400;
+            return this.View();
         }
+
         public ViewResult InternalServerError()
         {
-            Response.StatusCode = 500;  
-            return View();
+            this.Response.StatusCode = 500;
+            return this.View();
         }
     }
 }
