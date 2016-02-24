@@ -1,4 +1,4 @@
-ASP.NET MVC Final Project - BeerApp 
+ASP.NET MVC Final Project - BeerApp [Documentation](http://ahansb.github.io/BeerApp/)
 =======
 
 Project Description
