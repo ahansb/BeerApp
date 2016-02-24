@@ -1,0 +1,31 @@
+﻿@model BeerApp.Web.ViewModels.Place.PlaceResponseViewModel
+
+<div class="row">
+
+    <h4><a href="~/Place/Details/@Model.Url">@Model.Name</a> @Model.Type</h4>
+
+
+    <a href="~/Country/Details/@Model.Country.Url">@Model.Country.Name</a>, @Model.City</br>
+
+
+    @Model.Address</br>
+
+
+    Phone: @Model.Phone</br>
+
+
+
+@if (Model.Beers.Any())
+{
+    <div class="row">
+        @foreach (var beer in Model.Beers.Take(3))
+                {
+            <div class="col-md-4">
+                @Html.Partial("_BeerPartial", beer)
+            </div>
+        }
+    </div>
+}
+</div>
+
+

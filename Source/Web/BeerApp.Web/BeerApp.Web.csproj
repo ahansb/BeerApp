@@ -237,6 +237,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="App_Start\GlimpseSecurityPolicy.cs" />
     <Compile Include="Controllers\PlaceController.cs" />
+    <Compile Include="Controllers\PlacesController.cs" />
     <Compile Include="Controllers\RecipeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -269,6 +270,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\Manage\SetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
+    <Compile Include="ViewModels\Places\PlacesResponseViewModel.cs" />
     <Compile Include="ViewModels\Place\PlaceRequestViewModel.cs" />
     <Compile Include="ViewModels\Place\PlaceResponseViewModel.cs" />
     <Compile Include="ViewModels\Recipe\RecipeRequestViewModel.cs" />
@@ -454,6 +456,8 @@
     <Content Include="Views\Shared\_PhotoUpload.cshtml" />
     <Content Include="Views\Shared\_BeerPartial.cshtml" />
     <Content Include="Views\Shared\_ExtendedBeerPartial.cshtml" />
+    <Content Include="Views\Places\All.cshtml" />
+    <Content Include="Views\Shared\_PlacePartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

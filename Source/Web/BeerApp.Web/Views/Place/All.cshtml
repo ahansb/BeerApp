@@ -13,24 +13,5 @@
 
 @foreach (var place in Model)
 {
-    <div class="row">
-        <h4><a href="~/Place/Details/@place.Url">@place.Name</a> @place.Type</h4>
-
-        <h4>
-            <strong><a href="~/Country/Details/@place.Country.Url">@place.Country.Name</a>, @place.City</strong><br />
-            <strong>@place.Address</strong><br />
-            <strong>Phone: @place.Phone</strong>
-        </h4>
-        @if (place.Beers.Any())
-        {
-            <div class="row">
-                @foreach (var beer in place.Beers.Take(3))
-                {
-                    <div class="col-md-4">
-                        @Html.Partial("_BeerPartial", beer)
-                    </div>
-                }
-            </div>
-        }
-    </div>
+    @Html.Partial("_PlacePartial", place)
 }
