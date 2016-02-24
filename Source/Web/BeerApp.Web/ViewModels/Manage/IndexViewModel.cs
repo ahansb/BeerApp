@@ -15,5 +15,7 @@
         public bool TwoFactor { get; set; }
 
         public bool BrowserRemembered { get; set; }
+
+        public string PhotoUrl { get; set; }
     }
 }

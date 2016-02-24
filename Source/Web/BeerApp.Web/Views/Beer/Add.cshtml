@@ -7,7 +7,7 @@
 
 <h2>Add New Beer</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Add", "Beer", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
@@ -61,7 +61,12 @@
             </div>
         </div>
 
-      @Html.Partial("_PhotoUpload");
+        <div class="form-group">
+            @Html.Label("Photo", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" id="file-upload-beer" name="upload" class="very-special-file" />
+            </div>
+        </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
@@ -74,3 +79,74 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/jscript">
+			        //get file size
+			        function GetFileSize(fileid) {
+			            try {
+			                var fileSize = 0;
+			                fileSize = $(fileid)[0].files[0].size //size in kb
+			                fileSize = fileSize / 1048576; //size in mb
+
+			                console.log(fileSize);
+			                return fileSize;
+			            }
+			            catch (e) {
+			                alert("Error is :" + e);
+			            }
+			        }
+
+			        //get file path from client system
+			        function getNameFromPath(strFilepath) {
+			            var objRE = new RegExp(/([^\/\\]+)$/);
+			            var strName = objRE.exec(strFilepath);
+
+			            if (strName == null) {
+			                return null;
+			            }
+			            else {
+			                return strName[0];
+			            }
+			        }
+
+			        $(function () {
+			            $('.very-special-file').change(function () {
+			                var idSelector = '#' + event.srcElement.id;
+			                var file = getNameFromPath($(idSelector).val());
+			                if (file != null) {
+			                    var extension = file.substr((file.lastIndexOf('.') + 1));
+			                    console.log(extension);
+			                    switch (extension) {
+			                        case 'jpg':
+			                            flag = true;
+			                            break;
+			                        default:
+			                            flag = false;
+			                    }
+			                }
+			                if (flag == false) {
+			                    alert('Only jpg allowed');
+			                    var idSelector = '#' + event.srcElement.id;
+			                    $(idSelector).val('');
+			                    console.log(currentFileInput);
+			                    console.log('Only jpg allowed');
+
+			                    return false;
+			                }
+			                else {
+			                    console.log(event.srcElement.id);
+			                    var idSelector = '#' + event.srcElement.id;
+			                    var size = GetFileSize(idSelector);
+
+			                    if (size > 1) {
+			                        alert('1 mb Max size');
+			                        $($(idSelector)).val('');
+			                    }
+			                }
+			            });
+
+			        });
+    </script>
+}

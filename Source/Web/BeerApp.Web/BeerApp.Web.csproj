@@ -464,6 +464,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administration\Views\Admin\" />
+    <Folder Include="UploadedFiles\BeersImages\" />
+    <Folder Include="UploadedFiles\ProfilePictures\" />
     <Folder Include="Views\AllPlaces\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\BeersAdministration\" />

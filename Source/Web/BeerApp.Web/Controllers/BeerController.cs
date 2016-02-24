@@ -10,7 +10,8 @@
     using ViewModels.Beer;
     using ViewModels.BeerType;
     using ViewModels.Country;
-
+    using System.IO;
+    using System;
     [Authorize]
     public class BeerController : BaseController
     {
@@ -69,7 +70,7 @@
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Add(BeerRequestViewModel model, HttpPostedFileBase files)
+        public ActionResult Add(BeerRequestViewModel model, HttpPostedFileBase upload)
         {
 
             if (!this.ModelState.IsValid)
@@ -78,6 +79,28 @@
             }
 
             var beer = this.Mapper.Map<Beer>(model);
+            if (upload != null && upload.ContentLength > 0 && upload.ContentType == "image/jpeg")
+            {
+                string id = beer.Id.ToString();
+                string directory = this.Server.MapPath("~/UploadedFiles/BeersImages/") + id;
+
+                if (!Directory.Exists(directory))
+                {
+                    Directory.CreateDirectory(directory);
+                }
+
+                string filename = Guid.NewGuid().ToString() + ".jpg";
+                string path = directory + "/" + filename;
+                string url = "~/UploadedFiles/BeersImages/" + id + "/" + filename;
+
+                upload.SaveAs(path);
+                beer.PhotoUrl = url;
+            }
+            else
+            {
+                beer.PhotoUrl = "~/UploadedFiles/beer-avatar.jpg";
+            }
+
             var beerId = this.beers.Add(beer);
 
             return this.RedirectToAction("Details", new { id = this.identifier.EncodeId(beerId) });

@@ -39,3 +39,7 @@ body {
 div[data-action="up"], div[data-action="down"] {
     cursor: pointer;
 }
+
+img{
+    width: 200px;
+}
